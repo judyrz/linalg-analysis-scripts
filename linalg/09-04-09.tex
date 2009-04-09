@@ -1,0 +1,174 @@
+\subsection{Zusammenhang zwischen Dualraum und bilinearen Abbildungen}
+\begin{itemize}
+  \item schon gesehen, z.B. bei der Definition ``nicht ausgeartet''
+  \item jetzt explizit
+\end{itemize}
+\begin{Def}{bilineare Abbildung}
+  Sei $\mb{K}$ ein Körper, $v$ und $W$ Vektorräume über $\mb{K}$. Eine Abbildung $b:V\times W\to \mb{K}$ heisst bilinear falls 
+  \[w\mapsto b(v,w)\ \text{ist linear}\  \forall v\in V\]
+  und
+  \[v\mapsto b(v,w)\ \text{ist linear}\  \forall w\in W\]
+  \[\left[ (w\mapsto b(v,w))\in W^* \right]\]
+\end{Def}
+\begin{Bem}
+  Im Fall $W=V$ ist dies genau zu sagen, dass $b$ eine Bilinearform ist. Also haben wir Abbildungen
+  \[b':V\to W^*\]
+  und
+  \[b'':W\to V^*\]
+  Aus der Definition folgt, dass $b'$ und $b''$ sind linear.
+\end{Bem}
+\begin{Def}{nicht ausgeartet}
+  Eine bilineare Abbildung $b:V\times W\to\mb{K}$ ist nicht ausgeartet, falls $b':V\to W^*$ und $b'':W\to V^*$ injektiv sind.
+\end{Def}
+\begin{Bem}
+  Falls $V$ und $W$ endlich dimensional sind, ist es nur möglich, eine nicht ausgeartete bilineare Abbildung zu haben, wenn $\dim V=\dim W$. Falls $\dim V=\dim W:$ ``injektiv'' oben ist äquivalent zu ``bijektiv''.
+\end{Bem}
+\begin{Bsp}
+  \begin{itemize}
+    \item $V$ beliebig, dann ist
+      \begin{align*}
+        V\times V^*&\to\mb{K}\\
+        (v,\phi)&\mapsto \phi(v)
+      \end{align*}
+      stets nicht ausgeartet.
+      \begin{align*}
+        b':V&\to V^{**}\\
+        v&\mapsto e v_v
+      \end{align*}
+      ist die kanonische Abbildung, ist injektiv
+      \begin{align*}
+        b'':V^*&\to V^*\\
+        \phi&\mapsto\phi
+      \end{align*}
+      ist $id_{V^*}$ ist ein Isomorpismus
+    \item $\mb{K}=\mb{R}$, $\left\langle , \right\rangle $ Skalarprodukt auf $V$.
+      \[b(v,w):=\left\langle v,w \right\rangle\]
+      $b'$ und $b''$ sind gleich, definiert als $\Psi$
+      \[\rsa \Psi:V\to V^*\]
+      injektiv\\
+  \end{itemize}
+\end{Bsp}
+\begin{Bem}
+  Das zeigt, dass jedes Skalarprodukt nicht ausgeartet ist. Und: falls $\dim_\mb{R}V<\infty$ ist $\Psi$ ein Isomorphismus. $\Psi$ heisst kanonisch. (kanonische Abbildung bzw. kanonischer Isomorphismus)
+\end{Bem}
+\begin{Eig}{$V$, $\dim V = n$, mit Skalarprodukt, kanonischer Isomorphismus $\Psi$}
+  \begin{itemize}
+    \item Für $U\subset V$ Untervektorraum gilt 
+      \[\Psi(U^\perp)=U^0\]
+    \item Für $B=(v_1,\cdots,v_n)$ eine orthonormal Basis haben wir 
+      \[\Psi(v_i)=V^*_i\]
+      für $i=1,\cdots,n$, wobei $(v_1^*,\cdots,v_n^*)$ die duale Basis ist.\\
+      zeigen:
+      \[\underbrace{\Psi(U^\perp)}_{\dim = \dim V-\dim U}\subset \underbrace{U^0}_{\dim=\dim v-\dim U}\ \text{klar}\]
+      \[\left\langle v_i,\sum^n_{j=1}a_jv_j \right\rangle =a_i\]
+      \[v_i^*\left( \sum^n_{j=1}a_jv_j \right)=a_i\]
+  \end{itemize}
+\end{Eig}
+\begin{Bsp}
+  Graphiker gesucht ;)
+\end{Bsp}
+\begin{Bem}
+  Wir haben zwei kanonische Abbildungen:
+  \[V\to V^{**}\ \text{für beliebiges $V$ / $\mb{K}$}\]
+  \[V\xrightarrow{\Psi} V^*\ \text{für $V/\mb{R}$ mit Skalarprodukt}\]
+\end{Bem}
+\begin{Def}{adjugierte Abbildung}
+  $V$, $W$ euklidische Vektorräume
+  \[F:V\to W\ \text{lineare Abbildung}\]
+  adjugiert: $F^{ad}:W\to V$ ist adjugiert zu $F$ falls gilt
+  \[\left\langle F(v),w \right\rangle =\left\langle v,F^{ad}(w) \right\rangle \ \forall v\in V, w\in W\]
+\end{Def}
+\begin{Bem}
+  \[\begindc{\commdiag}[60]
+  \obj(0,1)[V]{$V$}
+  \obj(1,0)[W*]{$W^*$}
+  \obj(0,0)[V*]{$V^*$}
+  \obj(1,1)[W]{$W$}
+  \mor{W}{V}{$F^{ad}$}
+  \mor{V}{V*}{$\Phi$}
+  \mor{W*}{V*}{$F^*$}
+  \mor{W}{W*}{$\Psi$}
+  \enddc\]
+  \begin{gather*}
+    F^*(\Psi(w))(v)=\Psi(w)\left( F(v) \right)=\Phi\left( F^{ad}(w) \right)(v)\\
+    \implies F^*\left( \Phi(w) \right)=\Phi\left( F^{ad}(w) \right)\ \text{in}\ V^*    
+  \end{gather*}
+  Daraus folgt, dass das Diagramm kommutiert
+\end{Bem}
+\begin{Bem}
+  Seien $v_1,\cdots,v_n$ orthonormale Basen von $V$, $w_1,\cdots,w_m$ für $W$ $\rsa$ duale Basen $v_1^*,\cdots,v_n^*$ und $w_1^*,\cdots,w_m^*$
+  Bezüglich orthonormaler Basen ist $F^{ad}$ durch die transponierte Matrix gegeben:
+  Sei
+  \[F\ \lra\ A\in M(m\times n,\mb{R})\]
+  dann, aus Prop 49 (13?):
+  \[F^*\ \lra\ A^t\in M(m\times n,\mb{R})\implies F^{ad}\ \lra A^t\ \text{weil} \Phi(v_i)=v_i^*,\ \Psi(w_i)=w_i^*\ \forall i\]
+\end{Bem}
+\begin{Bsp}
+  $V=\mb{R}^2$ mit Skalarprodukt, $W=\mb{R}[x]^{\leq 2}$ mit \[\left\langle f,g \right\rangle =\int_{-1}^1f(x)g(x)\md x\]
+  \begin{align*}
+    F:V&\to W\\
+    (\alpha,\beta)&\mapsto \alpha+\beta x+\alpha x^2
+  \end{align*}
+  Basis von $W$ $1,x,x^2$
+  \[V^*=(\mb{R}^2)^*\ \text{mit Basis}\ e_1^*,e_2^*\]
+  %TODO ergänzen
+  \[\begindc{\commdiag}[60]
+  \obj(0,1)[V]{$V$}
+  \obj(1,0)[W*]{$W^*$}
+  \obj(0,0)[V*]{$V^*$}
+  \obj(1,1)[W]{$W$}
+  \mor{W}{V}{$F^{ad}$}
+  \mor{V}{V*}{$\Phi$}
+  \mor{W*}{V*}{$F^*$}
+  \mor{W}{W*}{$\Psi$}
+  \enddc\]
+  \begin{align*}
+    V&\xrightarrow{\Psi}V^*\\
+    e_1&\mapsto e_1^*\\
+    e_2&\mapsto e_2^*
+  \end{align*}
+  $W^*$ hat die duale Basis $1^*,x^*,x^{2^*}$.\\
+  Wir berechnen $\Psi$ explizit:
+  \begin{align*}
+    \Psi(1)=\left( f\mapsto \int^1_{-1}f(x)\md x \right)
+  \end{align*}
+  \begin{align*}
+    W&\xrightarrow{\Phi}W^*\\
+    1&\mapsto 2(1^*)+\frac{2}{3}\left( x^{2^*} \right)\\
+    x&\mapsto \cdots\\
+    x^2&\mapsto \cdots
+  \end{align*}
+  Dann:
+  \[F^*\left( \psi(1) \right)=\left(\left( \alpha,\beta \right)\int^1_{-1}\alpha+\beta x+\alpha x^2\md x=2\alpha+\frac{2}{3}\alpha=\frac{8}{3}\alpha\right)\]
+  d.h.
+  \[\frac{8}{3}e^*_1\stackrel{\Phi^{-1}}{\mapsto}\left( \frac{8}{3},0 \right)\]
+  Ähnlich:
+  \[F^*\left( \Psi(x) \right)=\left( (\alpha,\beta) \mapsto \int^1_{-1}\alpha x+\beta x^2+\alpha x^3\md x=\frac{2}{3}\beta\right)\]
+  und
+  \[F^*\left( \Psi(x^2) \right)=\left( (\alpha,\beta) \mapsto \int^1_{-1}\alpha x^2+\beta x^3+\alpha x^4\md x=\frac{2}{3}\alpha + \frac{2}{5}\alpha=\frac{16}{15}\alpha\right)\]
+  d.h.
+  \begin{align*}
+    F^{ad}(1)&=\left( \frac{8}{3},0 \right)\\
+    F^{ad}(x)&=\left( 0,\frac{2}{3} \right)\\
+    F^{ad}(x^2)&=\left( \frac{16}{15},0 \right)
+  \end{align*}
+  \[F^{ad}\left( a+bx+cx^2 \right)=\left( \frac{8}{3}a+\frac{16}{5}c,\frac{2}{3}b \right)\]
+  Check:
+  \[\int^1_{-1}\left( \alpha+\beta x+\alpha x^2 \right)\left( a+bx+cx^2 \right)\md x \stackrel{?}{=} \left\langle \left( \alpha,\beta \right),\left( \frac{8}{3}a+\frac{16}{15}c,\frac{2}{3}b \right) \right\rangle \]
+  Skalarprodukt:
+  \[\alpha\left( \frac{8}{3}a+\frac{16}{15}c \right)+\beta\left( \frac{2}{3}b \right)\]
+  Integral:
+  \begin{gather*}
+    \int^1_{-1}a\alpha+(b\alpha+c\beta)x+(c\alpha+b\beta+a\alpha)x^2+\left( c\beta+\alpha b \right)x^3+c\alpha x^4\md x=\\
+    =2a\alpha+\frac{2}{3}\left( a\alpha+b\beta+c\alpha \right)+\frac{2}{5}c\alpha
+  \end{gather*}
+  stimmt.
+\end{Bsp}
+\begin{Bem}
+  Wir könnten $F^{ad}$ auch durch die Wahl einer orthonormalen Basis von $W$ berechnen.
+  \[\frac{1}{\sqrt{2}},\sqrt{\frac{3}{2}}x,\sqrt{\frac{5}{2}}\sqrt{\frac{-1+3x^2}{2}}\]
+  Dann:
+  \[A=\Mx{\frac{4}{3}\sqrt{2}&0\\0&\sqrt{\frac{2}{3}}\\\frac{2}{3}\sqrt{\frac{2}{3}}}\]
+  und so
+  \[A^t=\Mx{\frac{4}{3}&0&\frac{2}{3}\sqrt{\frac{2}{3}}\\0&\sqrt{\frac{2}{3}}&0}\to F^{ad}\]
+\end{Bem}
