@@ -1,0 +1,163 @@
+\begin{Bem}
+  Jetzt betrachen wir den Fall $W=V$, also $b:V\times V\to\mb{K}$ eine Bilinearform. Da $b'$ und $b''$ genau durch das ``Umtauschen'' von $V$ und $W$ unterschieden
+  \begin{gather*}
+    b':V\to V^*,\ v\mapsto\left( w\mapsto b(v,w) \right)\\
+    b'':V\to V^*,\ w\mapsto\left( v\mapsto b(v,w) \right)\\
+  \end{gather*}
+  haben wir Interpretation von Bedingungen über $b$:
+  \begin{itemize}
+    \item $b$ symmetrisch $\Lra$ $b''=b'$
+    \item $b$ schiefsymmetrisch $\Lra$ $b''=-b'$
+  \end{itemize}
+\end{Bem}
+\begin{Bem}
+  Sei jetzt $\dim_\mb{K}<\infty$. Dann haben wir $b''=(b')^*$ in folgendem Sinne: Dual zu $b':V\to V^*$ ist
+  \[\begindc{\commdiag}[50]
+  \obj(0,1)[V**]{$V^{**}$}
+  \obj(0,0)[V]{$V$}
+  \obj(1,1)[V*]{$V^*$}
+  \mor{V}{V**}{$\sim$}
+  \mor{V**}{V*}{$(b')^*$}
+  \enddc
+  \ \ \
+  \begindc{\commdiag}[50]
+  \obj(0,1)[ev]{$ev_V$}
+  \obj(0,0)[v]{$v$}
+  \obj(1,1)[evc]{$ev_V\circ b'$}
+  \mor{v}{ev}{$ $}[0,6]
+  \mor{ev}{evc}{$ $}[0,6]
+  \enddc\]
+  ($ev_V$ = Auswertungsabbildung an $v\in V$)\\ Wobei:
+  \[ev_V\circ b'(v')=ev_V\left( w\mapsto b(v',w) \right)=b(v',v)\]
+  Da
+  \[b'':V\to V^*\]
+  durch
+  \[ v\mapsto \left( v'\mapsto b(v',v) \right)\]
+  definiert ist, haben wir Gleichheit.
+\end{Bem}
+\begin{Eig}
+  \[b\ \text{symmetrisch}\iff b''=b'\iff (b')^*=b'\]
+  \[b\ \text{schiefsymmetrisch}\iff b''=-b'\iff (b')^*=-b'\]
+\end{Eig}
+\begin{Bem}
+  Falls $\dim_\mb{K}V<\infty$, $s$ symmetrisch und nicht ausgeartet führt zu
+  \[b'(=b'')\ V\xrightarrow{\sim}V^*\]
+\end{Bem}
+\begin{Bem}{Spezialfall}
+  $\mb{K}=\mb{R}$, $V$ euklidisch, dann ist des gerade das, was $\Psi$ hiess:\\
+  Untevektorraum $U\subset V, U^\perp\subset V$ sowie $U^0\subset V^*$
+  \[\begindc{\commdiag}[40]
+  \obj(0,0)[Up]{$U^\perp$}
+  \obj(0,1)[V]{$V$}
+  \obj(1,0)[U0]{$U^0$}
+  \obj(1,1)[V*]{$V^*$}
+  \mor{Up}{V}{$\cup$}[0,2]
+  \mor{U0}{V*}{$\cup$}[0,2]
+  \mor{V}{V*}{$\sim$}
+  \enddc\]
+\end{Bem}
+\begin{Bem}
+  Was passiert, falls $K=\mb{C}$? Dann sind wir an sesquilinearen Abbildungen interessiert.
+  \[s:V\times W\to\mb{C}\]
+  Dann gibt es immer noch eine Abbildung
+  \[s'':W\to V^*\ w\mapsto\left( v\mapsto s(v,w) \right)\]
+  aber diese ist nicht mehr linear.
+\end{Bem}
+\begin{Bsp}
+  $V=\mb{C}[x],s:V\times V\to\mb{C}$
+  \[s(f,g)=\int^1_0f(x)\overline{g(x)}\md x\]
+  Dann z.B.
+  \[1\xmapsto{s''}\left( f\mapsto \int_0^1f(x)\md x \right)\]
+  also: Durchschnittswert auf $[0,1]$\\
+  aber:
+  \[i\xmapsto{s''}\left( f\mapsto -i\int_0^1f(x)\md x \right)\]
+  also: $(-i)\cdot$ Durchschnittswert auf $[0,1]$\\
+  Damit ist $s''$ semilinear.
+\end{Bsp}
+\begin{Def}{semilinear}
+  Eine Abbildung $t:V\to W$ zwischen $\mb{C}$-Vektorräumen heisst semilinear, falls:
+  \begin{itemize}
+    \item $t(v+v')=t(v)+t(v')$ $\forall v,v'\in V$
+    \item $t(\lambda v)=\bar\lambda(v)$ $\forall v\in V,\ \lambda\in \mb{C}$
+  \end{itemize}
+\end{Def}
+\begin{Def}{kanonischer Semi-Isomorphismus}
+  Falls $V$ ein unitärer Vektorraum ist, mit Skalarprodukt
+  \[s:V\times V\to\mb{C}\]
+  so erhalten wir (was oben $s''$ heisst, nennen wir hier $\Psi$)
+  \[\Psi:V\to V^*\ \text{kanonischer $\underbrace{\text{Semi}}_{\text{semilinear}}$-$\underbrace{\text{Isomorphismus}}_{\text{bijektiv}}$}\]
+\end{Def}
+\begin{Bem}
+  Wie vorher haben wir zu einem Endomorphismus
+  \[F:V\to V\]
+  den adjugierten Endomorphismus
+  \[F^{ad}:V\to V\]
+  gegeben durch
+    \[F^{ad}:=\Psi^{-1}\circ F^*\circ \Psi\]
+\end{Bem}
+\begin{Eig}{adjugierter Endomorphismus}
+  \begin{itemize}
+    \item 
+      \[s\left( F(v),w \right)=s\left( v,F^{ad}(w) \right)\ \forall v,w\in V\]
+    \item 
+      \[\Im F^{ad}=\left( \Ker F \right)^\perp\]
+    \item
+      \[\Ker F^{ad}=<\left( \Im F \right)^\perp\]
+    \item Ist $B$ eine Orthonormalbasis von $V$ und $A$ die darstellende Matrix von $F$ bezüglich $B$, dann ist $\bar A^t$ die darstellende Matrix von $F^{ad}$
+  \end{itemize}
+\end{Eig}
+\begin{Sat}
+  \[F\ \text{ist unitär diagonalisierbar} \iff F\circ F^{ad}=F^{ad}\circ F\]
+\end{Sat}
+\begin{Def}{$F$ normal}
+  $F$ heisst normal, falls
+  \[F\circ F^{ad}=F^{ad}\circ F\]
+\end{Def}
+\subsection{Anwendung des Dualraums}
+das duale Polytop $\mb{K}=\mb{R}, V=\mb{R}^n$
+\begin{Def}{konvexe Menge}
+ $S\subset\mb{R}^n$ mit der Eigenschaft $\forall s,t\in S$: $s$ und $t$ sind wegzusammenhängend.
+\end{Def}
+\begin{Def}{konvexe Hülle}
+  konvexe Hülle von $\Gamma\subset\mb{R}^n$ ist
+  \[\cap_{S\subset\mb{R}^n, S\ \text{konvex},\ \Gamma\subset S} S\]
+  ``kleinste konvexe Menge, in der $\Gamma$ enthalten ist''
+\end{Def}
+\begin{Def}{konvexes Polytop}
+  die konvexe Hülle von einer endlichen Menge in $\mb{R}^n$
+\end{Def}
+\begin{Def}{innerer Punkt}
+  Das Polytop $P$ hat $O\in \mb{R}$ als inneren Punkt falls:
+  \begin{itemize}
+    \item $O\in\mb{R}$
+    \item $\exists \varepsilon>0:B_\varepsilon(0)\subset P$
+  \end{itemize}
+\end{Def}
+\begin{Def}
+  Ist ein Polytop mit $O\in\mb{R}$ als inneren Punkt, so definieren wir
+  \[P^*=\left\{ \phi\in\left( \mb{R}^n \right)^*:\phi(v)\leq 1\ \forall v\in P \right\}\]
+\end{Def}
+\begin{Def}{duales Polytop}
+  $P^*$ ist ein konvexes Polytop $O\in\left( \mb{R}^n \right)^*$ als innerem Punkt. $P^*$ heisst duales Polytop.
+\end{Def}
+\begin{Bem}
+  \[P^**=P\]
+\end{Bem}
+\begin{Bem}
+  Konstruktion des dualen Polytops:
+  $l$ Hyperebene, so dass $P$ auf einer Seite von $l$ liegt (inklusive $l$ selbst) $\rsa$ Gleichung von $l$ schreiben als
+  \[\alpha_1x_1+\cdots+\alpha_nx_n=1\]
+  \[P\subset \left\{ \left( x_1,\cdots,x_n \right)|\alpha_1x_1+\cdots+\alpha_nx_n\leq 1 \right\}\]
+  $\rsa$
+  \[\left( \alpha_1,\cdots,\alpha_n \right)\in P^*\]
+  (Skizze (Freiwilliger gesucht \}:-) )
+  \[\text{Facetten von}\ P\ \rsa\ \text{Ecken in}\ P^*\]
+  $(P^*)$ konvexe Hülle
+\end{Bem}
+\begin{Bsp}
+  \begin{itemize}
+    \item Der Tetraeder ist selbstdual.
+    \item Der Würfel dual zum Oktaeder.
+    \item Der Dodekaeder ist dual zum Ikosaeder.
+  \end{itemize}
+\end{Bsp}
