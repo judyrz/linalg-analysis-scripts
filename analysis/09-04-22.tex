@@ -1,0 +1,222 @@
+\section{Differenzierbare Funktionen (Kap 2)}
+\begin{Bem}
+  Sei $F:\underbrace{U}_{\subset\mb{R}^n}\to\mb{C}$ oder $\mb{R}$. $U$ offen. Die lineare Approximation von $f$ im Punkt $a\in U$ ist eine Funktion der Form
+  \[Tf(x;a):=f(a)+L(x-a)\]
+  wobei $L:\mb{R}^n\to\mb{R}$ \underline{linear} s.d. der Rest ($x=a+h\in U$)
+  \[R(\underbrace{h}_{\mb{R}^n}):=f(a+h)-Tf(a+h;a)\]
+  erfüllt
+  \[\Limo{h}\frac{R(h)}{Norm{h}}=0\]
+  (wobei $\Norm{\ }$ irgendeine Norm auf $\mb{R}^n$ ist)\\
+  $U$ offen $\implies$ $\exists \varepsilon>0$ s.d.
+  \[K_\varepsilon(a)\subset U\]
+  \[\implies a+h\in U\ \forall h:\Norm{h}<\varepsilon\]
+\end{Bem}
+\begin{Def}{differenzierbar in $a$}
+  $f:U\to\mb{C}$, $U$ offen in $\mb{R}$ heisst differenzierbar in $a$, wenn es eine lineare Abbildung $L:\mb{R}^n\to\mb{C}$ gibt s.d.
+  \[\lim\frac{R(h)}{\Norm{h}}=0\]
+  d.h.
+  \[\Limo{h}\frac{f(a+h)-f(a)-Lh}{\Norm{h}}=0\]
+\end{Def}
+\begin{Def}{Tangentialhyperebene}
+  Der Graph von $Tf$
+  \[\left\{ \left( x,y \right)\in \mb{R}^n\times \mb{C}:y=Tf(x;a) \right\}\]
+  heisst die Tangentialhyperebene von $f$ in $(a,f(a))$
+\end{Def}
+\begin{Bem}
+  $h=1$: euklidische Definition
+\end{Bem}
+\begin{Bem}
+  Wichtig: $U$ offen!
+\end{Bem}
+\begin{Bem}
+  Es spielt keine Rolle, welche Norm verwendet wird.
+\end{Bem}
+\begin{Bem}
+  $L:\mb{R}^n\to\mb{R}$ oder $L:\mb{R}^n\to\mb{C}$, $L$ linear, d.h.
+  \[L\in\Hom\left( \mb{R}^n,\mb{C} \right)\]
+  $\mb{C}$ wird als reeller Vektorraum betrachtet.
+  \[L\in\Hom\left( \mb{R}^n,\mb{R} \right)=:\mb{R}^{h*}\]
+  d.h. Linearform
+\end{Bem}
+\begin{Def}{Linearisierung}
+  Die lineare Abbildung $L$ heisst Linearisierung von $f$ im Punkt $a$.
+\end{Def}
+\begin{Lem}
+  Ist $f$ differenzierbar in $a$, so ist ihre Linearisierung eindeutig bestimmt.
+\end{Lem}
+\begin{Bew}
+  Seien $L$ und $L^*$ Linearisierungen von $f$ in $a$.
+  \begin{gather*}
+    \Limo{h} \frac{f(a+h)-f(a)-Lh}{\Norm{h}}=0\\
+    \Limo{h} \frac{f(a+h)-f(a)-L^*h}{\Norm{h}}=0
+  \end{gather*}
+  Differenz:
+  \[\Limo{h}\frac{(L^*-L)(h)}{\Norm{h}}=0\]
+  $h=tv$, $v\in\mb{R}^n$, $t\in\mb{R}$
+  \[\Limo{t}\frac{(L^*-L)(tv)}{\Abs{t}\not\Norm{v}}=0\]
+  $L^*-L$ linear $\xRightarrow{\text{endlichdim}}$ $L^*-L$ stetig
+  \[(L^*-L)\left( \Limo{t}\frac{\not t v}{\not t} \right)=\left( L^*-L \right)(v)\]
+  \begin{gather*}
+    \left( L^*-L \right)(v)=0\ \forall v\in\mb{R}^n,\ \Norm{v}=1\\
+    \forall h\in\mb{R}^n:h=tv,\ \Norm{v}=1\\
+    \implies \left( L^*-L \right)(h)=0\ \forall h\in\mb{R}^n\implies L^*=L
+  \end{gather*}
+\end{Bew}
+\begin{Def}{Differenzial}
+  Die Linearisierung $L$ von $f$ im Punkt $a$ bezeichnet man auch mit 
+  \[\md f_a\ \text{oder}\ \md f(a)\]
+  Differenzial von $f$ im Punkt $a$
+  \[Tf(x;a)=f(a)+\md f_a(x-a)+R(x-a),\ \Hom\left( \mb{R}^n,\mb{C} \right)\]
+\end{Def}
+\begin{Bem}
+  Sei $\left\{ e_1,\cdots,e_n \right\}$ die Standardbasis von $\mb{R}^n$. $\forall h\in \mb{R}$
+  Sei
+  \[f'(a):=\left( \md f_ae_1,\md f_ae_2,\cdots,\md f_ae_n \right)\in M\left( n\times 1,\mb{C} \right)\]
+  Dann
+  \[\md f_ah:=f'(a)\cdot \Mx{h_1\\h_2\\\vdots\\h_n}\]
+  \[h=\sum^n_{i=1}h_ie_i,\ h\in\mb{R}^n\]
+\end{Bem}
+\begin{Bem}
+  $n=1$ $f'(a)\in\mb{C}$ übliche Ableitung
+\end{Bem}
+\begin{Sat}
+  Ist $f$ differenzierbar im Punkt $a$, so ist $f$ stetig im Punkt $a$.
+\end{Sat}
+\begin{Bew}
+  \begin{gather*}
+    f(a+b)-f(a)=Lh+R(h)\\
+    \Limo{h}\frac{R(h)}{\Norm{h}}=0\\
+    \implies\Limo{h}R(h)=0\\
+    L\ \text{linear $n\infty$} \implies L\ \text{stetig}\\
+    \implies \Limo{h}Lh=0\\
+    \implies\Limo{h}\left( f(a+h)-f(a) \right)=0\\
+    \implies f\ \text{stetig in}\ a
+  \end{gather*}
+\end{Bew}
+\begin{Def}{differenzierbar auf $U$}
+  $f:U\to\mb{C}$, $U$ offen in $\mb{R}^n$ heisst differenzierbar auf $U$, wenn Sie $\forall a\in U$ differenzierbar ist. In diesem Falle:
+  \begin{align*}
+    \md f:U&\to\Hom\left( \mb{R}^n,\mb{C} \right)\\
+    a&\mapsto\md f_a
+  \end{align*}
+\end{Def}
+\begin{Bsp}
+  Sei $A\in M(n\times 1,\mb{R})$, sei $b\in\mb{R}^n$, $f:\mb{R}^n\to\mb{R}$
+  \[f(\underbrace{x}_{\in\mb{R}^n}):=Ax+b\]
+  $f$ ist auf ganz $\mb{R}$ differenzierbar und 
+  \begin{gather*}
+    f'(a)=A\ \forall a\in\mb{R}^n
+    f(a+h)-f(a)=A(x+h)-Ax=ah
+  \end{gather*}
+  \[\Limo{h}\frac{f(a+h9-f(a)-Ah}{\Norm{h}}=0\]
+  $L(h)=Ah$
+\end{Bsp}
+\begin{Bsp}
+  Sei $A\in M(n\times n,\mb{R})$, $f:\mb{R}^n\to\mb{R}$
+  \[f(x):=x^TAx\]
+  \begin{gather*}
+    f(x+h)-f(x)=(x+h)^TA(x+h)-x^TAx=x^TAx+x^TAh+h^Ax+h^TAh-x^TAx=\\
+    =\underbrace{x^TAh+h^Ax}_{\text{linear in $h$}}+\underbrace{h^TAh}_{R(h)}\\
+    L(h)=x^tAh+h^TAx
+  \end{gather*}
+  Zu zeigen
+  \[\lim\frac{R(n)}{\Norm{h}}=0\]
+  Sei $\sigma=\max_{i,j}\Abs{a_{ij}}$
+  \begin{gather*}
+    \Abs{h^TAh}=\Abs{\sum_{i,j}h_ia_{ij}h_j}\leq\sum_{ij}\Abs{h_i}\Abs{a_ij}\Abs{h_j}\leq\\
+    \leq \sigma\sum_i\Abs{h_i}\sum_j\Abs{h_j}=\sigma\Norm{h}^2_1\\
+    \frac{\Abs{R(h)}}{\Norm{h}_1}\leq\sigma\ \Norm{h}_1\to 0
+  \end{gather*}
+  $\implies$ $f$ differenzierbar
+  \begin{gather*}
+    L(h)=x^TAh+x^TA^Th=x^T(A+A^T)h\\
+    \implies f'(x)=x^T(A+A^T)
+  \end{gather*}
+  Ist $A$ symmetrisch (d.h. $A^T=A$), so
+  \[f'(x)=2x^TA\]
+\end{Bsp}
+\subsection{Berechnung von Ableitungen}
+\begin{Def}{differenzierbar in Richtung eines Vektors}
+  Sei $f:U\to\mb{C}$, $U$ offen in $\mb{R}^n$, ($f$ nicht notwendigerweise differenzierbar), sei $h\in\mb{R}^n$. $f$ heisst differenzierbar im Punkt $a$ in Richtung des Vektors $h$ wenn der Grenzwert
+  \[\Limo{t}\frac{f(a+th)-f(a)}{t}\]
+  existiert.
+\end{Def}
+\begin{Def}{Ableitung in Richtung eines Vektors}
+  In diesem Falle heisst dieser Grenzwert die Ableitung von $f$ im Punkt $a$ in Richtung des Vektors $h$
+\end{Def}
+\begin{Not}{Richtungsableitnug}
+  $\partial_hf(a)$
+\end{Not}
+\begin{Not}{partielle Ableitung}
+  Standardbasis $\left\{ e_1,\cdots,e_n \right\}$
+  \[\Part{f}{x_i}(a)=\partial_if(a):=\partial_{e_i}f(a)\]
+\end{Not}
+\begin{Bem}
+  $\Part{f}{x}$ berechnen: $x_i$ als Variable, $x_j$, $j\neq i$ als Konstanten
+\end{Bem}
+\begin{Bsp}
+  $f(x,y)=y^2\sin(x+y)$
+  \begin{gather*}
+    \Part{f}{x}=y^2\cos(x+y)\\
+    \Part{f}{y}=2y\sin(x+y)+y^2\cos(x+y)
+  \end{gather*}
+\end{Bsp}
+\begin{Def}{partiell differenzierbar}
+  $f$ heisst partiell differenzierbar im Punkt $a$, wenn alle partielle Ableitungen $\partial_1f(a),\cdots,\partial_nf(a)$ existieren.
+\end{Def}
+\begin{Sat}
+  Sei $f$ differenzierbar im Punkt $a$. Dann
+  \begin{enumerate}
+    \item $f$ besitzt alle Richtungsableitungen in $a$
+      \[\partial_hf(a)=\md f_a(h),\ \forall h\in\mb{R}^n\]
+    \item $f$ ist partiell differenzierbar in $a$
+    \item \[f'(a)=\left( \partial_1f(a),\cdots,\partial_nf(a) \right)\]
+  \end{enumerate}
+\end{Sat}
+\begin{Bew}
+  \[f(a+th)=f(a)+\md f_a(th)+R(th)\]
+  \begin{Lem}
+    \[\Limo{t}\frac{R(th)}{t}=0\]
+  \end{Lem}
+  \begin{Bew}
+    \[\Limi{h}\frac{R(n)}{\Norm{h}}=0\implies R(0)=0\]
+    $h\neq 0$, $v=tk$
+    \begin{gather*}
+      \lim\frac{R(v)}{\Norm{v}}=0\\
+      \Limo{t}\frac{R(th)}{\Abs{t}\Norm{h}}=0\\
+      \frac{1}{\Norm{h}}\Limo{t}\frac{R(th)}{\Abs{t}}=0
+    \end{gather*}
+  \end{Bew}
+  \begin{gather*}
+    \partial_nf(a)=\Limo{t}\frac{f(a+th)-f(a)}{t}=\Limo{t}\frac{\md f_a(th)+R(th)}{t}=\\
+    \Limo{t}\frac{\md f_a(th)}{t}\stackrel{\text{linear}}{=}\Limo{t}\frac{\not t \md f_a(h)}{\not t}=\md f_a(h)
+  \end{gather*}
+  1 $\implies$ 2\\
+  3
+  \begin{gather*}
+    \partial_if(a)=\partial_ef(a)=\md f_a(e_i)=f(a)\Mx{0\\0\\\vdots\\0\\1\\0\\\vdots\\0}=\left( f'(a) \right)_i
+  \end{gather*}
+\end{Bew}
+\begin{Bem}
+  differenzierbar $\implies$ partiell differenzierbar, im Allgemeinen gilt die Umkehrung nicht! Aber die partielle Differenzierbarkeit ist eine notwendige Bedingung für die Differenzierbarkeit.
+\end{Bem}
+\begin{Bem}
+  $Lh=\left( \partial_1f_1,\cdots,\partial_nf \right)h$ ist der einzige Kandidat für die Linearisierung.
+\end{Bem}
+\begin{Bsp}
+  von partiell differenzierbaren Funktionen, die \underline{nicht} differenzierbar sind
+  \[f(x,y)=\begin{cases}
+    \frac{xy}{x^2+y^2}&(x,y)\neq (0,0)\\
+    0&(x,y)=0
+  \end{cases}\]
+  \[f\ \text{nicht stetig in}\ (0,0)\implies f\ \text{nicht differenzierbar in} (0,0)\]
+  \begin{gather*}
+    \partial_xf(0)=\Limo{t}\frac{\overbrace{f(t,0)}^{=0}-\overbrace{f(0,0)}^{=0}}{t}=0\\
+    \partial_yf(0)=0
+  \end{gather*}
+  $f$ partiell differenzierbar in $(0,0)$
+\end{Bsp}
+\begin{Bem}
+  $\partial_nf(0)$ existiert nicht für $h\neq\Mx{1\\0}$, $h\neq\Mx{0\\1}$
+\end{Bem}
+
