@@ -1,0 +1,186 @@
+\subsection{Das Tensorprodukt}
+\[V\ \rsa\ V^*\ \text{Linearformen}\]
+Wir möchten eine Redeweise haben, genug flexibel für solche Situationen. Eine nützliche Konstruktion dafür ist das Tensorprodukt.
+\begin{Def}{Tensorprodukt}
+  Sei $\mb{K}$ ein Körper und $V$ und $W$ Vektorräume über $\mb{K}$. Ein $\mb{K}$-Vektorraum heisst Tensorprodukt von $V$ und $W$, geschrieben $V\otimes W$, falls, eine bilineare Abbildung
+  \[\eta:V\times W\to V\otimes W\]
+  gegeben ist, die folgende universelle Eigenschaften erfüllt:\\
+  \item Zu jedem $\mb{K}$-Vektorraum $U$ mit bilinearer Abbildung
+    \[\xi:V\times W\to U\]
+    gibt es eine eindeutige lineare Abbildung 
+    \[\xi':V\otimes W\to U\]
+    so dass das Diagramm
+    \[\begindc{\commdiag}[60]
+      \obj(0,0)[ot]{$V\otimes W$}
+      \obj(0,1)[t]{$V\times W$}
+      \obj(1,0)[U]{$U$}
+      \mor{t}{U}{$\xi$}
+      \mor{ot}{U}{$\xi'$}
+      \mor{t}{ot}{$\eta$}
+    \enddc\]
+    kommutiert.
+\end{Def}
+\begin{Bem}
+  Es ist noch unklar, wie die Elemente von $V\otimes W$ aussehen, oder ob $V\otimes W$ gar existiert. Auch unklar: warum.
+\end{Bem}
+\begin{Kor}
+  Aus der Definition folgt: $V\otimes W$, falls es existiert, ist eindeutig bis auf Isomorphismus.
+\end{Kor}
+\begin{Bem}
+  Seien
+  \[\eta: V\times W\to V\otimes W\]
+  und
+  \[\tilde\eta: V\times W\to \widetilde{V\otimes W}\]
+  gegeben, beide erfüllen die universellen Eigenschaften.
+  Wir wenden die universelle Eigenschaft an, mit $U:=\widetilde{V\otimes W}$, so dass das folgende Diagramm kommutiert:
+  \[\begindc{\commdiag}[60]
+    \obj(0,0)[ot]{$V\otimes W$}
+    \obj(1,0)[ti]{$\widetilde{V\otimes W}$}
+    \obj(0,1)[t]{$V\times W$}
+    \mor{t}{ti}{$\tilde\eta$}
+    \mor{ot}{ti}{$\zeta$}
+    \mor{t}{ot}{$\eta$}
+  \enddc\]
+  Wir wenden die universelle Eigenschaft an mit $U:=V\otimes W$, so dass das folgende Diagramm kommutiert:
+  \[\begindc{\commdiag}[60]
+    \obj(1,0)[ot]{$V\otimes W$}
+    \obj(0,0)[ti]{$\widetilde{V\otimes W}$}
+    \obj(0,1)[t]{$V\times W$}
+    \mor{ti}{ot}{$\tilde\zeta$}
+    \mor{t}{ti}{$\tilde\eta$}
+    \mor{t}{ot}{$\eta$}
+  \enddc\]
+  Wir wenden die universelle Eigenschaft an mit $U:=V\otimes W$
+  \[\begindc{\commdiag}[60]
+    \obj(1,0)[ot]{$V\otimes W$}
+    \obj(0,0)[ot2]{$V\otimes W$}
+    \obj(0,1)[t]{$V\times W$}
+    \mor{t}{ot}{$\eta$}
+    \mor{t}{ot2}{$\eta$}
+    \mor{ot2}{ot}{$\tilde\zeta\circ\zeta$}
+  \enddc
+  \ \ \ 
+  \begindc{\commdiag}[60]
+    \obj(1,0)[ot]{$V\otimes W$}
+    \obj(0,0)[ot2]{$V\otimes W$}
+    \obj(0,1)[t]{$V\times W$}
+    \mor{t}{ot}{$\eta$}
+    \mor{t}{ot2}{$\eta$}
+    \mor{ot2}{ot}{$1_{V\otimes W}$}
+  \enddc\]
+  Beide Diagramme kommutieren
+  \[\tilde\zeta\circ\zeta\circ\eta=\tilde\zeta\circ\tilde\eta=\eta\]
+  \[1_{V\otimes W}\circ\eta=\eta\]
+  Es folgt aus der universellen Eigenschaft, dass
+  \[\tilde\zeta\circ\zeta=1_{V\otimes W}\]
+  Wir wenden die universelle Eigenschaft an, mit $U:=\widetilde{V\otimes W}$
+  \[\begindc{\commdiag}[60]
+    \obj(1,0)[ot]{$V\otimes W$}
+    \obj(0,0)[ot2]{$\widetilde{V\otimes W}$}
+    \obj(0,1)[t]{$\tilde{V\times W}$}
+    \mor{t}{ot}{$\tilde\eta$}
+    \mor{t}{ot2}{$\tilde\eta$}
+    \mor{ot2}{ot}{$\tilde\zeta\circ\zeta$}
+  \enddc
+  \ \ \ 
+  \begindc{\commdiag}[60]
+    \obj(1,0)[ot]{$\widetilde{V\otimes W}$}
+    \obj(0,0)[ot2]{$\widetilde{V\otimes W}$}
+    \obj(0,1)[t]{$V\times W$}
+    \mor{t}{ot}{$\tilde\eta$}
+    \mor{t}{ot2}{$\tilde\eta$}
+    \mor{ot2}{ot}{$1_{\widetilde{V\otimes W}}$}
+  \enddc\]
+  Beide Diagramme kommutieren
+  \[\zeta\circ\tilde\zeta\circ\tilde\eta=\zeta\circ\eta=\tilde\eta\]
+  \[1_{\widetilde{V\otimes W}}\circ\tilde\eta=\tilde\eta\]
+  Es folgt aus der universellen Eigenschaft, dass
+  \[\zeta\circ\tilde\zeta=1_{\widetilde{V\otimes W}}\]
+  Ergebnis:
+  \[V\otimes W\xrightarrow{\zeta}\widetilde{V\otimes W}\]
+  ist Isomorphismus, inverse zu
+  \[\tilde\zeta:\widetilde{V\otimes W}\to V\otimes W\]
+\end{Bem}
+\begin{Faz}
+  universelle Eigenschaft $\rsa$ Eindeutigkeit bis auf Isomorphismus
+\end{Faz}
+\begin{Not}{Tensorprodukt}
+  $V\otimes W$ oder $V\otimes_\mb{K} W$
+\end{Not}
+\subsubsection{Existenz vom Tensorprodukt}
+\begin{Bem}
+  Es gibt zwei Methoden
+  \begin{itemize}
+    \item Durch Auswahl von Basen
+    \item Beschreibung als Quotientenvektorraum
+  \end{itemize}
+  Heute: Methode 1
+  \begin{itemize}
+    \item braucht die Existenz von Basen
+    \item klar fall $\dim_\mb{K} V< \infty$
+  \end{itemize}
+  oder im Allgemeinen für die, die das Auswahlaxiom gesehen haben.
+\end{Bem}
+\begin{Prop}
+  Sei $(v_i)_{i\in I}$ eine Basis von $V$ und $(w_j)_{j\in J}$ eine Basis von $W$. Dann existiert das Tensorprodukt $V\otimes W$, mit Basis $(v_i\otimes w_j)_{(i,j)\in I\times J}$ und 
+  \[\eta:V\times W\to V \otimes W\]
+  \[\left( \sum_{i\in I}a_iv_i \sum_{j\in J}b_jw_j \right)\mapsto \sum_{(i,i)\in I\times J}a_ib_j\left( v_i\otimes w_j \right)\]
+  mit $a_i\neq 0$ für endlich viele $i$ und $b_j\neq 0$ für endlich viele $j$\\
+  Das bedeutet, dass die Elemente von $V\otimes W$
+  \[\sum_{(i,j)\in I\times J}c_{ij}\left( v_i\otimes w_j \right)\ c_{ij}\in\mb{K}\]
+  nur endlich viele $c_{ij}\neq 0$.
+\end{Prop}
+\begin{Bew}
+  Zu verifizieren:
+  \begin{itemize}
+    \item dass $\eta$ bilinear ist
+    \item und erfüllt die universelle Eigenschaft
+  \end{itemize}
+  $\eta$ ist bilinear:
+  \begin{gather*}
+    \eta\left( \sum_{i\in I} a_iv_i,\ \sum_{j\in J} b_jw_j \right)+\eta\left( \sum_{i\in I}a_i'v_i,\ \sum_{j\in J} b_jw_j \right)=\\
+    =\sum_{i\in I} a_ib_j\left( v_i\otimes w_j \right)+\sum_{\left( i,\ j \right)\in I\times J}a_i'b_j\left( v_i\otimes w_j \right)=\\
+    =\sum_{\left( i,\ j \right)\in I\times J}\left( a_ib_j+a_i'b_j \right)\left( v_i\otimes w_j \right)=\\
+    =\sum_{\left( i,\ j \right)\in I\times J}\left( a_i+a_i' \right)b_j\left( v_i\otimes w_j \right)=\\
+    =\eta\left( \sum_{i\in I}(a_i1a_i')v_i,\ \sum_{j\in J}b_jw_j \right)\\
+    =\eta\left( \sum_{i\in I}a_iv_i+\sum_{i\in I}a_i'v_j,\ \sum_{j\in J}b_jw_j \right)
+  \end{gather*}
+\end{Bew}
+\begin{Bsp}
+  $V=\mb{K}^2$, $W=\mb{K}[t]$\\
+  $V$ hat die Standardbasis $(e_1,e_2)$\\
+  $W$ hat die Basis $(1,t,t^2,\cdots)$\\
+  $\implies$ $V\otimes W$ hat die Basis $e_1\otimes 1,e_1\otimes t,\cdots$, $w_2\otimes1, e_2\otimes t,\cdots$
+  \begin{align*}
+    \eta:\mb{K}^2\times K[t]&\to K^2\otimes K[t]\\
+    \left( (1,0),t^2 \right)&\mapsto e_1\otimes t^2\\
+    \left( (0,1),t^3 \right)&\mapsto e_2\otimes t^3\\
+    \left( (2,3),t^4 \right)&\mapsto 2e_1\otimes t^4+3e_2\otimes t^4
+  \end{align*}
+  Typisches Element von $\mb{K}^2\otimes \mb{K}[t]$
+  \[e_1\otimes t^2+e_2\otimes t^3+2e_1\otimes t^4+3e_2\otimes t^4\]
+  Mit anderer Schreibweise:
+  \[(t^2,0)+(0,t^3)+(2t^4,0)+(0,3t^4)\]
+  oder:
+  \[(t^2+2t^4,t^3+3t^4)\]
+\end{Bsp}
+\begin{Def}
+  Sei $U$ ein $\mb{K}$-Vektorraum und 
+  \[\xi:V\times W\to U\]
+  eine bilineare Abbildung. Wir definieren
+  \[\begindc{\commdiag}[60]
+    \obj(0,0)[ot]{$V\otimes W$}
+    \obj(0,1)[t]{$V\times W$}
+    \obj(1,0)[U]{$U$}
+    \mor{t}{U}{$\xi$}
+    \mor{ot}{U}{$\xi'$}
+    \mor{t}{ot}{$\eta$}
+  \enddc\]
+  \[\xi':V\otimes W\to U\]
+  durch
+  \[\xi'(v_i \otimes w_j):=\xi(v_i,w_j)\]
+  für $i\in I$, $j\in J$, und deshalb:
+  \[\xi'\left( \sum_{(i,j)\in I\times J} c_{ij}v_i\otimes w_j \right)= \sum_{(i,j)\in I\times J} c_{ij}(v_i,w_j)\]
+  Das Diagram kommutiert (aus der Bilinearität von $\xi$)\\
+  Die Eindeutigkeit ist durch die identischen Basenvektoren gegeben.
+\end{Def}
