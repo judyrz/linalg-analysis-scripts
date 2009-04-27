@@ -1,0 +1,171 @@
+\begin{Bem}
+  \[\dim V\otimes W=\left( \dim V \right)\left( \dim W \right)\]
+\end{Bem}
+\begin{Not}
+  Für $v\in V$, $w\in W$ schreibt man oft $v\otimes w$ für $\eta\left( v,w \right)$
+\end{Not}
+\begin{Bem}
+  Weil
+  \[\left( v,w \right)\mapsto v\otimes w:=\eta\left( v,w \right)\]
+  eine bilineare Abbildung ist, haben wir
+  \begin{align*}
+    v\otimes w+v'\otimes w&=\left( v\times v'\right)\otimes w\\
+    v\otimes w+v\otimes w'&=v\otimes \left(w'\times w\right)\\
+    \left( \lambda v \right)\otimes w=\lambda\left( v\otimes w \right)=v\otimes\left( \lambda w) \right)
+  \end{align*}
+  Rechenregeln für Tensoren
+\end{Bem}
+\begin{Not}
+  Letztes Mal: für Basiselemente $v_i$, $w_j$ bezeichnet $v_i\otimes w_j$ ein Basiselement von $V\otimes W$
+\end{Not}
+\begin{Bem}
+  Die Abbildung lässt sich schreiben als
+  \begin{align*}
+    V\times W&\xrightarrow{\eta}V\otimes W\\
+    \left( v_i,w_j \right)&\mapsto v_i\otimes w_j
+  \end{align*}
+\end{Bem}
+\begin{Bem}
+  Jetzt für beliebige $v\in V$, $w\in W$ bezeichnet $v\otimes w$ das Element
+  \[\eta\left( v,w \right)\in V\otimes W\]
+  Weil in der Konstruktion wir $\eta$ durch
+  \[\eta\left( v_i,w_j \right):=v_i\otimes w_j\]
+  definiert haben, stimmen die beiden Bedeutungen von $v_i\otimes w_j$ überein.
+\end{Bem}
+\begin{Bsp}{Isomorphismus von Vektorräumen über $\mb{R}$}
+  \begin{align*}
+    \mb{R}^2\otimes_\mb{R}\mb{R}[t]&\xrightarrow{\sim}\mb{R}[t]\oplus\mb{R}[t]\\
+    e_1\otimes t^j&\mapsto\left( t^j,0 \right)\\
+    e_2\otimes t^j&\mapsto\left( 0,t^j \right)
+  \end{align*}
+  Ganz ähnlich
+  \begin{align*}
+    \mb{C}\otimes_\mb{R}\mb{R}[t]&\xrightarrow{\sim}\mb{C}[t]\\
+    1\otimes t^j&\mapsto t^j\\
+    i\otimes t^j&\mapsto it^j
+  \end{align*}
+  $\implies$ für $\gamma\in \mb{C}$ gilt:
+  \[\gamma\otimes t^j\mapsto \gamma t^j\]
+  weil: 
+  \[\gamma=\alpha+\beta i\ \alpha,\beta\in \mb{R}\]
+  haben wir
+  \begin{align*}
+    \gamma \otimes t'&=\left( \alpha+\beta i \right)\otimes t^j\\
+    &=\alpha\otimes t^j+\beta i\otimes t^j\\
+    &=\alpha\left( 1\otimes t^j \right)+\beta\left( i\otimes t^j \right)\\
+    &\mapsto \alpha\left( t^j \right)+\beta(it^j)\\
+    &=\left( \alpha+\beta i \right)t^j\\
+    &=\gamma t^j
+  \end{align*}
+\end{Bsp}
+\begin{Prop}
+  Sei $\mb{K}\to\mb{L}$ eine Körpererweiterung und $V$ ein $\mb{K}$-Vektorraum. Dann hat $K\otimes_\mb{K}V$ die Struktur von $L$-Vektorraum, mit
+  \[\alpha\left( \beta\otimes v \right)=\left( \alpha\beta \right)\otimes v\ \ \text{für $\alpha,\beta\in L$ und $v\in V$}\]
+\end{Prop}
+\begin{Bew}
+  Wir müssen verifizieren, dass
+  \[\left( \alpha,\beta\otimes v \right)\mapsto \left( \alpha\beta \right)\otimes v\]
+  eine Abbildung von $L\times\left( L\otimes_\mb{K}V \right)$ nach $L\otimes_\mb{K}V$ beschreibt. D.h. für jedes $\alpha\in L$, $\exists$ eine Abbildung $L\otimes V\to L\otimes V$
+  \[\begindc{\commdiag}[100]
+  \obj(0,0)[LoV1]{$L\otimes V$}
+  \obj(1,0)[LoV2]{$L\otimes V$}
+  \obj(0,1)[LtV1]{$L\times V$}
+  \obj(1,1)[LtV2]{$L\times V$}
+  \mor{LtV1}{LtV2}{$\left( \beta,\alpha \right)\mapsto \left( \alpha\beta,v \right)$}
+  \mor{LtV1}{LoV1}{$\eta$}
+  \mor{LtV1}{LoV2}{$\left( \alpha,\beta \right)\mapsto \left( \alpha\beta \right)\otimes v$}[1,0]
+  \mor{LtV2}{LoV2}{$\eta$}
+  \mor{LoV1}{LoV2}{Aus der u.E.}[-1,1]
+  \enddc\]
+  \[\left( \alpha,\beta \right)\mapsto \left( \alpha\beta \right)\otimes v\]
+  ist bilinear:
+  \begin{align*}
+    \left( \beta+\beta',v \right)\mapsto\left( \alpha\left( \beta+\beta' \right) \right)\otimes v=&\\
+    &=\left( \alpha\beta+\alpha\beta' \right)\otimes v&\text{Körpereigenschaft}\\
+    &=\alpha\beta\otimes v+\alpha\beta'\otimes v&\text{Rechenregeln für Tensoren}
+  \end{align*}
+  So bekommen wir
+  \begin{align*}
+    L\times \left( L\otimes V \right)&\to L\otimes V\\
+    \left( \alpha,\beta\otimes v \right)&\mapsto \left( \alpha\beta \right)\otimes v
+  \end{align*}
+  Wir müssen auch die Axiome für den Vektorraum über $L$ verifizieren, d.h.:
+  \begin{align*}
+    \alpha\left( w+w' \right)&=\alpha w+\alpha w'&\text{für $\alpha\in L$, $w,w'\in L\otimes V$}\\
+    \alpha\left( \alpha'w \right)&=\left( \alpha\alpha' \right)w&\text{für $\alpha,\alpha'\in L$, $w\in L\otimes V$}
+  \end{align*}
+  Die erste Gleichung gilt weil $L\otimes V\dashrightarrow L\otimes V$ über $\mb{K}$-linear ist. Die zweite folgt aus der ersten, falls wir nur den Fall verifizieren, wobei $w=\beta\otimes v$. Dafür benutzen wir
+  \begin{itemize}
+    \item $L\otimes_\mb{K} V$ ist von Elementen $\beta\otimes v$ ($\beta\in L$, $v\in V$) aufgespannt, als $\mb{K}$-Vektorraum (Klar von der Konstruktion)
+    \item Dann können wir schreiben
+      \begin{align*}
+        w&=\beta_1\otimes v_1+\cdots+\beta_\gamma\otimes v_\gamma&\gamma\in\mb{N}
+      \end{align*}
+  \end{itemize}
+  \begin{align*}
+    \alpha\left( \alpha'\left( \beta_1\otimes v_1+\cdots+ \beta_\gamma\otimes v_\gamma\right) \right)&=\alpha\left( \alpha'\left( \beta_1 \otimes v_1\right)+\cdots+\alpha'\left( \beta_\gamma \otimes v_\gamma\right) \right)\\
+    &=\alpha\left( \alpha'\left( \beta_1\otimes v_1 \right) \right)+\alpha\left( \alpha'\left( \beta_\gamma \right) \right)\\
+    &=\left( \alpha\alpha' \right)\left( \beta_1\otimes v_1 \right)+\cdots+\left( \alpha\alpha' \right)\left( \beta_\gamma\otimes v_\gamma \right)\\
+    &=\left( \alpha\alpha' \right)\left( \beta_1\otimes v_1 +\cdots+ \beta_\gamma\otimes v_\gamma\right)
+  \end{align*}
+  für $w:=\beta\otimes v$:
+  \begin{align*}
+    \alpha\left( \alpha'\left( \beta\otimes v \right) \right)&=\alpha\left( \left( \alpha'\beta \right)\otimes v\right)\\
+    &=\left( \alpha\left( \alpha'\beta \right) \right)\otimes v\\
+    &=\left( \left( \alpha\alpha' \right)\beta \right)\otimes v\\
+    &=\left( \alpha\alpha' \right)\left( \beta\otimes v \right)
+  \end{align*}
+\end{Bew}
+\begin{Sat}
+  \[\underbrace{\mb{C}\otimes_\mb{R}\mb{R}[t]}_{\mb{C}-\text{Vektorraum}}\to\mb{C}[t]\]
+  Beh: dies ist ein Isomorphismus von $\mb{C}$-Vektorräumen. Nur noch zu verifzieren: die $\mb{C}$-Linearität. Im allgemeinen haben wir
+  \[L\otimes_\mb{K}\mb{K}[t]\xrightarrow{\sim}L[t]\]
+  $L$-linearer Isomorphismus
+\end{Sat}
+\begin{Bew}
+  Sei $\gamma\in \mb{C}$
+  \[\begindc{\commdiag}[60]
+  \obj(0,0)[CR2]{$\mb{C}\otimes_\mb{R}\mb{R}[t]$}
+  \obj(0,1)[CR1]{$\mb{C}\otimes_\mb{R}\mb{R}[t]$}
+  \obj(1,0)[C2]{$\mb{C}[t]$}
+  \obj(1,1)[C1]{$\mb{C}[t]$}
+  \mor{CR1}{C1}{$\sim$}
+  \mor{CR2}{C2}{$\sim$}
+  \mor{CR1}{CR2}{$\gamma\cdot\left( \ \right)$}
+  \mor{C1}{C2}{$\gamma\cdot\left( \  \right)$}
+  \enddc\]
+\end{Bew}
+\begin{Bem}
+  Ganz ähnlich
+  \[L\otimes \mb{K}^n\xrightarrow{\sim}L^n\]
+  $L$-linearer Isomorphimsus. ($n\in\mb{N}$) Insbesondere:
+  \[\mb{C}\otimes_\mb{R}\mb{R}^n\xrightarrow{\sim}\mb{C}^n\]
+\end{Bem}
+\begin{Def}{Komplexifizierung}
+  Ist $V$ ein $\mb{R}$-Vektorraum, so heisst der $\mb{C}$-Vektorraum $\mb{C}\otimes_\mb{R}V$ die Komplexifizierung von $V$
+\end{Def}
+\subsubsection{Tensorprodukt von linearen Abbildungen}
+\begin{Def}{Tensorprodukt von linearen Abbildungen}
+  Sei $V$, $W$, $V\otimes_\mb{K}W$, $V\times W\xrightarrow{\eta}V\otimes_\mb{K}W$ und $V'$, $W'$, $V'\otimes_\mb{K}W'$, $V'\times W'\xrightarrow{\eta'}V'\otimes_\mb{K}W'$ gegeben, mit linearen Abbildungen
+  \begin{gather*}
+    V\xrightarrow{\phi}V'\\
+    W\xrightarrow{\psi}W'
+  \end{gather*}
+  Dann haben wir:
+  \[\dcp{40}{
+  \obj(0,1)[VW]{$V\times W$}
+  \obj(0,0)[VoW]{$V\otimes W$}
+  \obj(2,0)[V'o]{$V'\otimes W'$}
+  \obj(2,1)[V't]{$V'\times W'$}
+  \mor{VW}{VoW}{$\eta$}
+  \mor{VW}{V't}{$\phi\times\psi$}
+  \mor{V't}{V'o}{$\eta'$}
+  \mor{VoW}{V'o}{neu}[1,1]
+  }\]
+  Beh: die Komposition ist bilinear
+  \[\left( v,w \right)\mapsto \psi(v)\otimes \psi(w)\]
+  neu aus der universellen Eigenschaft das Tensorprodukt von linearen Abbildungen
+\end{Def}
+\begin{Not}{Tensorprodukt von linearen Abbildungen}
+  \[\phi\otimes \psi\]
+\end{Not}
