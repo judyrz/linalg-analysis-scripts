@@ -1,0 +1,209 @@
+\begin{Bsp}
+  $h=\Mx{h_1\\h_2}\in\mb{R}^2$
+  \begin{gather*}
+    \partial_nf(0,0)=\Limo{t}\frac{\left( th_1,th_2 \right)-f(0,0)}{t}\\
+    =\Limo{t}\frac{1}{t}\frac{t^3h^2_1h_2}{t^2\left( h_1^2+h_2^2 \right)}=f(h_1,h_2)
+  \end{gather*}
+  \begin{gather*}
+    \partial_xf(0,0)=f(1,0)=0\\
+    \partial_gf(0,0)=f(0,1)=0\\
+  \end{gather*}
+  \[\Limo{n}\frac{f(h_1,h_2)-f(0,0)-\overbrace{L}^{=0}f}{\Norm{h}}=0\ ?\]
+  Nein. z.Z.: $h_1=h_2=:k$
+  \begin{gather*}
+    f(k,k)=\frac{k^3}{2k^2}=\frac{k}{2}\\
+    \Norm{\Mx{k\\k}}_\infty=\Abs{k}\\
+    \frac{f(k,k)}{\Norm{\Mx{k\\k}}_\infty}=\pm\frac{1}{2}\not\to 0
+  \end{gather*}
+  $\implies$ $f$ nicht differenzierbar in $(0,0)$
+\end{Bsp}
+\subsection{Differenzierbarkeitskriterium}
+\begin{Sat}{Differenzierbarkeitskriterium}
+  Sei $f:D\to\mb{C}$ und sei $a\in D$.
+  \begin{enumerate}
+    \item Es gibt eine Umgebung von $a$, s.d. $\forall x\in U$ ist $f$ in $x$ partiell differenzierbar.
+    \item Alle partiellen Ableitungen sind im Punkt $a$ stetig
+  \end{enumerate}
+  $\implies$ $f$ ist in $a$ differenzierbar
+\end{Sat}
+\begin{Bew}{Idee}
+  \[\frac{f(a+h)-f(a)-Lb}{\Norm{h}}\to 0\]
+  \[f(a+h)-f(a)=\left[ f(a+h)-f(a+h_1) \right]+\left[ f(a+h_1)+f(a) \right]\]
+  Mithilfe des Mittelwertsatzes kann dieser Betrag abgeschätzt werden.
+\end{Bew}
+\begin{Def}
+  Sei $f:\underbrace{U}_{\subset\mb{R}^n}\to \mb{C}$, differenzierbar auf $U$
+  \begin{align*}
+    \md f: U&\to \Hom(\mb{R}^n,\mb{C})\\
+    x&\mapsto\md f_x
+  \end{align*}
+  $f$ heisst stetig differenzierbar auf $U$ falls $\md f:U\to\Hom(\mb{R}^n,\mb{C})$ stetig ist.
+  \begin{align*}
+    &\xrightarrow{\sim}M(n\times 1,\mb{C})\xrightarrow{\sim}\mb{C}^n\\
+    &\mapsto\left( \partial_1 f(x),\cdots,\partial_n f(x) \right)\\
+  \end{align*}
+  \[\implies\md f:U\to\Hom(\mb{R}^n,\mb{C})\ \text{stetig}\iff f':U\to M(n\times 1,\mb{C})\iff \partial_if\ \text{stetig}\forall i\]
+\end{Def}
+\begin{Kor}
+  \[\text{$f$ stetig diff}\iff\text{Alle partiellen Ableitungen sind stetig}\]
+\end{Kor}
+\begin{Kor}
+  Sei $f:\underbrace{U}_{\subset\mb{R}^n}\to \mb{C}$
+  \[\text{$f$ stetig differenzierbar auf $U$}\iff\ \text{Alle partiellen Ableitungen in $U$ existieren und sind stetig}\]
+\end{Kor}
+\begin{Def}
+  \[\mathcal{C}^1(U):=\left\{ \text{stetig differenzierbar Funktionen auf $U$} \right\}\]
+  Vektorraum. genauer:
+  \begin{align*}
+    \mathcal{C}^1(U,\mb{R})=\left\{ \text{reellwertig stetig differenzierbar $f$ auf $U$} \right\}\\
+    \mathcal{C}^1(U,\mb{C})=\left\{ \text{komplexwertig stetig differenzierbar $f$ auf $U$} \right\}
+  \end{align*}
+\end{Def}
+\begin{Bem}
+  Sei $f:\underbrace{U}_{\subset\mb{R}^n}\to \mb{R}$, differenzierbar in $a\in U$
+  \[\md f(a)\in\Hom(\mb{R}^n,\mb{R})=\mb{R}^{n*}\]
+\end{Bem}
+\begin{Bem}
+  Sei $\left\langle , \right\rangle$ ein Skalarprodukt
+  \begin{align*}
+    \phi{\left\langle , \right\rangle}:&\mb{R}^n\to\mb{R}^{n*}&\text{linear}\\
+    &v\mapsto\phi_{\left\langle , \right\rangle}(v)&\text{Isomorphimsus}
+  \end{align*}
+  \[\phi_{\left\langle , \right\rangle}(v)(w):=\left\langle v,w \right\rangle \]
+\end{Bem}
+\subsection{Gradient}
+\begin{Def}{Gradient}
+  Der Gradient von $f$ in $a$ bezüglich $\left\langle , \right\rangle$ ist
+  \[\phi_{\left\langle , \right\rangle}^{-1}\left( \md f_a \right)=:\grad f(a)\]
+  \[\grad f(a)\in\mb{R}^n\]
+\end{Def}
+\begin{Bem}
+  \[\left\langle \grad f(a),w \right\rangle =\phi\left( \grad f(a) \right)(w)=\md f_a(w)=\partial_wf(a)\]
+\end{Bem}
+\begin{Bem}
+  \[\partial_wf(a)=\left\langle \grad f(a),w \right\rangle \ \forall w\in\mb{R}^n\]
+\end{Bem}
+\begin{Bem}{Spezialfall Standardskalarprodukt}
+  $\left\langle x,y \right\rangle =\sum x_iy_i$
+  \begin{align*}
+    \phi_{\left\langle , \right\rangle}:&\mb{R}^n\to\mb{R}^{n*}\\
+    &\Mx{x_1\\\vdots\\x_n}\to\Mx{x_1,\cdots,x_n}
+  \end{align*}
+\end{Bem}
+\begin{Not}{Gradient}
+  Der Gradient bez. $\left\langle  \right\rangle_\text{Stand.}$ bezeichnet man als $\nabla f$
+  \[\nabla f(a)=\Mx{\partial_1 f(a)\\\vdots\\\partial_n f(a)}\]
+\end{Not}
+\begin{Bem}{Zusammenfassung}
+  \[\md f_1\in\mb{R}^{n*}\]
+  \[\grad f(a)\in\mb{R}^n\]
+  \begin{tabular}[htb]{c}
+  Standardbasis $\mapsto$ Standardskalarodukt\\
+  $f'(a)$ $n$-Zeilenvektor\\
+  $\nabla f(a)$ $n$-Spaltenvektor
+  \end{tabular}
+\end{Bem}
+\subsubsection{Geometrische Bedeutung des Gradienten}
+\begin{Bem}
+  Sei $h\in\mb{R}^n$
+  \[\partial_n f(a)=\left\langle \grad f(a),h \right\rangle\]
+  Cauchy-Schwarz
+  \[\Abs{\partial_nf(a)}\leq\Norm{\grad f(a)}\Norm{h}\]
+  \[\Norm{w}:=\sqrt{\left\langle w,w \right\rangle }\]
+  die durch $\left\langle , \right\rangle$ induzierte Norm
+  \[-\Norm{\grad f}\Norm{a}\leq \partial_n f\leq \Norm{\grad f}\Norm{h}\]
+  \begin{align*}
+    \partial_nf=\Norm{\grad f}\Norm{h}\xi&\xi\in [-1;1]
+  \end{align*}
+  \[\exists\phi:\xi=\cos\phi\]
+  \[\partial_nf(a)=\Norm{\grad f(a)}\Norm{h}\cos \phi\]
+\end{Bem}
+\begin{Bem}
+  Sei $h$: $\Norm{h}=1$
+  \[\partial_nf(a)=\Norm{\grad f(a)}\cos \phi\]
+  \[\implies\Norm{\grad f(a)}=\max\left\{ \partial_n f(a),\underbrace{\Norm{h}}_{\text{hängt von $\left\langle , \right\rangle$ ab}}=1 \right\}\]
+  Sei $\grad f(a)\neq 0$ ($\iff \md f_a\neq 0$)
+  \[\implies \exists !h\text{mit}\ \Norm{h}=1\text{und}\ \Norm{\grad f(a)}=\partial_n f(a)\]
+  Nämlich
+  \[h=\frac{\grad f(a)}{\Norm{\grad f(a)}}\]
+  d.h. $\grad f(a)$ zeigt die Richunt des stärksten Anstiegs von $f$ in Punkt $a$.
+\end{Bem}
+\subsubsection{Rechenregeln}
+\begin{Bem}{Rechenregeln}
+  Sei $f,g:\underbrace{U}_{\subset\mb{R}^n}\to \mb{C}$, differenzierbar in $a\in U$. Dann
+  \begin{enumerate}
+    \item $f+g$ und $fg$ sind differenzierbar in $a$ und
+      \begin{align*}
+        \md(f+g)_a&=\md f_a+\md g_a\\
+        \md(fg)_a&=f(a)\md g_a+g(a)\md f_a
+      \end{align*}
+    \item Sei zusätzlich $f(a)\neq 0$. Dann ist $\frac{1}{f}$ in $a$ differenzierbar und
+      \[\md\left( \frac{1}{f}_a \right)=-\frac{\md f_a}{f(a)^2}\]
+  \end{enumerate}
+\end{Bem}
+\begin{Bem}{Folgerung}
+  Jede rationale Funktion ist in ihrem Definitionsbereich stetig differenzierbar.
+\end{Bem}
+\begin{Sat}{Kettenregel}
+  Sei $U\subset\mb{R}$ offen. Seien
+  \begin{align*}
+    \gamma:I&\to U&\text{differenzierbar in}\ t_0\in I\\
+    f:U&\to\mb{C}&\text{differenzierbar in}\ a:=f(t_0)
+  \end{align*}
+  Dann ist $f\circ \gamma:I\to\mb{C}$ differenzierbar in $t_0$ und
+  \[\frac{\md\left( f\circ \gamma \right)}{\md t}=\md f_a\dot \gamma(t_0)=\sum_{i=1}^n\partial_if(a)\dot\gamma_i(t_0)\]
+  Ist $\left\langle , \right\rangle$ vorhanden
+  \[\frac{\md(f\circ \gamma)}{\md t}(t_0)=\left\langle \grad f(a),\dot\gamma(t_0) \right\rangle\]
+\end{Sat}
+\begin{Bem}
+  Kettenregel für partielle Ableitung. Seien
+  \begin{align*}
+    f:U&\to\mb{C}&U\subset\mb{R}^n\\
+    g:V\to U&V\subset\mb{R}^m
+  \end{align*}
+  \[F:=f\circ g:V\to\mb{C}\]
+  $(x_1,\cdots,x_n)$ Basen auf $U$ und $(y_1,\cdots,y_m)$ Basen auf $V$. Wir wollen $\frac{\partial F}{\partial y_i}$. Seien $y_j$ mit $j\neq i$ festgelegt. Sei
+  \begin{align*}
+  g_{(i)}:y_i&\mapsto g(y_1,\cdots,y_n)=\left( g_+(y\cdots),\cdots,g_m(\cdots) \right)\\
+  g_{(i)j}:y_i&\to g_j(y\cdots y)
+  \end{align*}
+  \begin{gather*}
+    \frac{\md g_{(i)j}}{\md y_i}=\frac{\partial g_j}{\partial y_i}\\
+    \frac{\partial F}{\partial y_i}=\frac{\md}{\md y_i}\left( f\circ g_{(i)} \right)=\sum^n_{j=1}\frac{\partial f}{\partial x_j}\frac{\md g_{(i)j}}{\md y_i}=\sum^n_{j=1}\frac{\partial f}{\partial x_j}\frac{\partial g_j}{y_i}
+  \end{gather*}
+  $F=f\circ g$
+  \[\frac{\partial F}{\partial y_i}(y)=\sum^n_{j=1}\frac{\partial f}{\partial x_j}\left( g(y) \right)\frac{\partial g_j}{\partial y_i}(y)\]
+\end{Bem}
+\begin{Bsp}{Polarkoordinaten}
+  Sei $f:\mb{R}^2\to\mb{C}$
+  \[P_2(r,\phi)=\Mx{r\cos \phi\\r\sin\phi}\]
+  $F=f\circ P_2$
+  \[\frac{\partial F}{\partial r}\partial_xf\cos\phi+\partial_yf\sin\phi\]
+  \[\frac{\partial F}{\partial \phi}-\partial_xf+\sin\phi+\partial_yf+\cos\phi\]
+\end{Bsp}
+\begin{Bsp}
+  Sei $F:\mb{R}^+_*\to\mb{C}$ und $f:\mb{R}^n\to\mb{C}$ differenzierbare Funktionen
+  \[f(x):=F\left( \Norm{x} \right)\]
+  \begin{gather*}
+    \frac{\partial f}{\partial x_i}=F\frac{\partial\Norm{x}}{\partial x_i}\\
+    \frac{\partial}{\partial x_i}\Norm{x}=\frac{\partial}{\partial x_i}\sqrt{x_1^2+x_2^2+\cdots x_n^2}=\frac{1}{\not2\sqrt{x_1^2+\cdots+x_n^2}}\not 2x_i
+  \end{gather*}
+  \[\Part{\Norm{x}}{x_i}=\frac{x_i}{\Norm{x}}\]
+  \[\Part{f}{x_i}=F'\frac{x_i}{\Norm{x}}\]
+\end{Bsp}
+\subsubsection{Niveaumengen}
+\begin{Def}{Niveaumengen}
+  Sei $f:U\to\mb{R}\ni c$. Die Fasern $f^{-1}(c)$ heissen Niveaumengen von $f$.
+\end{Def}
+\begin{Sat}
+  \[\gamma(I)\subset f^{-1}(c)\]
+  Sei $\left\langle , \right\rangle$ Skalarprodukt. Dann
+  \begin{align*}
+    \grad f\left( \gamma(t) \right)\perp\dot\gamma(t)&&\forall t\in I
+  \end{align*}
+\end{Sat}
+\begin{Bew}
+  $f\circ \gamma=c$ konstant
+  \[\underbrace{\Part{\left( f\circ \gamma \right)}{t}}_{=0}=\left\langle \grad f,\dot\gamma \right\rangle \]
+  Der Gradient steht senkrecht auf den Höhenlinien und zeigt in die Richtung des stärksten Anstiegs.
+\end{Bew}
