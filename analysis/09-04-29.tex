@@ -1,0 +1,237 @@
+\subsubsection{Mittelwertsatz}
+\begin{Sat}{Mittelwertsatz}
+  Sei $f:\underbrace{U}_{\subset\mb{R}}\to \mb{R}$ differenzierbar auf $U$. Seien $a,b\in U$, die durch eine Strecke verbindbar sind. Dann $\exists \xi\in [a;b]$
+  \[f(b)-f(a)=\md f_\xi(b-a)\]
+\end{Sat}
+\begin{Bew}
+  Sei
+  \begin{align*}
+    \gamma:[0;1]&\to U\\
+    t&\mapsto a+t(b-a)
+  \end{align*}
+  \begin{gather*}
+    \gamma\left( [0;1] \right)=[a;b]\\
+    \dot\gamma(t)=b-a\ \forall t
+  \end{gather*}
+  \[F:f\circ \gamma:[0;1]\to\mb{R}\]
+  Kettenregel $\implies$ $F$ differenzierbar $\xi:=\gamma(\tau)$
+  \begin{gather*}
+  \xRightarrow{\text{MWS auf } [0;1]}\exists \tau\in[0;1]:F(1)-F(0)=\dot F(\tau)\ (1-0)\\
+  F(1)-F(0)=f\left( \gamma(1) \right)-f\left( \gamma(0) \right)=f(b)-f(a)\\
+  \dot F(\tau) \stackrel{\text{KR}}{=} \md f_{\gamma(\tau)} \dot\gamma (\tau)=\md f_{\gamma(\tau) } (b-a)
+  \end{gather*}
+\end{Bew}
+\begin{Kor}
+  Sei $U$ zusammenhängend und offen. Sei $f:\underbrace{U}_{\subset\mb{R}}\to \mb{C}$ differenzierbar auf $U$. Dann
+  \[\md f=0\ \text{überall}\iff f\ \text{konstant}\]
+\end{Kor}
+\begin{Bew}
+  $\La$ trival\\
+  $\Ra$
+  \subparagraph{Fall 1} $f$ reellwertig
+  \[U\ \text{zusammenhängend}\implies \forall a,b\in U\ \exists\ \text{Streckenzug, der sie verbindet}\]
+  \begin{align*}
+    f(b)-f(a)=f(a_1)-f(a)+f(a_2)-f(a_1)+f(a_3)-f(a_2)+\cdots\\
+    f(a_{i+1}-f(a_i)=\md f_{\xi_i}(a_{i+1}-a_i)=0 && \xi_i\in[a_i,a_{i+1}]\\
+    \implies f(b)-f(a) &&\forall a,b\in U
+  \end{align*}
+  \subparagraph{Fall 2} $f:U\to \mb{C}$
+  \[\Re f, \Im f:U\to\mb{R}\]
+  differenzierbar
+  \[\md f=0\implies \md \Re f=0,\md \Im f=0\]
+\end{Bew}
+\subsubsection{Schrankensatz}
+\begin{Sat}{Schrankensatz}
+  Sei $f:\underbrace{U}_{\subset\mb{R}}\to \mb{C}$ differenzierbar auf $U$. Sei $K\subset U$ kompakt und konvex. Dann ist $f|_K$ Lipschitz-stetig
+  \[\Abs{f(y)-f(x)}\leq L\Norm{y-x}_\infty\]
+  \[L=\Norm{f'}_K:=\max_{\xi\in K}\Norm{f'(\xi)}_1\]
+  \[\Norm{f'(\xi)}_1=\Abs{\partial_1f(\xi)}+\Abs{\partial_2f(\xi)}+\cdots+\Abs{\partial_n f(\xi)}\]
+\end{Sat}
+\begin{Bew}
+  $K$ konvex $\implies$ $\exists$ Strecke, die $x$ und $y$ verbindet
+  \begin{align*}
+    \gamma:[0;1]&\to K\\
+    t&\mapsto x+t(y-x)
+  \end{align*}
+  Sei $F=f\circ \gamma$. Kettenregel $\implies$ $F$ ist stetig differenzierbar.
+  \begin{gather*}
+    \xRightarrow{\text{Schranke auf $[0;1]$}} \Abs{f(y)-f(x)}=\Abs{F(1)-F(0)}\leq \Norm{\cdot F}\\
+    \Norm{\dot F}=\sup_{t\in[0;1]}\Abs{\dot F(t)}\\
+    \text{Kettenregel:}\ \Abs{\dot F(t)}=\Abs{\sum_i\partial_if\left( \gamma(t) \right)(y_i-x_i)}\leq \sum_i\Abs{\partial_if\left( \gamma(t) \right)}\Abs{y_i-x_i}\\
+    \Norm{\dot F}\leq \underbrace{\Norm{f'}_K}_{<\infty,\ \text{da $K$ kompakt}}\Norm{y-x}_\infty
+  \end{gather*}
+\end{Bew}
+\begin{Sat}{Integraldarstellung des Funktionzuwachses}
+  Sei $f:U\to\mb{C}$ stetig differenzierbar und sei $\gamma:[\alpha;\beta]\to U$ stetig differenzierbar Kurve. $a:=\gamma(\alpha)$, $b:=\gamma(\beta)$. Dann
+  \[f(b)-f(a)=\int_\alpha^\beta\md f_{\gamma\left( t \right)}\dot \gamma(t)\md t=\sum_i\int^\beta_\alpha\partial_if\left( \gamma(t) \right)\dot\gamma_i(t)\md t\]
+  Wenn ein Skalarprodukt vorhanden ist
+  \[=\int^\beta_\alpha \left\langle \grad f\left( \gamma(t) \right), \gamma(t) \right\rangle \md t\]
+\end{Sat}
+\begin{Bew}
+  Sei $F=f\circ \gamma$
+  \begin{gather*}
+    f(b)-f(a)=F(\beta)-F(\alpha)=\int^\beta_\alpha\dot F(t)\md t
+  \end{gather*}
+  + Kettenregel
+\end{Bew}
+\begin{Kor}
+  Sei $f:\underbrace{U}_{\subset\mb{R}, \text{offen}}\to\mb{C}$ stetig differenzierbar. Sei $K_r(a)\subset U$, $a<U$, $r>0$. Dann gibt es $q_1,\cdots,q_n:K_r(a)\to\mb{C}$ stetige Funktionen, s.d.
+  \[\forall x\in K_r(0)\ f(x)-f(a)=\sum^n_{i=1}q_i(x)(x_i)(x_a-a_i)\]
+  und
+  \[q_i(a)=\partial_if(a),\ \forall i\]
+\end{Kor}
+\begin{Bew}
+  \begin{gather*}
+    \gamma(t)=a+t(x-a),\ t\in[0;1]\\
+    \dot\gamma(t)=x-a\ \forall t\\
+    f(x)-f(a)=\int^1_0\sum_i\partial_if\left( \gamma(t) \right)(x-a)\md t =\sum^n_{i=1}\left( \int\partial_if\left( \gamma(t) \right)\md t \right)(x_i-a)\\
+    q_i(x):=\int^1_0\partial_if\left( a+t(x-a) \right)\md t
+  \end{gather*}
+  $\partial_if$ stetig, $[0;1]$ kompakt $\implies$ $q_i$ stetig
+  \begin{gather*}
+    \partial_if(a)=\Limo{t}\frac{f(a+te_j-f(a)}{t}\\
+    x=a+te_j
+    x_i=\begin{cases}
+      a_i&i\neq j\\a_i+t&i=j
+    \end{cases}\\
+    x_i-a_i =\begin{cases}
+      0&i\neq j\\t&i=j
+    \end{cases}\\
+    f\left( a+te_j \right)-f(a)=\phi_j(a+te_j)t\\
+    \partial_jf(a)=\Limi{t}\phi_j(a+te_j)\stackrel{q\ \text{stetig}}{=}q_j
+  \end{gather*}
+\end{Bew}
+\section{Integrale von Differentialformen und Vektorfeldern (Kap 5.2)}
+\begin{Def}{1-Differentialform}
+  Sei $U\subset\mb{R}^{n*}$ offen. Eine (stetige) Abbildung $U\to\mb{R}^{n*}$ heisst (stetige) 1-Differentialform.
+\end{Def}
+\begin{Def}{Vektorfeld}
+  Sei $U\subset\mb{R}^{n*}$ offen. Eine (stetige) Abbildung $U\to\mb{R}^n$ heisst Vektorfeld
+\end{Def}
+\begin{Bsp}
+  $f$ stetig differenzierbar $U\to\mb{R}$
+  \begin{align*}
+    \md f:U\to\mb{R}^{n*}&&\text{stetige Differentialform}\\
+    \grad f:U\to\mb{R}^{n}&&\text{stetige Differentialform}
+  \end{align*}
+\end{Bsp}
+\begin{Not}
+  Sei
+  \begin{align*}
+    \omega:U&\to\mb{R}^{n*}\\
+    x&\mapsto(\omega_1(x),\cdots,\omega_n(x)
+  \end{align*}
+  Man schreibt
+  \[\omega = \sum^n_{n=1}\omega_i\md x_i\]
+  Idee: $\left\{ \md x_i \right\}$ bezeichnet die Basis von $\mb{R}^{n*}$ Dualbasis zu $\left\{ x_1,\cdots,x_n \right\}$
+  \[\md f=\sum_i\partial_if\md x_i\]
+  \begin{align*}
+    X:U&\to\mb{R}^n\\
+    x&\mapsto\Mx{x_1(x)\\\vdots\\x_n(x)}= \vec x(x)\\
+    \left[ x(x)=\sum^n_{i=1}x_i(x)\Part{}{x_i} \right]
+  \end{align*}
+\end{Not}
+\begin{Def}
+  Sei $\gamma:[a;b]\to U$ stetig differenzierbar. Sei $\omega$ eine stetige Differentialform auf $U$:
+  \[\int_\gamma\omega:=\int_a^b\sum_{i=1}^n\omega_i\left( \gamma(t) \right)\dot\gamma_i(t)\md t\]
+\end{Def}
+\begin{Bsp}
+  \[\int_\gamma\md f=\int_a^b\sum_i\partial_if\gamma_i\md t\]
+\end{Bsp}
+\begin{Not}
+  \[\md x_i=\Diff{x_i}{t}\md t=\dot\gamma_i\md t\]
+\end{Not}
+\begin{Def}
+  Sei $X$ eine stetiges Vektorfeld auf $U$
+  \[\int_\gamma \vec x\vec{\md x}=\int_\gamma\left\langle x,\md x \right\rangle :=\int\sum_{i=1}^nX_i(t)\dot\gamma_i(t)\md t\]
+\end{Def}
+\begin{Bsp}
+  \[\int_\gamma\left\langle \grad f,\md x \right\rangle \]
+  (``Werk'')
+\end{Bsp}
+\begin{Bem}{Integraldarstellung}
+  $f$ stetig differenzierbar
+  \[f(b)-f(a)=\int_\gamma\md f=\int_\gamma\left\langle \grad f,\md x \right\rangle\]
+\end{Bem}
+\begin{Bsp}
+  \begin{align*}
+    \omega:\mb{R}^2&\to\mb{R}^{2*}\\
+    \Mx{x\\y}&\mapsto\left( -y,x \right)
+  \end{align*}
+  \begin{gather*}
+    \omega=-y\md x+x\md y\\
+    \int_\gamma\omega=\int_a^b\left( x(t)\dot y(t)-y(t)\dot x(t) \right)\md t= F(\gamma)
+  \end{gather*}
+  Sektorfläche
+\end{Bsp}
+\begin{Lem}
+  Sei $\beta:I\to J$ eine $\mathcal{C}^1$-Parametermetrisierung. Dann
+  \begin{gather*}
+    \int_{\gamma\circ\beta}\omega = \pm I\int_\gamma\omega\\
+    \int_{\gamma\circ\beta}\left\langle x,\md x \right\rangle = \pm I\int_\gamma\left\langle x,\md x \right\rangle \\
+    +:\beta\ \text{orientierungstreu}\\
+    -:\beta\ \text{orientierungsumkehrend}
+  \end{gather*}
+\end{Lem}
+\begin{Def}{stückweise stetig differenzierbar}
+  Sei $\gamma_i:[a_i;b_i]\to U$ stetig differenzierbar mit $a_{i+1}=b_i$, $i=1,\cdots,r$ Sei $\gamma:[a_1,b_\gamma]\to U$ Vereinigung d.h.
+  \[\gamma(t)=\gamma_i(t)\ \text{falls}\ t\in\left[ a_i;b_i \right]\]
+  Dann heisst $\gamma$ stückweise stetig differenzierbar
+  \[\int_\gamma:=\sum_{j=1}^r \int_{\gamma_j}\]
+\end{Def}
+\begin{Bem}
+  $\gamma$ stetig differenzierbar
+  \[\gamma=\gamma_1\cup \gamma_2\]
+  \[\int_\gamma=\int_{\gamma_1}+\int_{\gamma_2}\]
+\end{Bem}
+\section{Höhere Ableitungen}
+\begin{Def}
+  Sei $f:U\to\mb{C}$ differenzierbar in der Richtung $e_i$
+  \[\partial_if:U\to\mb{C}\]
+  Ist $\partial_if$ in der Richtung $e_j$ differenzierbar, so schreib wir
+  \[\partial_j\partial_if:=\partial_j(\partial_if)\]
+  \[\partial_j\partial_if(x)=\Limo{t}\frac{\partial_if(x+te_j)-\partial_if(x)}{t}=\Limo{r}\Limo{s}\frac{f(x+te_j+se_i)-f(x+te_j)-f(x+se_i)+f(x)}{ts}\]
+  Im Allgemeinen
+  \[\partial_j\partial_if\neq \partial_i\partial_jf\]
+\end{Def}
+\begin{Bsp}
+  \begin{gather*}
+    f(x,y):=\begin{cases}
+      \frac{x^3y}{x^2+y^2}&\left( x,y \right)\neq (0,0)\\
+      0&(x,y)=0
+    \end{cases}\\
+    \partial_x\partial_yf(0,0)=0\\
+    \partial_y\partial_xf(0,0)=1\\
+  \end{gather*}
+\end{Bsp}
+\subsection{Berechnen}
+\begin{Bsp}
+  \begin{gather*}
+    f(x,y)=\sin(x^2y)\\
+    \partial_xf=2xy\cos(x^2y)\\
+    \partial_yf=x^2\cos x^2y\\
+    \partial^2_xf:=\partial_x\partial_xf=2y\cos(x^2y)-4x^2y^2\sin(x^2y)\\
+    \partial_y\partial_xf=\partial_y\left( 2xy\cos(x^2) \right)=2x\cos x^2y-2x^3y\sin(x^2y)\\
+    \partial_x\partial_yf=\partial_x\left( x^2\cos x^2y \right)=2x\cos x^2y-2x^3y\sin x^2y
+  \end{gather*}
+  In diesem Beispiel
+  \[\partial_x\partial_yf=\partial_y\partial_xf\]
+\end{Bsp}
+\subsection{Satz von Schwarz}
+\begin{Sat}
+  Sei $f:\underbrace{U}_{\ni a}\to\mb{C}$
+  \begin{enumerate}
+    \item Es gibt eine Umgebung von $a$, wo $\partial_if,\partial_if$ und $\partial_j\partial_if$ existieren.
+    \item $\partial_i\partial_jf$ ist stetig im Punkt $a$. Dann existiert $\partial_i\partial_jf(a)$ und
+      \[\partial_i\partial_jf(a)=\partial_j\partial_if(a)\]
+  \end{enumerate}
+\end{Sat}
+\begin{Lem}
+  Sei $Q:=(a;a+b)\times (b;b+b+k)$, $n,k>0$ ein Rechteck. Sei $\phi:Q\to\mb{R}$
+  \[D_Q\phi:=\phi(a+h,b+k)-\phi(a,b+k)-\phi(a+b,b)-\phi(a,b)\]
+  Besitzt $\phi$ auf $Q$ die Ableitungen $\partial_1\phi$ und $\partial_2\partial_1\phi$. Dann
+  \[\exists(\xi,\eta)\in Q\ \text{s.d.}\ D_Q\phi=hk\partial_2\partial_1\phi(\xi,\eta)\]
+\end{Lem}
+\begin{Bew}
+  Interierter Mittelwertsatz
+\end{Bew}
