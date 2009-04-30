@@ -1,0 +1,145 @@
+\subsubsection{Spezialfälle}
+\begin{Bem}{Spezialfall 1}
+  $V,V',W,W'$ endlichdimensional mit gegebenen Basen $\dim V=m$ Basis $v_1,\cdots,v_m$, $\dim W=n$ Basis $w_1,\cdots,w_m$, $\dim V'=m'$ Basis $v'_1,\cdots,v'_m$, $\dim W'=n'$  Basis $w'_1,\cdots,w'_m$ dargestellt durch $\phi$ dargestellt als $A\in M(m'\times m, \mb{K})$, $\psi$ durch $B\in M(n'\times n),\mb{K}$. Wie wir schon gesehen haben, hat $V\otimes W$ die Basis 
+  \[\Mx{v_1\otimes w_1&\cdots&v_1\otimes w_n\\\cdots&\cdots&\cdots\\v_m\otimes w_1&\cdots&v_m\otimes w_n}\]
+  und $V'\otimes W'$ hat die Basis
+  \[\Mx{v'_1\otimes w'_1&\cdots&v'_1\otimes w'_n\\\cdots&\cdots&\cdots\\v'_m\otimes w'_1&\cdots&v'_m\otimes w'_n}\]
+  Wir betrachten die darstellende Matrix von $\phi\otimes\psi$, Basiselement $v_i\otimes w_j$ von $V\otimes W$ geht auf was?
+  \[\dcp{40}{
+  \obj(0,0)[vow]{$v_i\otimes w_j$}
+  \obj(0,2)[vw]{$\left( v_i,w_j \right)$}
+  \obj(2,2)[phipsi]{$\left( \phi(v_i),\psi(w_j) \right)$}
+  \obj(6,2)[bas]{$\left( a_{1i}v_i'+\cdots+a_{m'i}v_{m'}', b_{1j}w_j'+\cdots+b_{n'j}w_{n'}' \right)$}
+  \obj(6,1)[otimes]{$\left( a_{1i}v_i'+\cdots+a_{m'i}v_{m'}' \right)\otimes \left( b_{1j}w_1'+\cdots+b_{n'j}w_{n'}' \right) =$}
+  \mor{vw}{vow}{$\eta$}[1,6]
+  \mor{vw}{phipsi}{\ }[1,6]
+  \mor{phipsi}{otimes}{$\eta'$}[-1,6]
+  \mor{vow}{otimes}{$\phi\otimes\psi$}[1,6]
+  \mor{phipsi}{bas}{$=$}[1,2]
+  }\]
+
+  \begin{gather*}
+  =a_{1i}b_{1j}\left( v_1'\otimes w_1' \right)+a_{1i}b_{2j}\left( v_1'\otimes w_2' \right)+\cdots+a_{1i}b_{n'j}\left( v_1'\otimes w_{n'}' \right)+ \\
+  a_{2i}b_{1j}\left( v_2'\otimes w_1' \right)+\cdots+a_{2i}b_{n'j}\left( v_2'\otimes w_{n'}'\right)+\\
+  \cdots +a_{m'i}b_{1j}\left( v_{m'}\otimes w_1' \right)+\cdots +a_{m'i}b_{n'j}\left( v_{m'}'\otimes w_{n'}' \right)
+  \end{gather*}
+  $A\otimes B$ heisst die darstellende Matrix von $\phi\otimes\psi$ und sieht so aus:
+  \[\Mx{
+  a_{11}b_{11}&a_{11}b_{12}&\cdots&a_{11}b_{1n}&\cdots& a_{1m}b_{11}&\cdots&a_{1m}b_{1n} \\
+  a_{11}b_{21}&a_{11}b_{22}&\cdots&a_{11}b_{2n}&\cdots& a_{1m}b_{21}&\cdots&a_{1m}b_{2n}\\
+  \vdots&\vdots& &\vdots& &\vdots& &\vdots \\
+  a_{11}b_{n'1}&a_{11}b_{n'2}&\cdots&a_{11}b_{n'n}&\cdots&a_{1m}b_{n'1}&\cdots&a_{1n}b_{n'n} \\
+  \vdots&\vdots& &\vdots& &\vdots& &\vdots \\
+  a_{m'1}b_{11}&a_{m'1}b_{12}&\cdots&a_{m'1}b_{1n}&\cdots&a_{m'm}b_{11}&\cdots&a_{m'm}b_{1n} \\
+  \vdots&\vdots& &\vdots& &\vdots& &\vdots \\
+  a_{m'1}b_{n'1}&a_{m'1}b_{n'2}&\cdots&a_{m'1}b_{n'n}&\cdots&a_{m'm}b_{n'1}&\cdots&a_{m'm}b_{n'n} } \in M(m'n'\times mn,\mb{K}\]
+  Diese Matrix lässt sich in Blockmatrixen unterteilen:
+  \[\Mx{
+  a_{11}B&\cdots&a_{1m}B\\
+  a_{21}B&\cdots&a_{2m}B\\
+  \vdots& &\vdots\\
+  a_{m1}B&\cdots&a_{m'm}B
+  } = A\otimes B\]
+\end{Bem}
+\begin{Bsp}
+  \[\Mx{2&3\\1&-1}\otimes\Mx{1&2\\3&4}=\Mx{2&4&3&6\\6&8&9&12\\1&2&-1&-2\\3&4&-3&-4}\]
+\end{Bsp}
+\begin{Bem}{Spezialfall 2}
+  $V'=V$ und $\phi=1_V$. Dann folgt aus $\psi:W\to W'$
+  \[V\otimes_\mb{K}W\xrightarrow{1_v\otimes \psi}V\otimes_\mb{K}W'\]
+  $1_V\otimes \psi$ kann auch mit $V\otimes \psi$ bezeichnet werden.
+\end{Bem}
+\begin{Bsp}
+  $\mb{K}=\mb{R}$, $V=\mb{C}$ $\rsa$ Komplexifizierung einer linearen Abbildung
+  \[\psi:W\to W'\rsa\mb{C}\otimes\psi:\mb{C}\otimes_\mb{R}W\to \mb{C}\otimes_\mb{R}W'\]
+  wenn $\dim W, \dim W'<\infty$, darstellende Matrix $B=(b_{ij}), b_{ij}\in\mb{R}$, so bekommen wir $\mb{C}\otimes B$, mit derselben Grösse, denselben Einträgen, aber als komplexe Zahlen betrachtet. Ähnlich für eine beliebige Körpererweiterung $\mb{K}\to\mb{L}$
+  \[\psi:W\to W'\ \rsa\ \mb{L}\otimes \psi:\mb{L}W\to\mb{L}\otimes W'\]
+\end{Bsp}
+\begin{Bem}{Spezialfall 3}
+  $V'=W'=\mb{K}$, und so $\phi\in V^*$, $\psi\in W^*$
+  \[\rsa\ \phi\otimes \psi:V\otimes_\mb{K}W\to \underbrace{\mb{K}\otimes_\mb{K}\mb{K}}_{\text{Basis}\ \left( 1\otimes 1 \right)\mapsto 1}\approx \mb{K}\]
+  So können wir schreiben
+  \[\phi\otimes \psi:V\otimes_\mb{K}W\to\mb{K}\]
+  d.h.
+  \[\phi\otimes\psi\in\left( V\otimes_\mb{K}W \right)^*\]
+  Anscheinend hat $\phi\otimes \psi$ auch eine Bedeutung als Element von $V^*\otimes_\mb{K}W^*$ Es gibt einen Zusammenhang:
+  \[\dcp{50}{
+  \obj(0,0)[vow]{$V^*\otimes W^*$}
+  \obj(0,1)[vtw]{$V^*\times W^*$}
+  \obj(1,0)[vow*]{$\left( V\otimes W \right)^*$}
+  \mor{vtw}{vow}{\ }
+  \mor{vtw}{vow*}{$\left( \phi,\psi\ \right)\mapsto\phi\otimes\psi$}
+  }\]
+\end{Bem}
+\begin{Sat}
+  \begin{align*}
+    V^*\times W^*&\to\left( V\otimes W \right)^*\\
+    \left( \psi,\phi \right)&\mapsto\phi\otimes\psi    
+  \end{align*}
+  ist eine bilineare Abbildung.
+\end{Sat}
+\begin{Bew}
+  \[\dcp{40}{
+  \obj(0,1)[vtw]{$V\times W$}
+  \obj(0,0)[vow]{$V\otimes W$}
+  \obj(2,0)[k]{$\mb{K}$}
+  \obj(2,1)[kk]{$\mb{K}\times\mb{K}$}
+  \mor{vtw}{vow}{\ }
+  \mor{vtw}{kk}{$\left( \phi+\tilde\phi \right)\times\psi$}
+  \mor{kk}{k}{\ }
+  \mor{vow}{k}{$\left( \phi+\tilde\phi\otimes\psi \right)$}
+  }\]
+  \begin{itemize}
+    \item \[\left( \psi+\tilde\psi,\phi \right)\mapsto\left( \phi+\tilde\phi \right)\otimes \stackrel{?}{=} \phi\otimes\phi+\tilde\phi\otimes\psi\]
+      ok
+    \item \ldots
+  \end{itemize}
+\end{Bew}
+\begin{Prop}
+  Sei $\mb{K}$ ein Körper und $V,W$ endlichdimensionale Vektorräume über $\mb{K}$. Die oben beschriebene lineare Abbildung
+  \[V^*\otimes W^*\to\left( V\otimes W \right)^*\]
+  ist ein Isomorphismus
+\end{Prop}
+\begin{Bew}
+  Wir rechnen mit Basen. Seien $\left( v_1,\cdots,v_n \right)$ Basis in $V$ mit dualen Basen $\left( v_1^*,\cdots,v_m^* \right)$ in $V^*$. Seien $\left( w_1,\cdots,w_m \right)$ Basis in $W$ mit dualen Basen $\left( w_1^*,\cdots,w_n^* \right)$ in $W^*$. Dann ist $\left( v_i^*\otimes w_j^* \right)_{1\leq i\leq m, 1\leq j\leq n}$ eine Vasis von $V^*\otimes W^*$
+  \begin{gather*}
+    V\xrightarrow{v_i^*}\mb{K}\\
+    W\xrightarrow{w_j^*}\mb{K}
+  \end{gather*}
+  \begin{align*}
+    V\otimes W&\xrightarrow{v_i^*\otimes w_j^*}\mb{K}\\
+    v_i\otimes w_j\otimes&\mapsto\delta_{ik}\cdot\delta_{jl}
+  \end{align*}
+  Wir erkennen das als Basiselement von $\left( V\otimes W \right)^*$. Wir können auch $\Hom_\mb{K}\left( V,W \right)$ interpretieren als Tensorprodukt. $V,W$ Vektorräume über $\mb{K}$
+  \[\dcp{30}{
+  \obj(0,0)[vow]{$V^*\otimes W$}
+  \obj(0,2)[vtw]{$V^*\times W$}
+  \obj(0,3)[pw]{$\left( \phi,w \right)$}
+  \obj(3,3)[map]{$v\mapsto\psi(v)w$}
+  \obj(3,2)[hom]{$\Hom(V,W)$}
+  \mor{vtw}{vow}{}
+  \mor{pw}{map}{}[1,6]
+  \mor{vow}{hom}{}[1,1]
+  \mor{vtw}{hom}{}
+  }\]
+  Beh: Das ist eine bilineare Abbildung \ldots
+\end{Bew}
+\begin{Prop}
+  Sei $\mb{K}$ ein Körper, $V,W$ endlichdimensionale $\mb{K}$-Vektorräume. Dann ist die lineare Abbildung
+  \[V^*\otimes W\to\Hom(V,W)\]
+  ist ein Isomorphismus.
+\end{Prop}
+\begin{Bew}
+  Eine ähnliche Berechnung mit Basen.
+\end{Bew}
+\begin{Bsp}
+  $V=W=\mb{R}^3$
+  \[e_2^*\otimes e_3\mapsto \Mx{e_1\mapsto 0 \\ e_2\mapsto e_3\\e_3\mapsto 0}\]
+  oder durch eine Matrix
+  \[\Mx{0&0&0\\0&0&0\\0&1&0}\]
+  $\implies$
+  \begin{gather*}
+    \Mx{1&0&2\\0&-1&1\\1&2&0}\ \lra\ e_1^*\otimes e_1+2e_3^*\otimes e_1-e_2^*\otimes e_2+e_3^*\otimes e_2+e_1^*\otimes e_3+e_2^*\otimes e_3\\
+    =\left( e_1^*+2e_3^* \right)\otimes e_1+\left( -e_2^*+e_3^* \right)\otimes e_2+\left( e_1^*+2e_2^* \right)\otimes e_3
+  \end{gather*}<++>
+\end{Bsp}<++>
