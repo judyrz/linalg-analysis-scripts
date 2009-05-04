@@ -134,12 +134,51 @@
 \end{Bew}
 \begin{Bsp}
   $V=W=\mb{R}^3$
-  \[e_2^*\otimes e_3\mapsto \Mx{e_1\mapsto 0 \\ e_2\mapsto e_3\\e_3\mapsto 0}\]
+  A = \[e_2^*\otimes e_3\mapsto \Mx{e_1\mapsto 0 \\ e_2\mapsto e_3\\e_3\mapsto 0}\]
   oder durch eine Matrix
   \[\Mx{0&0&0\\0&0&0\\0&1&0}\]
   $\implies$
   \begin{gather*}
     \Mx{1&0&2\\0&-1&1\\1&2&0}\ \lra\ e_1^*\otimes e_1+2e_3^*\otimes e_1-e_2^*\otimes e_2+e_3^*\otimes e_2+e_1^*\otimes e_3+e_2^*\otimes e_3\\
-    =\left( e_1^*+2e_3^* \right)\otimes e_1+\left( -e_2^*+e_3^* \right)\otimes e_2+\left( e_1^*+2e_2^* \right)\otimes e_3
+    =\left( e_1^*+2e_3^* \right)\otimes e_1+\left( -e_2^*+e_3^* \right)\otimes e_2+\left( e_1^*+2e_2^* \right)\otimes e_3 \stackrel{?}{=} \left( \  \right)\otimes \left( \  \right)+\left( \  \right)\otimes \left( \ \right)
   \end{gather*}
+  Standardbasis $(e_1,e_2,e_3)$, Basiswechsel von $V$ und $W$
+  \begin{gather*}
+    \Mx{1&0&2\\0&-1&1\\1&2&0} = \Mx{1&0&0\\0&-1&0\\1&2&1}\Mx{1&0&0\\0&1&0\\0&0&0}\Mx{1&0&2\\0&1&-1\\0&0&1}
+  \end{gather*}
+  oder
+  \begin{gather*}
+    \Mx{1&0&2\\0&-1&1\\1&2&0}\Mx{1&0&-2\\0&1&1\\0&0&1}=\Mx{1&0&0\\0&-1&0\\1&2&1}\Mx{1&0&0\\0&1&0\\0&0&0}
+  \end{gather*}
+  Neue Basen von $V$
+  \begin{align*}
+    f_1&=\left( 1,0,0 \right)\\
+    f_2&=\left( 0,1,0 \right)\\
+    f_3&=\left( -2,1,1 \right)
+  \end{align*}
+  Neue Basen von $W$
+  \begin{align*}
+    f_1&=\left( 1,0,1 \right)\\
+    f_2&=\left( 0,-1,2 \right)\\
+    f_3&=\left( 0,0,1 \right)
+  \end{align*}
+  so:
+  \begin{align*}
+    f_1&\mapsto g_1\\
+    f_2&\mapsto g_2\\
+    f_3&\mapsto 0
+  \end{align*}
+  Das bedeutet, wir können $\phi$ als
+  \[f_1^*\otimes g_1+f_2^*\otimes g_2\]
+  schreiben.\\
+  Zu finden: $f_i^*$ bezüglich $\left( e_1^*,e_2^*,e_3^* \right)$. Zeilen aus der Transformationsmatrix:
+  \begin{align*}
+    f_1^*&=e_1^*+2e_3^*\\
+    f_2^*&=e_2^*-e_3^*\\
+    f_3^*&=e_3^*
+  \end{align*}
+  So haben wir
+  \[\phi\ \lra\ \left( e_1^*+2e_3^* \right)\otimes \left( e_1+e_3 \right)+\left( e_2^*-e_3^* \right)\otimes \left( -e_2+2e_3 \right)\]
+  checken
+  \[e_1^*\otimes e_1+2e_3^*\otimes e_1+e_1^*\otimes e_3+2e_3^*\otimes e_3 -e_2^*\otimes e_2+e_3^*\otimes e_2+2e_2^*\otimes e_3-2e_3^*\otimes e_3\]
 \end{Bsp}

@@ -1,0 +1,169 @@
+\begin{Bem}
+  \[V^*\otimes_\mb{K}W\xrightarrow{\sim}\Hom_\mb{K}(V,W)\]
+  lineare Abbildungen als Tensoren
+  \[V^*\otimes_\mb{K} V^*\xrightarrow{\sim}\left( V \otimes_\mb{K}V \right)^*\]
+  Bilinearformen als Tensoren
+\end{Bem}
+\subsection{(Bi-)lineare Abbildungen als Tensoren}
+Wir wollen Begriffe wie symmetrisch, alternierend in die Sprache von Tensoren übersetzen.
+\begin{align*}
+  V\times V\xrightarrow{s}\mb{K}&&s(v,w)=s(w,v)\ \text{symmetrisch}
+\end{align*}
+oder
+\begin{align*}
+  V\times V\xrightarrow{s}W&&s(v,w)=s(w,v)\ \text{symmetrisch}
+\end{align*}
+\begin{align*}
+  V\times V\xrightarrow{s}\mb{K}&&s(v,v)=0\ \text{alternierend}
+\end{align*}
+\begin{Def}{äusseres Produkt}
+  Das äussere Produkt von einem $\mb{K}$-Vektorraum $V$ mit sich selbst ist ein Vektorraum $V\wedge V$ oder $\wedge^2 V$ mit alternierenden bilinearen Abbildung $V\times V\to V\wedge V$, die die folgende universelle Eigenschaft erfüllt:
+  Für jeden $\mb{K}$-Vektorraum $W$ mit der alternierenden bilinearen Abbildung
+  \[\xi:V\times V\to W\]
+  gibt es eine eindeutige lineare Abbildung
+  \[V\wedge V\xrightarrow{\xi'} W\]
+  so dass das Diagramm kommutiert
+  \[\dcp{50}{
+  \obj(0,1)[VtV]{$V\times V$}
+  \obj(0,0)[VwV]{$V\wedge V$}
+  \obj(1,0)[W]{$W$}
+  \mor{VtV}{VwV}{$\eta$}
+  \mor{VtV}{W}{$\xi$}
+  \mor{VwV}{W}{$\xi'$}[1,1]
+  }\]
+\end{Def}
+\begin{Bem}{äusseres Produkt}
+  \[\text{universelle Eigenschaft}\implies\text{Eindeutigkeit bis auf Isomorphismus}\]
+  Existenz: 2 Möglichkeiten
+  \begin{itemize}
+    \item \[V\wedge V=V\otimes V/\Span\left( v\otimes v:v\in V \right)\]
+    \item durch Basis
+  \end{itemize}
+\end{Bem}
+\begin{Bew}
+  Sei $(v_i)_{i\in I}$ eine Basis von $V$, wo $I$ eine Totalordnung gegeben ist. Bsp:
+  \begin{itemize}
+    \item $(v_1,\cdots,v_n)$ mit $\leq$
+    \item $(v_1,v_2,\cdots)$ mit $\leq$
+    \item allg. Existenz ( Lemma von Zorn )
+  \end{itemize}
+  Dann können wir $V\wedge V$ konstruieren, mit Basis $\left( v_i\wedge v_j \right)_{\left( i,j \right)\in I\times I}$, $i<j$
+  \begin{align*}
+    V\times V&\xrightarrow{\eta} V\wedge V\\    
+    \left( v_i,v_j \right)&\mapsto\begin{cases}
+      v_i\wedge v_j&i<j\\
+      0&i=j\\
+      -v_j\wedge v_i&i>j
+    \end{cases}
+  \end{align*}
+  eindeutige Erweiterung zu einer bilinearen Abbildung
+  \[\left( \sum_{i\in I}a_iv_i,\sum_{j\in I}b_jv_j \right)\mapsto \sum_{i<j}a_ib_jv_i\wedge \wedge v_j-\sum_{i>j}a_ib_jv_j\wedge v_i\]
+\end{Bew}
+\begin{Bem}
+  Dies ist eine alternierende bilineare Abbildung und erfüllt die universelle Eigenschaft.
+  \[\dcp{50}{
+    \obj(1,1)[VtV]{$V\times V$}
+    \obj(1,0)[VwV]{$V\wedge V$}
+    \obj(2,0)[W]{$W$}
+    \obj(0,1){$\left( v_i,v_j \right)$}
+    \obj(0,0){$ v_i\wedge v_j, i<j $}
+    \mor{VtV}{VwV}{}
+    \mor{VwV}{W}{}[1,1]
+    \mor{VtV}{W}{$\xi$}
+  }\]
+  $\xi'$ definiert durch
+  \[\xi'\left( v_i\wedge v_j \right)=\xi\left( v_i,v_j \right)\]
+  Aus der universellen Eigenschaft vom Tensorprodukt bekommt man eine linearee Abbildung
+  \[V\otimes V\twoheadleftarrow V\wedge V\]
+  \[\dcp{50}{
+    \obj(1,1)[VtV]{$V\times V$}
+    \obj(1,0)[VwV]{$V\wedge V$}
+    \obj(2,0)[W]{$W$}
+    \obj(0,1)[(v)]{$\left( v_i,v_j \right)$}
+    \obj(0,0)[ot]{$ v_i\wedge v_j, i<j $}
+    \mor{VtV}{VwV}{$\eta_1$}
+    \mor{VwV}{W}{}[1,1]
+    \mor{VtV}{W}{$\eta$}
+    \mor{(v)}{ot}{}[1,6]
+  }\]
+  Explizit:
+  \[v_i\otimes v_j\mapsto\begin{cases}
+    v_i\wedge v_j&i<j\\
+    0&i=j\\
+    -v_i\wedge v_j&i>j
+  \end{cases}\]
+\end{Bem}
+\begin{Bem}{Rechenregeln}
+  für $v,v',w,w'\in V$, $\lambda\in\mb{K}$ gilt
+  \begin{align*}
+    \left( v+v' \right)\wedge w&=v\wedge w+v'\wedge w\\
+    \left( \lambda v \right)\wedge w&=\lambda\left( v\wedge w \right)\\
+    v\wedge v&=0\\
+    w\wedge v&=-v\wedge w
+  \end{align*}
+  \begin{align*}
+    v\wedge \left( w+w' \right)&=v\wedge w+v\wedge w'\\
+    v\wedge\left( \lambda w \right)&=\lambda(v\wedge w)
+  \end{align*}
+  \begin{align*}
+    V\times V&\xrightarrow{\eta}V\wedge V\\
+    \left( v,w \right)&\mapsto v\wedge w
+  \end{align*}
+\end{Bem}
+\begin{Bsp}
+  $V=\mb{K}^n$ Standardbasis $\left( e_1,\cdots,e_n \right)$ von $V$ $\rsa$ Basis $\left( e_i\wedge e_j \right)_{1\leq i<j\leq n}$ von $V\wedge V$.\\
+  $n=2$
+  \begin{align*}
+    V\wedge V&\cong \mb{K}\\
+    e_1\wedge e_2&\rsa 1
+  \end{align*}
+  $n=3$
+  \begin{align*}
+    V\wedge V&\cong \mb{K}^3\\
+    e_1\wedge e_2,e_1\wedge e_3,e_2\wedge e_3
+  \end{align*}
+  allg. $n$
+  \begin{align*}
+    \dim V\wedge V=\binom{n}{2} = \frac{n(n-1)}{2}
+  \end{align*}
+\end{Bsp}
+\begin{Bem}
+  universelle Eigenschaft für $W=\mb{K}$ ergibt
+  \[\dcp{50}{
+    \obj(0,1)[VtV]{$V\times V$}
+    \obj(0,0)[VwV]{$V\wedge V$}
+    \obj(1,0)[W]{$W$}
+    \mor{VtV}{VwV}{}
+    \mor{VwV}{W}{}[1,1]
+    \mor{VtV}{W}{}
+  }\]
+  \[\dcp{50}{
+    \obj(0,1)[alt]{$\left\{ \text{alternierende Bilinearformen auf $V$} \right\}$}
+    \obj(0,0)[VwV]{$\left( V\wedge V \right)^*$}
+    \obj(2,0)[VoV]{$\left( V\otimes V \right)^*$}
+    \obj(3,1)[bil]{$\left\{ \text{Bilinearformen auf $V$} \right\}$}
+    \mor{alt}{VwV}{}
+    \mor{VwV}{alt}{}
+    \mor{alt}{bil}{$\subset$}[1,2]
+    \mor{VwV}{VoV}{}[1,5]
+    \mor{bil}{VoV}{}
+    \mor{VoV}{bil}{}
+  }\]
+\end{Bem}
+\begin{Prop}
+  Sei $V$ ein endlichdimensionaler Vektorraum. Dann haben wir
+  $V^*\wedge V^*\cong\left( V\wedge V\right)^*\cong$ der Untervektorraum von $\left( V\otimes V \right)^*$ von $\phi:V\otimes V\to\mb{K}$ mit $\phi(v\otimes v)=0\forall v\in V$, wobei der erste Isomorphismus aus der universellen Eigenschaft so folgt:
+  \[\dcp{30}{
+  \obj(0,0)[VwV]{$V^*\wedge V^*$}
+  \obj(0,1)[VtV]{$V^*\times V^*$}
+  \obj(2,0)[VwV*]{$\left( V\wedge V \right)^*$}
+  \obj(2,1)[(p)]{$\left( \phi,\psi \right)$}
+  \obj(4,0)[(v)]{$\left( v\wedge w \right)$}
+  \obj(7,0)[det]{$\det\Mx{\phi(v)&\phi(w)\\\psi(v)&\psi(w)}$}
+  \mor{VtV}{VwV}{}
+  \mor{VtV}{VwV*}{}
+  \mor{VwV}{VwV*}{}[1,2]
+  \mor{(p)}{(v)}{}[1,6]
+  \mor{(v)}{det}{}[1,6]
+  }\]
+\end{Prop}<++>
