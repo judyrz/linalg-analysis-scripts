@@ -1,0 +1,226 @@
+\begin{Bew}
+  Fall 1:$f$ reellwertig\\
+  Sei 
+  \[\phi(x,y):=f(a+xe_i+ye_j)\]
+%  \begin{enumerate}
+%    \item $\implies$ $\exists$ Umgebung $V$ von $(0,0)\in\mb{R}^2$, wo folgende partielle Ableitungen existieren:
+%      \begin{align*}
+%        \partial_x\phi&=\partial_if\\
+%        \partial_y\phi&=\partial_jf\\
+%        \partial_x\partial_y&=\partial_j\partial_if
+%      \end{align*}
+%    \item $\implies$ $\partial_y\partial_x\phi$ ist stetig in $(0,0)$
+%  \end{enumerate}
+  Zu zeigen:
+  \[\underbrace{\partial_x\partial_y\phi(0)}_{=\partial_i\partial_jf(a)}=\underbrace{\partial_y\partial_x\phi(0)}_{=\partial_j\partial_if(a)}\]
+  $\forall \varepsilon >0$ $\exists$ Umgebung $V'$ von $(0,0)$ mit $V'\subset V$
+  \begin{align*}
+    \Abs{\partial_y\partial_x\phi(x,y)-\partial_y\partial_x\phi(0,0)}<\varepsilon &&\forall (x,y)\in V'
+  \end{align*}
+  Sei $Q:=\left( 0;h \right)\times\left( 0;k \right)$ wobei $h,k>0$ so dass $Q\subset V$
+  \begin{Lem}
+    $\exists\ (\xi,\eta)\in Q$
+    \[\frac{D_Q\phi}{hk}=\partial_y\partial_x\phi(\xi,\eta)\]
+    (Mittelwertsatz)
+  \end{Lem}
+  \begin{gather*}
+    Q\subset V'\implies\Abs{\frac{D_Q\phi}{hk}-\partial_i\partial_x\phi(0,0)}<\varepsilon
+  \end{gather*}
+  \begin{gather*}
+    \frac{D_Q\phi}{hk}:=\frac{\phi(h,k)-\phi(h,0)-\phi(0,k)+\phi(0,0)}{hk}=\frac{1}{h}\left( \frac{ \phi(h,k)+\phi(0,0)}{k}-\frac{\phi(h,0)-\phi(0,k)}{k}\right)\\
+    \Limo{k}\frac{D_Q\phi}{hk}=\frac{\partial_y\phi(h,0)-\partial_y\phi(0,0)}{h}\\
+    \Abs{\ }<\varepsilon\implies\Limo{k}\Abs{\ }=\Abs{\Limo{k}\ }\leq \varepsilon\\
+    \Abs{\frac{\partial_y\phi(h,0)-\partial_y\phi(0,0)}{h}-\partial_y\partial_x\phi(0,0)}\leq \varepsilon
+  \end{gather*}
+  d.h. $\forall\varepsilon>0$ $\exists \delta>0$ s.d. $\forall h:\Abs{h}<\partial$ gilt die Ungleichung. D.h.
+  \[\Limo{h}\frac{\partial_y\phi(h,0)-\partial_y\phi(0,0)}{h}=\partial_y\partial_x\phi(0,0)=\partial_x\partial_y\phi(0,0)\]
+  Fall2: $f$ komplexwertig\\
+  Re $f$, Im $f$ erfüllen die Voraussetzung von Fall 1.
+\end{Bew}
+\begin{Def}{$k$-mal stetig differenzierbar}
+  Sei $f:\underbrace{U}_{\subset\mb{R}}\to \mb{C}$  $f$ heisst $k$-mal stetig differenzierbar ($k\geq 1$) wenn \underline{alle} partiellen Ableitungen $k$-ter Ordnung
+  \[\left( \partial_{i_1}\partial_{i_2}\cdots\partial_{i_k}f,\forall \left( i_1,\cdots,i_k \right)\in\left\{ 1,\cdots,n \right\}^k \right)\]
+  auf $U$ existieren und stetig sind.
+\end{Def}
+\begin{Def}
+  \[\mathcal{C}^k(U)=\left\{ \text{$k$-mal stetig differenzierbare Funktionen auf $U$} \right\}\]
+\end{Def}
+\begin{Bem}
+  \begin{itemize}
+    \item $\mathcal{C}$ Vektorraum
+    \item $\mathcal{C}^{k+l}\in\mathcal{C}$ $\forall l\geq 0$
+  \end{itemize}
+\end{Bem}
+\begin{Def}
+  \[\mathcal{C}^\infty(U)=\cap_{k=1}^\infty\mathcal{C}^k(U)\]
+  beliebig of stetig differenzierbare Funktionen auf $U$ (auch ein Vektorraum)
+\end{Def}
+\begin{Not}
+  Genauere Bezeichnungen:
+  \begin{itemize}
+    \item $\mathcal{C}^k(U,\mb{R})$ reellwertig
+    \item $\mathcal{C}^k(U,\mb{C})$ komplexwertig
+  \end{itemize}
+\end{Not}
+\begin{Def}{Zweite Ableitung}
+  Sei $f\in\mathcal{C}^2(U)$, $U\subset\mb{R}^n$ Seien $u,v\in\mb{R}^n$, $a\in U$
+  \[\md^2f_a(u,v):=\partial_u\partial_vf(a)\]
+\end{Def}
+\begin{Bem}
+  \begin{align*}
+    \partial_vf(a)&=\sum^n_{i=1}\partial_if(a)v_i\\
+    \partial_u(\partial_vf(a))&=\sum^n_{i=1}\partial_u(\partial_vf(a))v_i\\
+    =\md^{(2)}f_a(u,v)&=\sum_{j=1}^n\sum^n_{i=1}\partial_j\partial_if(a)v_iu_j
+  \end{align*}
+  \[\md^{(2)}f_a:\mb{R}^n\times\mb{R}^n\to\mb{C}\]
+  ist bilinear.
+\end{Bem}
+\begin{Bem}
+  Schwarz:
+  \begin{align*}
+    f\in\mathcal{C}^2\implies\partial_i\partial_jf(a)=\partial_j\partial_if(a)&& \forall\\
+    \implies \md^{(2)}f_a\ \text{symmetrisch}
+  \end{align*}
+  \begin{align*}
+    \md^{(2)}f_a(u,v)=\md^{(2)}=\md^{(2)}f_a(v,u)&&\forall u,v
+  \end{align*}
+\end{Bem}
+\begin{Bem}
+  Die darstellende Matrix von $\md^{(2)}f_a$ ist
+  \[f''(a):=\left( \partial_i\partial_jf(a) \right)\]
+  2. Ableitung von $f$ im Punkt $a$. Andere Bezeichnung:
+  \[H_f(a):=f''(a)\]
+  Hesse-Matrix von $f$ im Punkt $a$.
+\end{Bem}
+\begin{Bem}
+  Sei $f\in\mathcal{C}^2(U)$, $a\in U$
+  \[H_f(a):=\left( \partial_i\partial_jf(a)j \right)\]
+  \begin{itemize}
+    \item $H_f(a)$ symmetrische Matrix
+    \item \[\md^{(2)}f(a)\left( u,v \right)=u^tH_f(a)v=\sum_{i,j=1}^nf_{ij}''(a)u_iv_j\]
+  \end{itemize}
+\end{Bem}
+\begin{Bem}
+  Die Spur der Hesse-Matrix von $f$:
+  \[\Delta f(a):=\Spur H_f(a)=\sum_{i=1}^n\partial^2_if(a)\]
+  \[\Delta:=\sum^n_{i=1}\partial^2_i\]
+  $\Delta$ Laplace-Operator
+\end{Bem}
+\begin{Lem}
+  Für jede Orthonormalbasis $\left( v_1,\cdots,v_n \right)$ von $\mb{R}^n$ gilt
+  \[\Delta f=\sum^n_{i=1}\partial_{v_i}^2f\]
+\end{Lem}
+\begin{Def}{Differential $p$-ter Ordnung}
+  Sei $f\subset\mathcal{C}^p(U)$, $U\subset \mb{R}^n$. Sei $a\in U$. Seien $v^1,v^2,\cdots,v^p\in\mb{R}^n$
+  \[\md^{(p)}f_a(v^1,\cdots,b^p):=\partial_{v^1}\partial_{v^2}\cdots\partial_{v^p}f(a)\]
+  \[\md^{(p)}f_a(v^1,\cdots,b^p):=\sum^n_{i_1=1}\cdots\sum^n_{i_p=1}\partial_{i^1}\partial_{i^2}\cdots\partial_{i^p}f(a)v_{i_1}v_{i_2}^2\cdots v_{i_p}^p\]
+  $f\in \phi^p$ und Schwarz $\implies$
+  \[\partial_{i_1}\cdots\partial_{ip}f(a)=\partial_{i_{\sigma(1)}}\cdots\partial_{i_{\sigma(p)}}f(a)\ \forall \sigma:\left\{ 1,\cdots,p \right\}\to\left\{ 1,\cdots,p \right\}\]
+  \[\md^{(p)}f_a(v^1,\cdots,v^p)=\md^{(p)}f_a(v^{\sigma(1)},\cdots,v^{\sigma(p)})\]
+\end{Def}
+\subsection{Taylorapproximation}
+\begin{Bem}
+  Sei $f\in\mathcal{C}^{p+1}(U,\mb{R})$, $U\subset\mb{R}^n$. Seien $a,x\in U$ s.d.
+  \[[a;x]\subset U:=\left\{ a+t(x-a),t\in[0;1] \right\}\]
+  \begin{align*}
+    F:\left[ 0;1 \right]&\to\mb{R}\\
+    t&\mapsto f(a+th) && h:=x-a
+  \end{align*}
+  \begin{itemize}
+    \item 
+      $F$ $p+1$-mal stetig differenzierbar (Kettenregel)
+      \[F'(t)=\sum_{i=1}^n\partial_if(a+th)h_i=\md f_{a_{i_h}}\]
+      \begin{align*}
+        F''(t)=\sum_{i,j=1}^n\partial_j\partial_if(a+h)h_ih_j&&=\md^{(2)}f_a(h,h)\\
+        \cdots\\
+        F^{(k)}(t)=\sum^n_{i_1,\cdots,i_k=1}\partial_{i_1}\cdots\partial_{i_k}f(a+h)h_{i_1}\cdots h_{i_k} && =\md^{(k)}f_a(h,\cdots,h)
+      \end{align*}
+      Abkürzung: $V\in\mb{R}^n$
+      \[\md^{(k)}f(a)v^k:=\md^{(k)}f(a)(v,\cdots,v)\]
+      \begin{enumerate}
+        \item $F$ reellwertig und $p+1$ stetig differenzierbar
+        \item $F^{(k)}(t)=\md^{(k)}f(a+h)h^k$
+      \end{enumerate}
+      1) $\implies$
+      \begin{gather*}
+        F(1)=T_pF(1;0)+R_{p+1}\\
+        T_pF(1;0)=\sum^p_{k=0}\frac{1}{k!}F^{(k)}(0)1^k\\
+        R_{p+1}=\frac{1}{\left( p+1 \right)!}F^{(p+1)}(\tau), \tau\in [0;1]
+      \end{gather*}
+    \item 
+      \begin{gather*}
+        F(1)=f(a+h)=f(x)\\
+        T_pF(1;0)=\sum^p_{k=0}\frac{1}{k!}\md^{(k)}f_ah^k=:T_pf(x,y)
+      \end{gather*}
+      Taylorapproximation der Ordnung $p$ von $f$ im Punkt $a$
+    \item
+      $x=a+\tau h$
+      \[\exists\xi\in[a;x]:T_{p+1}=\frac{1}{(p+1)!}\md^{(p+1)}f(\xi)h^{p+1}=:R(x;a;\xi)\]
+      Rest
+  \end{itemize}
+\end{Bem}
+\begin{Def}{Taylorsatz mit Rest}
+  Sei $f\in\mathcal{C}^{p+1}(U,\mb{R})$. Seien $a,x\in U$ mit $[a;x]\subset U$. Dann $\exists\xi\in [a;x]:$
+  \[f(x)=T_pf(x;a)+R_{p+1}\left( x;a;\xi \right)\]
+  wobei
+  \[T_pf(x;a)=\sum^p_{k=0}\frac{1}{k!}\md^{(k)}f(a)(x-a)^k\]
+  \[R_{p+1}f(x;a;\xi)=\frac{1}{\left( p+1 \right)}!\md^{(p+1)}f(a)(x-a)^{\phi+1}\]
+\end{Def}
+\begin{Kor}{Qualitative Taylorformel}
+  Sei $f\in\mathcal{C}^p(U)$ (möglicherweise komplexwewrtig). Dann $\forall a\in U$
+  \[f(x)=T_pf(x,a)+0\left( \Norm{x-a}^p \right), x\to a\]
+  d.h.
+  \[\lim_{x\to a}\frac{f(x)-T_pf(x;a)}{\Norm{x-a}^p}=0\]
+\end{Kor}
+\begin{Def}{Taylorreihe von $f$ im Punkt $a$}
+  Sei $f\in\mathcal{C}^\infty(U)$, $a\in U$
+  \[Tf(x;a):=\sum^\infty_{k=0}\frac{1}{k!}\md^{(k)}f(a)(x-a)^k\]
+\end{Def}
+\begin{Def}{reell-analytisch}
+  Besitzt jeder Punkt von $U$ eine Umgebung, wo die Taylorreihe von $f$ gegen $f$ konvergiert, so heisst $f$ reell-analytisch.  
+\end{Def}
+\begin{Lem}
+  Sei $f\in\mathcal{C}^\infty(U)$, $a\in U$, $r>0$ $K_r(a)\subset U$ $\forall k$ sei $P_k$ homogenes Polynom von Grad $k$ s.d.
+  \begin{align*}
+    f(x)=\sum\infty_{k=0}P_k(x-a)&&\forall x\in K_r(a)
+  \end{align*}
+  dann ist
+  \[Tf(x;a)=\sum P_k(x-a)\]
+\end{Lem}
+\subsubsection{Geometrische Auffassung}
+\begin{Def}{Tangentialhyperebene}
+  Sei $f:\underbrace{U}_{\subset\mb{R}}\to \mb{C}$ und $f\in\mathcal{C}^1$. Der Graph des Taylorpolynomes 1. Ordnung
+  \[\left\{ (x,z)\in\mb{R}^{n+1}:z=T_1f(x,a):=f(a)+\md f_a(x) \right\}\]
+  heisst Tangentialhyperebene von $f$ im Punkt $a$.
+\end{Def}
+\begin{Def}{Schmiegquadrik}
+  Sei $f\in\mathcal{C}^2(U)$. Der Graph des Taylorpolynomes 2. Ordnung
+  \[\left\{ (x,z(\in\mb{R}^{n+1}:z=T_2f(x;a) \right\}\]
+  heisst Schmiegquadrik an den Graphen von $f$ in $\left( a,f(a) \right)$
+  \[z=f(a)+f'(a)(x-a)+\frac{1}{2}(x-a)^tf''(a)(x-a)\]
+  \begin{gather*}
+    \tilde x:=x-a\\
+    \tilde z:=z-f(a)-f'(a)(x-a)\\
+    \tilde z=frac{1}{2}\tilde x^tf''(a)\tilde x
+  \end{gather*}
+  Graph eine quadratische Funktion =: Quadrik
+\end{Def}
+\begin{Bsp}
+  n=2
+  \begin{table}
+    \centering
+    \begin{tabular}{c|c|c}
+      Funktion&Name&(0,0)\\
+      \hline
+      $z=x^2+y^2$& elliptisches Paraboloid&Minimum\\
+      $z=-(x^2+y^2)$&&Maximum\\
+      \hline
+      $z=x^2-y^2$&hyperbolisches Paraboloid&Sattelpunkt\\
+      \hline
+      $z=x^2$&parabolischer Zylinder&Minimum
+      
+    \end{tabular}
+    \caption{<+Caption text+>}
+    \label{tab:<+label+>}
+  \end{table}<++>
+\end{Bsp}<++>
