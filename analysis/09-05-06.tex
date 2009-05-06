@@ -1,0 +1,226 @@
+\subsection{Minima und Maxima}
+\begin{Bem}
+  Sei $A$ $n\times n$ symmetrische Matrix. Sei 
+  \begin{align*}
+    Q(x):=\frac{1}{2} x^tAx,x\in\mb{R}^n
+  \end{align*}
+  \begin{table}[htb]
+    \centering
+    \begin{tabular}{l|c|c|c|l}
+      Name&Bedingung&Bezeichnung&Eigenwerte&(0,0)\\
+      \hline
+      positiv definit&$Q(x)>0$ $\forall x\neq 0$&$Q>0$& alle $>0$&isoliertes Minimum\\
+      negativ definit&$Q(x)<0$ $\forall x\neq 0$&$Q<0$& alle $<0$&isoliertes Maximum\\
+      positiv semidefinit&$Q(x)\geq0$ $\forall x$&$Q\geq0$& alle $\geq0$&Minimum\\
+      negativ semidefinit&$Q(x)\leq0$ $\forall x$&$Q\leq0$& alle $\leq0$&Maximum\\
+      indefinit&$\exists x:Q(x)>0$ $\exists <:Q(x)<0$& $Q\gtrless 0$&$\exists \lambda>0$ $\exists \mu<0$&kein Extremum
+    \end{tabular}
+  \end{table}
+  $Q$ definit, wenn $Q>0$ oder $Q<0$\\
+  $n=2$
+  \begin{align*}
+    Q>0 &\iff \det A>0\ \text{und}\ a>0\\
+    Q<0 &\iff \det A<0\ \text{und}\ a>0\\
+    Q\geq0 \text{oder}\ Q\leq 0&\iff \det A\geq0\\
+    Q\gtrless 0&\iff \det A<0\\
+  \end{align*}
+\end{Bem}
+\begin{Bew}
+  \begin{gather*}
+    A\sim\Mx{\lambda_1 0&\\0&\lambda_2}\\
+    \det A=\lambda_1\lambda_2\\
+    \Spur A:= a+c = \lambda_1\lambda_2\\
+    \det A=ac-b^2\\
+    \det A >0\implies ac > 0
+  \end{gather*}
+\end{Bew}
+\begin{Def}
+  Sei $f\in\mathcal{C}^2(U,\mb{R})$, sei $A=f''(a)$ und $Q(x)=\frac{1}{2}\md^{(2)}f(a)x^2$
+  \begin{table}[htb]
+    \centering
+    \begin{tabular}{l|l|c}
+      $f$ heisst& wenn $\md^2 f_a$\\
+      \hline
+      elliptisch&definit&$\md^2f>0$ oder $\md^2<0$\\
+      hyperbolisch&nicht indefinit&$\md^2f\gtrless 0$\\
+      flach&$\md^2f=0$
+    \end{tabular}
+  \end{table}
+\end{Def}
+\begin{Def}
+  Sei $f:\underbrace{U}_{\subset\mb{R}}\to \mb{R}$. $f$ hat in $a\in X$ ein
+  \begin{description}
+    \item[lokales Maximum] wenn es eine Umgebung $V$ von $a$ gibt, so dass $f(x)\leq f(a)$ $\forall x\in V$
+    \item[lokales Minimum] wenn es eine Umgebung $V$ von $a$ gibt, so dass $f(x)\geq f(a)$ $\forall x\in V$
+    \item[isoliertes lokales Maximum] wenn es eine Umgebung $V$ von $a$ gibt, so dass $f(x)<f(a)$ $\forall x\in V\setminus \left\{ a \right\}$
+    \item[isoliertes lokales Minimum] wenn es eine Umgebung $V$ von $a$ gibt, so dass $f(x)>f(a)$ $\forall x\in V\setminus\left\{ a \right\}$
+  \end{description}
+\end{Def}
+\begin{Sat}{Notwendiges Kriterium}
+  Sei $f:\underbrace{U}_{\subset\mb{R}}\to \mb{R}$. Ist $a\in U$ ein lokales Extremum von $f$ und ist $f$ partiell differenzierbar in $a$, so gilt
+  \[\partial_1f(a)=\partial_2f(a)=\cdots=\partial_nf(a)=0\]
+\end{Sat}
+\begin{Bem}
+  Ist $f$ differenzierbar in $a$, dann gilt $\md f_a=0$
+\end{Bem}
+\begin{Bew}
+  $k\in \left\{ 1,\cdots,n \right\}$. Sei $F(t)=f(a+te_k)$. $a$ lokales Extremum von $f$ $\implies$ $t=0$ lokales Extremum von $F$ $f$ partiell differenzierbar in $a$ $\implies$ $F$ differenzierbnar in 0 $\implies$ $F'(0)=0$\\
+  Kettenregel $F'(0)=\partial_kf(a)$
+\end{Bew}
+\begin{Def}{stationäre Stelle}
+  Sei $f$ differenzierbar in $a$ und es gelte $\md f_a=$. Dann heisst $f$ stationär in $a$ und $a$ heisst stationäre Stelle in $f$ oder kritischer Punkt.
+\end{Def}
+\begin{Sat}{hinreichendes Kriterium}
+  Sei $f\in\mathcal{C}^2(U,\mb{R})$, sei $\md f_a=0$ Dann
+  \begin{enumerate}
+    \item $\md^2f_a>0$ $\implies$ $f$ hat in $a$ ein isoliertes lokales Maximum
+    \item $\md^2f_a<0$ $\implies$ $f$ hat in $a$ ein isoliertes lokales Minimum
+    \item $\md^2f_a\gtrless0$ $\implies$ $f$ hat in $a$ kein Extremum
+  \end{enumerate}
+\end{Sat}
+\begin{Bsp}
+  $f(x,y)=x^4+y^4$ $(0,0)$ ist ein isoliertes lokales Minimum
+  \begin{gather*}
+    \md f_{(0,0)}=0\\
+    \md^2 f_{(0,0)}=0
+  \end{gather*}
+\end{Bsp}
+\begin{Bew}
+  \begin{gather*}
+    \md f_a=0\implies T_2f(x;a)=f(a)+\frac{1}{2}\md^2f(a)(x-a)^2\\
+    f(a+h)=f(a)+\frac{1}{2}\md^2f(a)h^2+R_2(h)\\
+    \frac{R_2(h)}{\Norm{h}^2}\to 0
+  \end{gather*}
+  \begin{enumerate}
+    \item $\md ^2f_a>0$ Sei
+      \begin{align*}
+        \phi:S^{n-1}&\to\mb{R}\\
+        h&\mapsto\md^2f(a)h^2
+      \end{align*}
+      $S^{n-1}$ kompakt $\implies$ $\phi$ nimmt ein Minimum $m$. $\phi>0\implies m>0$
+      \begin{align*}
+        \md^2f_a(h)^2=\md^2f_a\left( \Norm{h}\frac{h}{\Norm{h}} \right)^2=\Norm{h}^2\phi\left( \frac{h}{\Norm{h}} \right)\geq \Norm{h}^2m &&\forall h\in\mb{R}^h\setminus\left\{ 0 \right\}
+      \end{align*}
+      Sei $\delta>0$:
+      \begin{enumerate}
+        \item $K_\delta(a)\subset U$
+        \item $\Abs{R_2(h)}\leq \frac{1}{4}m\Norm{h}^2$ $\forall h:\Norm{h}<\delta$
+      \end{enumerate}
+      Für $h$: $\Norm{h}<\delta$
+      \begin{gather*}
+        f(a+h)=f(a)+\underbrace{\frac{1}{2}\md^2f_ah^2}_{\geq \frac{m}{2}\Norm{h}}+R_2(h)\geq f(a)+\frac{m}{4}\Norm{h}^2\\
+        \xRightarrow{m>0} f(a+h)> f(a)\ \forall h\in K_\delta(a)\setminus\left\{ 0 \right\}
+      \end{gather*}
+      $a$ ist ein isoliertes lokales Minimum
+    \item $\md^2f_a<0$ Sei $\phi:=-f$. $\md^2g>0$ $\implies$ $g$ heisst in $a$ ein isoliertes lokales Minimum $\implies$ $f$ ist in $a$ in isoliertes lokales Maximum
+    \item Sei $\md^2f_a \gtrless 0$. D.h. $\exists \md^2 f_av^2>0$ und $\exists \md^2 f_aw^2<0$ Sei $F_v(t):=f(a+tv)$ und $F_w(t):=f(a+tw)$
+      \begin{gather*}
+        \dot F_v(0)=\dot F_w(0)=0\\
+        F_v''(0)=\md^2f(a)v^2>0
+      \end{gather*}
+      $\implies$ $F_v$ nimmt in $t=0$ ein Minimum an
+      \begin{gather*}
+        F_w''(0)=\md^2f(a)w^2<0
+      \end{gather*}
+      $\implies$ $F_v$ nimmt in $t=0$ ein Maximum an. Deshalb nimmt $f$ in $a$ kein Extremum an.
+  \end{enumerate}
+\end{Bew}
+\begin{Sat}
+  Sei $f\in\mathcal{C}^2(U,\mb{R})$, $a\in U$.
+  \[a\ \text{lokales Maximum} \implies \md^2f\leq 0\]
+  \[a\ \text{lokales Minimum} \implies \md^2f\geq 0\]
+\end{Sat}
+\begin{Bem}{Methode}
+  Sei $f:U\to\mb{R}\left( \mathcal{C}^2 \right)$ und $U$ offen. Wir wollen alle Extrema finden
+  \begin{enumerate}
+    \item Man findet alle stationären Stellen d.h.
+      \[a\in U:\md f_a=0\]
+    \item Man studiert $\md^2f_a$ für $a$ stationär.
+    \item beten (z.B. Taylor weiterentwickeln)
+  \end{enumerate}
+  Ist $f$ auf $\bar U$ definiert, so muss man Extrema auf $\bar U$ finden
+  \begin{enumerate}
+    \item Man sucht nach Extrema auf $f|_{\partial U}$
+    \item Man verifiziert, ob solche Extrema eigentliche Extrema von $f$ auf $\bar U$ sind.
+  \end{enumerate}
+\end{Bem}
+\subsection{harmonische Funktionen}
+\begin{Def}{harmonische Funktionen}
+  Sei $f\in\mathcal{C}^2(U)$ $f$ heisst harmonisch, falls
+  \begin{align*}
+    \Delta f(x)=0&&\forall x\in U
+  \end{align*}
+\end{Def}
+\begin{Sat}{Schwaches Maximums-Prinzip für harmonische Funktionen} Sei $U\subset\mb{R}^n$ offen und beschränkt und sei $f:\bar U\to\mb{R}^n$ stetig s.d. $f|_U$ harmonisch ist. Dann nimmt $f$ ihr Maximum und ihr Minimum auf $\partial U$ an.
+\end{Sat}
+\begin{Bew}{Widerspruchsbeweis} Wir nehmen an:
+  \begin{itemize}
+    \item $f|_U$ harmonisch
+    \item $f$ nimmt ihr Maximum nicht auf $\partial U$ an.
+  \end{itemize}
+  Seien $M:=\max_{x \in U} f(x)<\infty$ und $\mu:=\max_{x\in \partial x} f(x)<\infty$ denn $f$ ist stetig und $U$ beschränkt. Aus der 2. Annahme folgt, dass $\mu <M$
+  \begin{gather*}
+    \lambda:=\max_{x\in \partial U}\left( x_1^2+x_2^2+\cdots+x_n^2 \right)<\infty
+  \end{gather*}
+  Sei $\varepsilon>0:\mu+\varepsilon\lambda<M$. Sei $f_\varepsilon(x):=f(x)+\varepsilon\left( x_1^2+\cdots+x_n^2 \right)$.
+  \begin{gather*}
+    M_\varepsilon:=\max_{x\in \bar U}f_\varepsilon(x),\mu_\varepsilon:=\max_{x\in \partial U}f_\varepsilon (x)\\
+    f_\varepsilon(x)>f(x)\ \forall x\\
+    M_\varepsilon\geq M\\
+    \mu_\varepsilon\leq \mu +\varepsilon\lambda<M\\
+    \implies \mu_\varepsilon<M_\varepsilon
+  \end{gather*}
+  $\implies$ $f_\varepsilon$ hat ein Maximum $M_\varepsilon$ an einem Punkt $a\in U$
+  \[\implies \md^2f_\varepsilon\leq 0\]
+  \begin{gather*}
+    \Delta f_\varepsilon(a)=\Spur f_\varepsilon''(a)\leq 0
+  \end{gather*}
+  Aber
+  \begin{gather*}
+    \Delta f_\varepsilon(a)=\underbrace{\Delta f(a)}_{=0}+\underbrace{\varepsilon\Delta \left( x_1^2+\cdots+x_n^2 \right)}_{2n\varepsilon>0}
+  \end{gather*}
+  $\implies$ $\Delta f_\varepsilon(a)$. Dies ist ein Widerspruch zu $\Delta f_\varepsilon(a)\leq 0$.
+\end{Bew}
+\subsection{Konvexität von Funktionen}
+\begin{Def}
+  Sei $F:U\to \mb{R}$, $U\subset\mb{R}^n$ $f$ heisst konvex, wenn $\forall a,b\in U$ $\forall t\in (0;1)$
+  \[f\left( \left( 1-t \right)a+tb \right)\leq \left( 1-t \right)f(a)+t f(b)\]
+  \begin{itemize}
+    \item konvex: $\leq$
+    \item konkav: $\geq$
+    \item streng konvex $<$
+    \item streng konkav $>$
+  \end{itemize}
+\end{Def}
+\begin{Sat}
+  Sei $f\in\mathcal{C}^2(U,\mb{R})$, $U$ konvex und offen
+  \begin{align*}
+    f\ \text{konvex}\iff \md^2f_a\geq 0&&\forall a\in U\\
+    \md^2f_a>0\implies f\ \text{streng konvex}&&\forall a\in U
+  \end{align*}
+\end{Sat}
+\begin{Bew}
+  \[F(t)=f\left( \left( 1-t \right)a+tb \right)\]
+  1-dimensional
+\end{Bew}
+\subsection{Parameterabhängige Integrale}
+\begin{Def}
+  Sei $U\subset\mb{R}^n$ und sei $f:U\times [a;b]\to\mb{C}$ s.d. $\forall x\in U:t\mapsto f(x,t)$ stetig auf $[a;b]$ $\implies$ Regelfunktion
+  \[F(x):=\int_a^bf(x,t)\md t\]
+  $f$ stetig $\implies$ $F$ stetig
+\end{Def}
+\subsubsection{Differentiationssatz}
+\begin{Sat}
+  Es gelte zusätzlich
+  \begin{itemize}
+    \item $\forall t\in [a;b]$ ist $f$ nach $x_i$ differenzierbar
+    \item $\partial_if:U\times [a;b]\to\mb{C}$ stetig
+  \end{itemize}
+  Dann ist $F$ nach $x_i$ differenzierbar und 
+  \[\partial_i F(x)=\int_a^b\partial_if(x,t)\md t\]
+  d.h.
+  \[\partial\int=\int\partial\]
+\end{Sat}
+\begin{Bem}
+  Mit den Lebesgne-Integralen gilt das unter viel schwächeren Bedingungen.
+\end{Bem}
