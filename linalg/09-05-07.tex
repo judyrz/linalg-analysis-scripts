@@ -1,0 +1,150 @@
+\begin{Bew}
+  Wir wählen eine Basis $\left( v_1,\cdots,v_n \right)$ von $V$ $\implies$ $v_1^*,\cdots,v_n^*$ von $V^*$ $\implies$ $v_i^*\wedge V_j^*$ von $\wedge^2V^*$ $\left( 1\leq i<j\leq n \right)$. $\implies$ Basis $v_i\wedge v_j$ von $\wedge^2V$ $\implies$ Duale Basis $\left( v_i\wedge v_j \right)^*$ von $\left( \wedge^2V \right)^*$\\
+  \begin{align*}
+    v_k\wedge v_k\mapsto \det\Mx{\delta_{ik}&\delta_{il}\\ \delta_{jk}&\delta_{jl}}=\delta_{ik}\delta_{jl}& & 1\leq k<l\leq n
+  \end{align*}
+  \begin{align*}
+    v_i^*\wedge v_j^*\mapsto \left( v_i\wedge v_j \right)^*
+  \end{align*}
+  Da Basiselemente auf Basiselemente 1 zu 1 abgebildet werden, haben wir einen Ismorphismus.
+\end{Bew}
+\begin{Bem}
+  Weitere Themen:
+  \begin{itemize}
+    \item $\wedge^* V$ $k\ geq 2$
+    \item $\wedge^*\phi$ für die lineare Abbildung $\phi:V\to W$
+    \item $\alpha\wedge \beta\in \wedge^{k-l}V$ fpr $\alpha\in\wedge^kV$, $\beta\in \wedge^lV$
+  \end{itemize}
+\end{Bem}
+\begin{Bem}
+  $\wedge^kV$ ist für $k\in\mb{N}_{>0}$ definiert, analog zu $\wedge^2V$. Eine Abbildung
+  \[\phi\overbrace{V\times\cdots\times V}^k\to W\]
+  heisst
+  \begin{description}
+    \item[multilinear] falls $\forall i, 1\leq i\leq k$ $v_1 \cdots v_k, v_i\in V$ und $\lambda\in \mb{K}$
+      \begin{gather*}
+        \phi\left( v_1,\cdots,v_{i-1},v_i+v_i',v_{i+1},\cdots,v_n \right)=\phi\left( v_1,\cdots,v_n \right)+\phi\left( v_1,\cdots,v_i',\cdots,v_n \right)\\
+        \phi\left( v_1,\cdots,v_{i-1},\lambda v_i,\cdots,v_n \right)=\lambda\phi\left( v_1,\cdots,v_n \right)
+      \end{gather*}
+    \item[alternierend] falls
+      \[\left( i\neq j, v_i=v_j \right)\implies \phi\left( v_1,\cdots,v_n \right)=0\]
+  \end{description}
+  Dann wird $\wedge^k V$ definiert als Vektorraum mit multilinearen Abbildung mit der universellen Eigenschaft.
+  \[\dcp{50}{
+  \obj(0,1)[ov]{$\overbrace{V\times\cdots\times V}^k$}
+  \obj(0,0)[we]{$\wedge^kV$}
+  \obj(1,0)[w]{$W$}
+  \mor{we}{w}{$\exists !$}[1,1]
+  \mor{ov}{w}{\text{multilinear und alternierend}}
+  \mor{ov}{we}{}
+  }\]
+  Konstruktion ist möglich aus Basis mit Totalordnung.  Ist $\left( v_i \right)_{i\in I}$ eine Basis, $\left( I,\leq \right)$ Totalordnung, dann ist $\left( v_1\wedge v_{i_2}\wedge\cdots\wedge v_{i_k} \right)_{i_1<i_2<\cdots<i_{i_k}}$ eine Basis von $\wedge^kV$. Spezialfälle: $\underbrace{\wedge^0V=K}_{\text{Konvention}}$ $\wedge^1V=V$ $\wedge^2V=V\wedge V$
+\end{Bem}
+\begin{Bem}
+  Ohne alternierend in der oberen Abbildung bekämen wir $\overbrace{V\times\cdots\times V}^k$: $\left( U\otimes V \right)\otimes W\cong U\otimes \left( V<otimes W \right)$ schreibt als $U\otimes V\otimes W$
+  
+\end{Bem}
+\begin{Bsp}
+  \begin{itemize}
+    \item $V=K^4$ $K^6\cong \wedge^2V$\\
+      $e_1\wedge e_2$, $e_1\wedge e_3$, $e_2\wedge e_3$, $e_1\wedge e_4$, $e_3\wedge e_4$
+    \item $K^4\cong\wedge^3 K$\\
+      $e\wedge e_2\wedge e_3$, $e_1\wedge e_2\wedge e_4$, $e_1\wedge e_3\wedge e_4$, $e_2\wedge e_3\wedge e_4$
+    \item $K^4\wedge^4V$\\
+      $e_1\wedge e_2\wedge e_3\wedge e_4$
+  \end{itemize}
+  Allg. $\dim V=n$ $\implies \wedge^kV=\binom{n}{k}$, insbesondere ist Null für $k>n$
+\end{Bsp}
+\begin{Bem}{Rechenregeln}
+  \begin{gather*}
+    v_1\wedge\cdots\wedge\left( v_i+v_i' \right)\wedge\cdots\wedge v_k=v_1\wedge\cdots\wedge v_k+v_1\wedge\cdots\wedge v_i'\wedge\cdots\wedge v_k\\
+    v_1\wedge\cdots\wedge\left( \lambda v_i \right)\wedge\cdots\wedge v_k=\lambda\left( v_1\wedge\cdot\wedge v_k \right)\\
+    v_1\wedge\cdots\wedge v_i\wedge v_{i+1}\wedge\cdots\wedge v_k=-v_1\wedge\cdots\wedge v_{i+1}\wedge v_i\wedge\cdots\wedge v_k\\
+    \left( \cdots\wedge v\wedge\cdots\wedge v\wedge\cdots \right)=0
+  \end{gather*}
+\end{Bem}
+\begin{Bem}
+  $\phi V\to W$
+  \[\dcp{50}{
+  \obj(0,1)[V]{$\overbrace{V\times\cdots\times V}^k$}
+  \obj(2,1)[W]{$\overbrace{W\times\cdots\times W}^k$}
+  \obj(0,0)[WV]{$\wedge^kV$}
+  \obj(2,0)[WW]{$\wedge^kW$}
+  \mor{V}{W}{$\phi\times\cdots\times\phi$}
+  \mor{V}{WV}{}
+  \mor{W}{WW}{}
+  \mor{WV}{WW}{$\wedge^k\phi$}[1,1]
+  }\]
+\end{Bem}
+\begin{Bsp}
+  $V=W=\mb{R}^2$
+  \begin{align*}
+    \phi:V&\to W\\
+    \left( x,y \right)&\mapsto\left( x+2y, 3x+4y \right)
+  \end{align*}
+  \begin{align*}
+    \rsa \wedge^2\phi:\wedge^2V&\to \wedge^2 W=\wedge^2\mb{R}^2\cong\mb{R}\\
+    e_1\wedge e_2&\mapsto \left( e_1+3e_2 \right)\wedge\left( 2e_1+4e_2 \right)
+  \end{align*}
+  \begin{gather*}
+    = e_1\wedge\left( 2e_1+4e_2 \right)+3 e_2\wedge\left( 2e_1+4 e_2 \right)\\
+    =2_e\wedge e_1+4e_1\wedge e_2+6 e_2\wedge e_1+12 e_2\wedge e_2\\
+    =4 e_1\wedge e_2-6 e_1\wedge e_2\\
+    =-2 e_1\wedge e_2\\
+    \det\Mx{1&2&3&4}=-2
+  \end{gather*}
+  Wir werden sehen: $\wedge^{\dim V}\rsa\det$
+\end{Bsp}
+\begin{Bem}
+  In grösserer Allgemeinheit:
+  \begin{align*}
+    \wedge^kV\times V&\to \wedge^{k+1}V\\
+    \left( v_1\wedge\cdots\wedge v_k,v_0 \right)&\mapsto v_1\wedge\cdots\wedge v_k\wedge v_0
+  \end{align*}
+  \[\dcp{50}{
+  \obj(0,1)[V]{$\overbrace{V\times\cdots\times V}^k$}
+  \obj(0,0)[Vt]{$\wedge^kV\times V$}
+  \obj(1,0)[WV]{$\wedge^{k+1}V$}
+  \mor{V}{WV}{}
+  \mor{V}{Vt}{}
+  \mor{Vt}{WV}{}[1,1]
+  }\]
+  für $w_1,\cdots,w_l\in V$
+  \[\dcp{30}{
+  \obj(0,3)[V]{$\wedge^kV\otimes\overbrace{V\times\cdots\times V}^l$}
+  \obj(0,1)[Vt]{$\wedge^kV\times\wedge^lV$}
+  \obj(4,1)[WV]{$\wedge^{k+l}V$}
+  \obj(0,0)[ab]{$\alpha,\beta$}
+  \obj(4,0)[awb]{$\alpha\wedge\beta$}
+  \mor{V}{WV}{}
+  \mor{V}{Vt}{}
+  \mor{Vt}{WV}{aus uE}[1,1]
+  \mor{ab}{awb}{}[1,6]
+  }\]
+  Eigenschaft:
+  \[\alpha\wedge\beta=(-1)^{kl} \beta\wedge\alpha\]
+  für $\alpha\in \wedge^kV$, $\beta\in\wedge^lV$
+  \[\left( v_1\wedge\cdots\wedge v_k \right)\wedge\left( w_1\wedge\cdots\wedge w_l \right)=v_1\wedge\cdots\wedge v_k\wedge w_1\cdots\wedge w_l\]
+\end{Bem}
+\begin{Prop}
+  Sei $V$ ein endlichdimensionaler Vektorraum über einen Körper $\mb{K}$ $d:=\dim V$, und $\phi V\to V$ ein Endomorphismus. Dann ist
+  \begin{align*}
+    \wedge^d\phi:\wedge^dV\to\wedge^dV
+  \end{align*}
+  gegeben durch Multiplikation durch $\det V$
+\end{Prop}
+\begin{Bew}
+  Wir nehmen eine Basis $\left( v_1,\cdots,v_d \right)$ von $V$.  Dann ist $\wedge^dV$ von Dimension 1, erzeugt von $v_1\wedge\cdots\wedge v_d$. Ist $A\in M\left( d\times d,\mb{K} \right)$ die darstellende Matrix, so haben wir $\det\phi=\det A$. Es folgt: Die Abbildung
+  \begin{align*}
+    \Endo(V)&\to \mb{K}\\
+    \phi&\mapsto\left( \text{das eindeutig bestimmte} \ \lambda\in\mb{K} \right)
+  \end{align*}
+  Wobei $\lambda$ bestimmt ist durch
+  \[\left( \wedge^d\phi \right)\left( v_1\wedge\cdots\wedge v_d \right)=\lambda v_1\wedge\cdots\wedge v_d = \phi\left( v_1 \right)\wedge\phi(v_2)\wedge\cdots\wedge\phi(v_d)\]
+  ist 
+  \begin{description}
+    \item[multilinear] in den Spalten der darstellenden Matrix
+    \item[alternierend]
+    \item bildet $1_V$ auf $1\in\mb{K}$ ab
+  \end{description}
+\end{Bew}
