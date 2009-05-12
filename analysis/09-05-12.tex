@@ -1,0 +1,193 @@
+\begin{Bew}
+  Für $n=1$. Sei $x_0\in U$. Wir wollen
+  \begin{gather*}
+    \Delta := \frac{F(x)-F(x_0)}{x-x_0}-\int^b_a\partial_xf(x_0,t)\md t
+  \end{gather*}
+  abschätzen.
+  \begin{gather*}
+    \Delta = \int^b_a\left(  \frac{f(x,t)-f(x_0,t)}{x-x_0}-\partial_xf(x_0,t) \right)\md t
+  \end{gather*}
+  aus dem Satz folgt, dass $f$ nach $x$ differenzierbar ist $\forall t$. Daraus folgt aus dem Mittelwertsatz, dass $\forall t:\exists \xi(t)$ zwischen $x$ und $x_0$ s.d.
+  \[\frac{(x,t)-f(x_0,t)}{x-x_0}=\partial_xf\left( \xi(t),t \right)\]
+  \begin{gather*}
+    \Delta = \int^b_a\left( \partial_xf\left( \xi(t),t \right)-\partial_xf(x_0,t) \right)\md t\\
+    \psi(x,t):=\partial_xf(x,t)-\partial_xf(x_0,t)\\
+    \Delta = \int_a^b\psi(\xi(t),t)\md t
+  \end{gather*}
+  Sei $\varepsilon>0$
+  \begin{gather*}
+    W:=\left\{ (x,t)\in U\times \left[ a;b \right]:\Abs{\psi(x,t)}<\frac{\varepsilon}{b-a} \right\}
+  \end{gather*}
+  Aus der zweiten Bedingung des Satzes folgt, dass $\psi$ stetig ist, $\implies$ $W$ offen
+  \begin{gather*}
+    \psi(x_0,t)=0\implies \left\{ x_0 \right\}\times \left[ a;b \right]\subset W\  \forall t\\
+    \xRightarrow{\text{Tubenlemma}} \exists I\subset_{\text{offen}} U\ \text{mit}\  x_0\in I\\
+    \text{s.d.}\ I\times \left[ a;b \right]\subset W\\
+    \forall x\in I:\Abs{\psi(x,t)}<\frac{\varepsilon}{b-a}\\
+    \Abs{\Delta}\leq\int^b_a\Abs{\psi\left( x(t),t \right)}\md t\leq (b-a)\frac{\varepsilon}{b-a}\\
+    \implies\lim_{x\to x_0}\Delta =0
+  \end{gather*}
+\end{Bew}
+\begin{Kor}{Vertauschbarkeitssatz für iterierte Integrale}
+  Sei $f:\left[ a;b \right]\times \left[ a;b \right]\to\mb{C}$ stetig. Dann
+  \[\int_c^d\left( \int_a^bf(x,t)\md t \right)\md x = \int_a^b\left( \int_c^df(x,t)\md x \right)\md t\]
+\end{Kor}
+\begin{Bew}
+  Sei
+  \[F(x):=\int^b_af(x,t)\md t\]
+  \[\Phi(\xi):=\int_C^\xi F(x)\md x=\int_C^\xi \left( \int_a^bf(x,t)\md t \right)\md x\]
+  Hauptsatz $\implies$
+  \[\Phi'_1(\xi)=F(\xi)=\int_a^bf(\xi,t)\]
+  Sei
+  \[\Phi_2(\xi):=\int_a^bG(\xi,t)\md t=\int^b_a\left( \int_C^\xi f(x,t)\md x \right)\md t\]
+\end{Bew}
+\begin{Bem}
+  $\forall \xi$ ist $G$ stetig bezüglich $t$\\
+  Hauptsatz $\partial_xG(\xi,t)=f(\xi,t)$ stetig $\xRightarrow{\text{Diffsatz}}$
+  \begin{align*}
+    \Phi_2'(\xi)=\int^b_a\partial_xG(\xi,t)\md t=\int_a^bf(\xi,t)\md t\\
+    \implies \Phi_2'(\xi)=\Phi_1'(\xi)&&\forall \xi\\
+    \Phi_2(C)=0=\Phi(C)\implies \Phi_1(\xi)=\Phi_2(\xi)&&\forall \xi
+  \end{align*}
+  Insbesondere $\xi=d$
+\end{Bem}
+\begin{Sat}
+  Sei $f:\left[ a_1;b_1 \right]\times \left[ a_2;b_2 \right]\times\cdots\times\left[ a_n;b_n \right]\to\mb{C}$ stetig. Dann
+  \[\int_{a_1}^{b_1}\left( \cdots\left( \int_{a_n}^{b_n}f\left( x_1,\cdots,x_n\md x_n \right)\right)\cdots  \right)\md x_1=\int^{b_{\sigma(1)}}_{a_{\sigma(1)}}\left( \cdots \right)\md x_{\sigma(1)}\]
+  $\forall$ Permutationen $\sigma$
+\end{Sat}
+\begin{Bew}
+  Durch Induktion
+\end{Bew}
+\begin{Def}{Mehrfachintegral}
+  Das ist das Mehrfachintegral einer stetigen Funktion auf einem kompakten Quader.
+  \[\int_Qf\left( x_1,\cdots,x_n \right)\md^n x\]
+\end{Def}
+\begin{Bem}
+  Man kann weitere Klassen von Funktionen auf weiteren Klassen von Bereichen integrieren: Analysis III
+\end{Bem}
+\begin{Sat}{Satz von Stokes auf einem Rechteck}
+  Sei $\omega$ eine stetig differenzierbare 1-Form auf $U\subset\mb{R}^2$. (d.h. $\omega(x_1,x_2)=w_1(x_1,x_2)\md x_1+\omega_2(x_1,x_2)\md x_2$, $\omega_1$, $\omega_2$ stetig differenzierbar auf $U$). Sei $Q:=\left[ a;b \right]\times \left[ c;d \right]\subset U$. Sei $\partial Q$ der Rand von $Q$ als parametrisierte Kurve mit Orientierung im Gegenurzeigersinn. z.B.
+  \begin{align*}
+    \gamma_1:\left[ a;b \right]&\to\mb{R}\\
+    t&\mapsto (t,c)
+  \end{align*}
+  Dann
+  \begin{gather*}
+    \int_{\partial Q}\omega\int_Q\left( \partial_1\omega_2-\partial_2\omega_1 \right)\md^2 x
+  \end{gather*}
+  \[\md \omega := \left( \partial_1\omega_2-\partial_2\omega_1 \right)\md^2 x\]
+  \[\int_{\partial Q}\omega = \int_Q\md \omega\]
+\end{Sat}
+\begin{Bew}
+  \begin{gather*}
+    \int_Q\partial_1\omega_2\md^2x=\int_c^d\left( \int_a^b \partial_1\omega_2\md x_1 \right)\md x_2\\
+    \int_a^b\partial_1\omega_2\left( x_1,x_2 \right)\md x_1=\omega_2\left( x_1\big|^b_a,x_2 \right) = \omega_2(b,x_2)-\omega_2(a,x_2)\\
+    \int_Q\partial_1\omega_2=\underbrace{\int_c^d\omega_2(b,x_2)\md x_2}_{=\int_{\gamma_2}\omega}-\underbrace{\int^d_c\omega_2(a,x_2)\md x_2}_{=\int_{\gamma_4}\omega}\\
+    =\int_{\gamma_2}\omega+\int_{\gamma_4}\omega
+  \end{gather*}
+  \begin{gather*}
+    \int_Q\partial_2\omega_1\md^2x=\int_a^b\left( \int_c^d \partial_2\omega_1\md x_2 \right)\md x_1\\
+    \int_a^b\left( \omega_1(x_1,d)-\omega_1(x_1,c) \right)\md x_1=+\int_{\gamma_3}\omega+\int_{\gamma_1}\omega\\
+    \implies\int_Q\md\omega=\int_{\gamma_1}\omega+\int_{\gamma_2}\omega+\int_{\gamma_3}\omega+\int_{\gamma_4}\omega=\int_{\partial Q}\omega
+  \end{gather*}
+\end{Bew}
+\begin{Bem}
+  Ist $\omega=\md f$ ($\omega_1=\partial_1f$, $\omega_2=\partial_2f$)
+  \[\int_{\partial Q}\omega=0\]
+  und $\md\omega = 0$
+  \[\md\omega = \left( \partial_1\omega_2-\partial_2\omega_1 \right)\md^2x=\left( \partial_1\partial_2f-\partial_2\partial_1f \right)\md^2 x \stackrel{\text{Schwarz}}{=}0\]
+  Umkehrung gilt im Allgemeinen nicht!
+\end{Bem}
+\begin{Bsp}
+  \begin{gather*}
+    \omega=\frac{x\md y-y\md x}{2}\\
+    \omega_1=\frac{-x_2}{2},\ \omega_2=\frac{x_1}{2}\\
+    \md\omega = \left( \frac{1}{2}+\frac{1}{2} \right)\md^2 x=\md^2x\\
+    \int_Q\md \omega=\left( b-a \right)\left( c-d \right)\\
+    \int_{\partial Q}\omega = \ \text{Sektorfläche}
+  \end{gather*}
+\end{Bsp}
+\begin{Sat}{Satz von Stokes} Sei $X$ ein stetig differenzierbares Vektorfeld auf $U\subset\mb{R}^2$. Sei $Q=\left[ a;b \right]\times\left[ c;d \right]\subset U$
+  \[\int_{\partial Q}X\md x=\int_Q\rot X\md^2x\]
+\end{Sat}
+\begin{Def}{Rotation von $X$}
+  \[\rot X:=\partial_1X_2-\partial_2X_1\]
+\end{Def}
+\begin{Bem}
+  \[X=\nabla f\implies \rot X=0\]
+  Im Allgemeinen gilt die Umkehrung nicht.
+\end{Bem}
+\begin{Bem}
+  Verallgemeinerungen:
+  \begin{itemize}
+    \item andere Integrationsbereiche
+    \item höhere Dimensionen
+  \end{itemize}
+  z.B. Gausscher Integralsatz in 3 Dimensionen (Differenzierbare Mannigfaltigkeiten)
+\end{Bem}
+\section{Differenzierbare Abbildungen}
+\begin{Def}{Differenzierbare Abbildungen}
+  Sei $\mb{K}=\mb{R}$ oder $\mb{C}$. Seien $X$ und $Y$ normierte Vektorräume über $\mb{K}$. Sei $U\subset X$ offen, $a\in U$. Eine Abbildung $f:U\to Y$ heisst differenzierbar im Punkt $a$, wenn es eine stetige lineare Abbildung $L:X\to Y$ gibt, s.d.
+  \[\Limo{h}\frac{f(a+h)-f(a)-Lh}{\Norm{h}_x}\]
+\end{Def}
+\begin{Bem}
+  $R(h):=f(a+h)-f(a)-Lh$ Rest:
+  \[\lim\frac{R(h)}{\Norm{h}_x}=0\]
+\end{Bem}
+\begin{Bem}
+  $L$ ist eindeutig bestimmt, wenn es existiert.
+\end{Bem}
+\begin{Bem}
+  Ist $X$ endlichdimensional, dann
+  \begin{itemize}
+    \item $L$ linear ist automatisch stetig
+    \item Die Wahl der Norm auf $X$ spielt keine Rolle.
+  \end{itemize}
+\end{Bem}
+\begin{Bem}
+  Von jetzt an $X$ und $Y$ endlichdimensional.
+\end{Bem}
+\begin{Bem}
+  Jeder $\mb{C}$-Vektorraum ist ein $\mb{R}$-Vektorraum. Jede $\mb{C}$-lineare Abbildung ist $\mb{R}$-linear. 
+  \[\mb{C}-\text{Differenzierbarkeit}\implies\mb{R}-\text{Differenzierbarkeit}\]
+  Die Umkehrung gilt im Allgemeinen nicht.
+\end{Bem}
+\begin{Bsp}
+  \begin{align*}
+    f:\mb{C}&\to\mb{C}\\
+    z&\mapsto \bar z
+  \end{align*}
+  Ist $\mb{R}$-differenzierbar aber nicht $\mb{C}$-differenzierbar.
+\end{Bsp}
+\begin{Bem}
+  $\mb{C}$-differenzierbare Abbildungen: Funktionentheorie
+\end{Bem}
+\begin{Not}{Differential und Linearisierung}
+  \[\md f_a=L\]
+  Differential von $f$ im Punkt $a$, Linearisierung von $f$ im Punkt $a$
+\end{Not}
+\begin{Not}{Funktionalmatrix}
+  $\dim X=n$, $\dim Y=n$
+  \begin{align*}
+    \md f_a\in \Hom_\mb{K}\left( x,y \right)&\cong M(m\times n,\mb{K})\\
+    \md f_a&\mapsto f'(a)
+  \end{align*}
+  Die darstellende Matrix ist die Funktionalmatrix oder Ableitung
+\end{Not}
+\begin{Bem}{Funktionaldeterminante}
+  Ist $m=n$, dann $\det d f_a$ Funktionaldeterminante
+\end{Bem}
+\begin{Bsp}
+  Sei $A\in M(m\times n, \mb{K})$, sei $b\in\mb{K}^n$
+  \begin{align*}
+    f:\mb{k}^n&\to\mb{K}^m\\
+    f(x)&=Ax+b
+  \end{align*}
+  ist auf ganz $\mb{K}^n$ differenzierbar.
+  \begin{gather*}
+    f(a+h)=A(a+h)-b=Ah+\overbrace{(Aa+b)}^{=f(a)}\\
+    f(a+h)-f(a)=AH,\ R(h)=0\\
+    f'(a)=A
+  \end{gather*}
+\end{Bsp}
