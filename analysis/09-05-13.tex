@@ -1,0 +1,310 @@
+\begin{Sat}
+  \begin{align*}
+    M(n\times n, \mb{K})&\to M(n\times n,\mb{K})\\
+    A&\mapsto A^2
+  \end{align*}
+  ist überall differenzierbar
+\end{Sat}
+\begin{Bew}
+  \begin{gather*}
+    f(A+h)-f(A)=(A+h)^2-A^2=A^2+hA+Ah+h^2-A^2\\
+    \md f_Ah=hA+Ah\\
+    R(h)=h^2
+  \end{gather*}
+  zu zeigen:
+  \[\Limo{h}\frac{h^2}{\Norm{h}}=0\]
+  für irgendeine Norm\\
+  Operatornorm:
+  \begin{gather*}
+    \Norm{R(h)}=\Norm{h^2}\leq\Norm{h}^2\\
+    \Norm{\frac{R(h)}{\Norm{h}}}\leq\Norm{h}\xrightarrow{h\to 0}0
+  \end{gather*}
+\end{Bew}
+\subsection{Operatornorm}
+\begin{Def}{Operatornorm}
+  Seinen $V,W$ normierte Vektorräume
+  \[L(V,W):=\left\{ \text{stetige lineare Abbildungen $V\to W$} \right\}\]
+  \[\left( \dim < \infty:L(V,W)=\Hom(V,W) \right)\]
+  Sei $A\in L(V,W)$.
+  \[\Norm{A}:=\sup\left\{ \Norm{Ax}_W \ \text{mit}\ x\in V\ \Norm{x}_V\leq 1 \right\}\]
+\end{Def}
+\begin{Bem}
+  $\Norm{\ }$ ist wohldefiniert.
+  \[A\ \text{stetig linear}\ \implies\exists C:\Norm{Ax}_W\leq C\Norm{x}_V\]
+\end{Bem}
+\begin{Lem}
+  $\Norm{\ }$ ist eine Norm auf $L(V,W)$.
+\end{Lem}
+\begin{Bem}
+  $x=\mb{K}^n$, $Y=\mb{K}^m$, $A\in M(m\times n, \mb{K})$
+  \[\Norm{A}=\max_i\sum_{j=1}^n\Abs{a_{ij}}\]
+\end{Bem}
+\begin{Sat}
+  $\forall x\in V$, $\forall A\in L(V,W)$
+  \[\Norm{Ax}_W\leq\Norm{A}\Norm{x}_V\]
+  $\forall A\in L(V,W)$, $B\in L(U,V)$
+  \[\Norm{AB}\leq \Norm{A}\Norm{B}\]
+\end{Sat}
+\begin{Not}
+  $Y_1$, $Y_2$ Vektorräume
+  \begin{align*}
+    Y_1\otimes Y_2=Y_1\times Y_2&&\text{als Menge}
+  \end{align*}
+  \begin{gather*}
+    \Mx{a\\b}+\Mx{c\\d}:=\Mx{a+c\\b+d}\\
+    \lambda\Mx{a\\b}:=\Mx{\lambda a\\ \lambda b}
+  \end{gather*}
+\end{Not}
+\begin{Lem}{Reduktionslemma}
+  Sei $U$ oft $\subset X$
+  \begin{align*}
+    f:U&\to Y_1\otimes Y_2\\
+    x&\mapsto \Mx{f_1(x)\\f_2(x)}
+  \end{align*}
+  \[\text{$f$ differenzierbar in $a\in U$}\iff\text{$f_1$ und $f_2$ differenzierbar in $a\in U$}\]
+  In diesem
+  \begin{gather*}
+    \underbrace{\md f(a)}_{\Hom\left( x,Y_1\otimes Y_2 \right)}=\underbrace{\Mx{\md f_1(a)\\\md f_2(a(}}_{\in \Hom\left( x,Y_1 \right)\otimes \Hom (x,Y_2)} =\md f_1(a)\otimes \md f_2(a)\\
+    \md f_1\in\Hom(x,Y_1)\\
+    \md f_2\in \Hom(x,Y_2)
+  \end{gather*}
+\end{Lem}
+\begin{Bew}
+  $\La$
+  \begin{gather*}
+    f_1(a+h)=f(a)+\md f_1(a)h+R_1(h)\\
+    f_2(a+h)=f(a)+\md f_2(a)h+R_2(h)\\
+    f(a+h)=\Mx{f_1(a+h)\\f_2(a+h)}=\underbrace{\Mx{f_1(a)\\f_2(a)}}_{=f(a)}+\underbrace{\Mx{\md f_1(a)h\\\md f_2(a)h}}_{\md f(a)h}+\underbrace{\Mx{R_1(h)\\R_2(h)}}_{=R (h)}\\
+    \frac{R_1(h)}{\Norm{h}_x}\to 0\\
+    \frac{R_2(h)}{\Norm{h}_x}\to 0\\
+    \frac{R(h)}{\Norm{h}_x}=\Mx{\frac{R_1(h)}{\Norm{h}_x}\\\frac{R_2(h)}{\Norm{h}_x}}\to 0
+  \end{gather*}
+\end{Bew}
+\begin{Kor}
+  Sei $U\subset X$
+  \begin{align*}
+    f:U&\to\mb{K}^m=\overbrace{\mb{K}\otimes\mb{K}\otimes\cdots\otimes\mb{K}}^{\text{$m$ Körper}}\\
+    x&\mapsto \Mx{f_1(x)\\\vdots\\f_n(x)}
+  \end{align*}
+  \[\text{$f$ diffbar in $a\in U$}\iff\text{$f_i$ diffbar in $a$ $\forall i$}\]
+  In diesem Falle
+  \[\md f(a)=\Mx{\md f_1(a)\\\vdots\\\md f_n(a)}\]
+  Vektor von Linearformen
+\end{Kor}
+\begin{Bem}
+  Ist $x=\mb{K}^n$
+  \[\md f_i(a)=\left( \partial_1f_i(a),\cdots,\partial_nf_i(a) \right)\]
+\end{Bem}
+\begin{Kor}
+  Sei $U\subset\mb{K}^n$
+  \[f:U\to\mb{K}^n\]
+  \[\text{$f$ diffbar in $a$}\iff\text{$f_i$ diffbar in $a$ $\forall i$}\]
+  und in diesem Falle
+  \begin{gather*}
+    f'(a)=\Mx{f_1'(a)\\\vdots\\f_n'(a)}=\Mx{\partial_1f_1(a)&\partial_2f_1(a)&\cdots&\partial_nf_1(a)\\\vdots&\vdots&&\vdots\\\partial_1f_n(a)&\partial_2f_n(a)&\cdots&\partial_{nf_n(a)}}\\
+  \end{gather*}
+  \[f'(a)_{ij}=\partial_jf_i(a)=\Part{f_i(a)}{x_j}\]
+  \begin{gather*}
+    \md f_ah=\sum_{i=1}^m\sum_{j=1}^n\Part{f_i}{x_j}(a)h_je_i
+  \end{gather*}
+  $e_i$  Standardbasis von $\mb{K}^m$
+\end{Kor}
+\begin{Kor}
+  Sei $U\subset\mb{R}^n$
+  \[f:U\to\mb{R}^n\]
+  $f$ ist in $a$ $\mb{R}$-differenzierbar, wenn alle partiellen Ableitungen $\partial_if_i$
+  \begin{enumerate}
+    \item in einer Umgebung von $a$ existieren
+    \item in $a$ stetig sind
+  \end{enumerate}
+\end{Kor}
+\begin{Def}{Richtungsableitung}
+  Sei $U\subset X$, $a\in U$, $a\in U$
+  \[f:U\to Y^n\]
+  \[\partial_nf(a):=\Limo{t}\frac{f(a+th)-f(a)}{t}\]
+  wenn der Grenzwert existiert
+\end{Def}
+\begin{Kor}
+  Ist $f$ diffbar in $a$
+  \[\partial_nf(a)=\md f_a h\]
+\end{Kor}
+\begin{Bem}{Spezialfall}
+  $X=\mb{K}^n$, $\left\{ e_1,\cdots,e_n \right\}$ Standardbasis
+  \[\partial_if(a):=\partial_{e_i}f(a)\in Y\]
+\end{Bem}
+\begin{Def}{stetig differenzierbar}
+  Sei $f:U\to Y$ diffbar auf ganz $U$\\
+  $f$ heisst stetig differenzierbar, wenn
+  \begin{align*}
+    \md f:U&\to L(x,y)\\
+    x&\mapsto \md f_x
+  \end{align*}
+  stetig ist.
+\end{Def}
+\begin{Bem}
+  \[\mathcal{C}^1(U,Y):= \left\{ f:U\to Y\ \text{stetig differenzierbar} \right\}\]
+  ist ein Vektorraum
+\end{Bem}
+\begin{Lem}
+  Sei $U\subset X$
+  \begin{align*}
+    f:U&\to\mb{K}^m\\
+    x&\mapsto \Mx{f_1(x)\\\vdots\\f_m(x)}
+  \end{align*}
+  \[\text{$f$ stetig diffbar}\iff\text{$f_i$ stetig diffbar $\forall i$}\]
+\end{Lem}
+\begin{Bew}
+  \[\md f=\Mx{\md f_1\\\vdots\\\md f_m}\]
+  \[\text{Stetigkeit}\iff\text{komponentenweise Stetigkeit}\]
+\end{Bew}
+\begin{Kor}
+  Sei $U\subset\mb{R}^n$
+  \[f:U\to\mb{R}^m\]
+  \[\text{$f$ stetig diffbar im reellen Sinne}\iff\text{$\partial_if_i$ stetig $\forall i$ $\forall j$}\]
+\end{Kor}
+\begin{Def}
+  Sei $U\in\mb{K}^n$
+  \[f:U\to\mb{K}^m\]
+  heisst $k$-mal stetig differenzierbar, wenn alle Komponentenfunktionen $f_1,\cdots,f_n$ $k$-mal stetig diffbar sind.
+  \[\mathcal{C}^k\left( U,\mb{K}^m \right):=\left\{ \text{$k$-mal stetig diffbare Abbildungen $U\to\mb{K}^m$} \right\}\]
+  \[\mathcal{C}^\infty\left( U,\mb{K}^m \right)=\cap_k\mathcal{C}^k\left( U,\mb{K}^m \right)\]
+  sind Vektorräume und
+  \[\mathcal{C}^{k+l}\stackrel{l\geq 0}{\subset}\mathcal{C}^k\]
+\end{Def}
+\begin{Bem}{Rechenregeln}
+  \begin{align*}
+    \md(f+g)&=\md f+\md g
+    \md(\lambda f)&=\lambda \md f &\lambda\in \mb{K}
+  \end{align*}
+\end{Bem}
+\begin{Bem}{Kettenregel}
+  Seien $U\subset Y$, $V\subset X$
+  \begin{align*}
+    f:U&\to Z\\
+    g:V\to U\subset Y
+  \end{align*}
+  Sei $g$ diffbar in $a\in V$ und $f$ diffbar in $b=g(a)\subset$. Dann $f\circ g$ diffbar in $a$ und
+  \begin{align*}
+    \md\left( f\circ g \right)_a=\md f_b\circ \md g_a&&\text{Abbildungskomposition}
+  \end{align*}
+  Funktionalmatrizen
+  \begin{align*}
+    \left( f\circ g \right)'(a)=f'(b)g'(a)&&\text{Matrixmultiplikation}
+  \end{align*}
+  \[\Part{\left( f\circ g \right)_i}{\partial x_j}=\sum_k\Part{f_i}{y_k}\Part{g_k}{x_j}\]
+\end{Bem}
+\begin{Lem}
+  Seien $Y_1,Y_2,Z$ endliche normierte Vektorräume. Sei
+  \[\beta:Y_1\times Y_2\to Z\]
+  bilinear. Dann ist $\beta$ stetig differenzierbar. und
+  \[\md \beta_{\left( a_1,a_2 \right)}\left( h_1,h_2 \right)=\beta\left( h_1,a_2 \right)+\beta\left( a_1,h_2 \right)\]
+\end{Lem}
+\begin{Bew}
+  \begin{gather*}
+    \beta\left( a_1+h_1, a_2+h_2\right)=\beta\left( a_1,a_2 \right)+\beta\left( h_1,a_2 \right)+\beta\left( a_1,h_2 \right)+\beta\left( h_1,h_2 \right)\\
+    R=\beta\left( h_1,h_2 \right)
+  \end{gather*}
+  zu zeigen
+  \[\Limo{\left( h_1,h_2 \right)}\frac{\beta\left( h_1,h_2 \right)}{\Norm{\left( h_1,h_2 \right)}}=0\]
+  Seien
+  \begin{align*}
+    f_1:U&\to Y_1\\
+    f_2:U&\to Y_2
+  \end{align*}
+  differenzierbar. Dann ist
+  \begin{align*}
+    \beta\circ f_1\times f_2:U&\to Z\\
+    x&\mapsto \beta\left( f_1(x),f_2(x) \right)
+  \end{align*}
+  differenzierbar.
+  \begin{gather*}
+    \md\left( \beta\circ f_1\times f_2 \right)_ah=\left( \md f_1(a)h,f_2(a) \right)+\left( f_1(a)\md f_2(a)h \right)
+  \end{gather*}
+\end{Bew}
+\begin{Bsp}
+  Sei $I\subset\mb{R}$
+  \[f,g:I\to\mb{R}^n\]
+  $\beta$ Skalarprodukt
+  \[\left( fg \right)'=f'g+fg'\]
+\end{Bsp}
+\begin{Bsp}
+  Sei
+  \[f,g:I\to\mb{R}^3\]
+  $\beta$ Vektorprodukt
+  \[\left( f\times g \right)'=f'\times g+f\times g'\]
+\end{Bsp}
+\begin{Bsp}
+  Sei
+  \begin{align*}
+    M(m\times n)\times M(n\times l)&\to M(m\times l)\\
+    \left( A,B \right)&\mapsto AB
+  \end{align*}
+  ist stetig differenzierbar
+  \begin{gather*}
+    \left( AB \right)_{ij}=\underbrace{\sum_ka_{ik}b_kl}_{\text{bilinear}}\\
+    \left( AB \right)_{ij}\implies\left( AB \right)_{ij}\ \text{stetig diffbar}\ \forall ij
+  \end{gather*}
+  \begin{gather*}
+    \md m_{A,B}(h,k)=hB+Ak\\
+    \left( A+h \right)\left( B+k \right)-AB
+  \end{gather*}
+\end{Bsp}
+\begin{Def}
+  Sei 
+  \begin{align*}
+    \det:m(n\times n,\mb{K})&\to\mb{K}\\
+    A&\mapsto \det A
+  \end{align*}
+  ist stetig differenzierbar ($\det$ ist eine Summe von Produkten von Einträgen)
+\end{Def}
+\begin{Kor}
+  \[GL_n:=\left\{ A\in m(n\times n),\det A\neq 0 \right\}\]
+  \begin{align*}
+    \phi:GL_n&\to GL_n\\
+    A&\mapsto A^{-1}
+  \end{align*}
+  ist stetig differenzierbar $\forall i$ und
+  \[\md \phi_A h=-A^{-1}hA^{-1}\] % rot hier
+  Verallgemeinerung: $f:I\to\mb{R}$
+  \[\left( \frac{1}{f} \right)'=-\frac{f'}{f^2}\]
+\end{Kor}
+\begin{Bew}
+  Cramersche Regel
+  \[\left( A^{-1} \right)_{ij}=\frac{\det\left( \cdots \right)}{\det A}\]
+  $\left( A^{-1} \right)_{ij}$ ist eine ratinale Funktoin der Einträge, deshalb stetig differenziarbar.
+  \begin{gather*}
+    m(A,B)=AB\\
+    \psi(A):=m\left( A,\phi(A) \right)=AA^{-1}=Id
+  \end{gather*}
+  $\psi$ konstant
+  \begin{align*}
+    \md \psi_Ah=0&&\forall A\in GL_n\ \forall h\in A+h\in GL_n
+  \end{align*}
+  Kettenregel
+  \begin{gather*}
+    =m\left( h,\phi(A) \right)+m\left( A,\md \phi_Ah \right)=hA^{-1}+A\md \phi_Ah\\
+    A\md \phi_Ah=-h^{-1}\\
+    \md \phi_Ah=-A^{-1}hA^{-1}
+  \end{gather*}
+\end{Bew}
+\begin{Bem}{Lie-Gruppe}
+  $GL_n$ ist eine Gruppe, die Multiplikation und die Inversion stetig differenzierbare Abbildungen sind. Das ist ein Beispiel einer Lie-Gruppe.
+\end{Bem}
+\subsection{Schrankensatz}
+\begin{Def}{Supremumsnorm}
+  Sei $K$ kompakter Raum. Sei $V$ normierter Raum. Sei $\phi:K\to V$ stetig.
+  \[\Norm{\phi}_K:=\sup_{x\in K}\Norm{\phi(x)}_V\]
+\end{Def}
+\begin{Lem}
+  $\Norm{\ }_K$ ist eine Norm auf $\mathcal{C}\left( K,V \right)$
+\end{Lem}
+\begin{Sat}{Schrankensatz}
+  Sei $f\in\mathcal{C}^1\left( U,Y \right)$. Sei $K\subset U$ kompakt. Dann ist $f|_K$ Lipschitz-stetig $\forall x,y\in K$
+  \[\Norm{f(x)-f(y)}_Y\leq \Norm{\md f}_K\Norm{x-y}_X\]
+  \[\md f|_K\in \mathcal{C}\left( K,\underbrace{L(x,y)}_{\text{Op-Norm}} \right)\]
+\end{Sat}
+\begin{Bem}
+  Falls $X=\mb{K}^n$, $Y=\mb{K}^m$ $A\in M(m\times x)$
+  \[\Norm{A}=\max_i\sum_j\Abs{a_{ij}}\]
+  \[\Norm{\md f}_K=\sup_{\xi\in K}\max_i\sum_j\Abs{\partial_jf_i(\xi)}\]
+\end{Bem}
