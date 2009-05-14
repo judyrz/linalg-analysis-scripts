@@ -1,0 +1,163 @@
+\subsection{Symmetrische Produkte}
+\begin{Def}{symmetrisch}
+  Eine nichtlineare Abbildung $\overbrace{V\times\cdots\times V}^n\xrightarrow{\phi} W$ ist symmetrisch falls
+  \begin{align*}
+    \phi\left( v_{\sigma(1)},\cdots,v_{\sigma(n)} \right)=\phi\left( v_1,\cdots,v_n \right)&&\forall \sigma\in S_n,\  v_1,\cdots,v_n\in V
+  \end{align*}
+  Dann wiederholt alles mit ``symmetrisch'' statt ``alternierend''.
+  \[\dcp{50}{
+  \obj(0,1)[VtV]{$V\times\cdots\times V$}
+  \obj(0,0)[sym]{$\Sym^nV$}
+  \obj(1,0)[W]{$W$}
+  \mor{VtV}{sym}{}
+  \mor{VtV}{W}{}
+  \mor{sym}{W}{}[1,1]
+  }\]
+\end{Def}
+\begin{Not}
+  $S^nV$ oder $\Sym^nV$ oder $V^nV$
+\end{Not}
+\begin{Bem}
+  Falls $\dim V=d$, was ist $\dim \Sym^nV$? Sei Basis $\left( v_1,\cdots,v_d \right)$.
+  \[\dim \Sym^nV\binom{b+d-1}{n}\]
+\end{Bem}
+\begin{Bsp}
+  Sei $V:=K^n$ mit Standardbasis $e_1,\cdots,e_n$. Dann hat $V^*$ die Duale Basis $x_1:=v_1^*,\cdots,x_n=e_n^*$ Koordinaten. Und
+  \[\Sym^dV^*\cong\left( \Sym^dV \right)^*\]
+  hat eine Basis bestehend aus Monomen vom Grad $d$.
+\end{Bsp}
+\begin{Bem}
+  Man kann ein homogenes Polynom in $x_1,\cdots,x_n$ als Element von $\Sym^d(K^n)^*$ betrachten
+\end{Bem}
+\begin{Bsp}
+  Für $\dim V<\infty$ und $\text{char} K = 0$ oder $>d$ haben wir:
+  \[\left\{ \text{symmetrische Bilinearformen auf $V$} \right\}\ \lra\ \Sym^2V^*\]
+  Für $V=K^n$
+  \[\text{Standardskalarprodukt}\ \lra\ e_1^*e_1^*+\cdots+e_n^*e_n^*=x_1^2+\cdots+x_n^2\]
+\end{Bsp}
+\begin{Bem}
+  In der multilinearen Algebra hat man Interpretationen von z.B. multinearen Abbildungen, ssymmetrischen / alternierenden Formen durch Vektorräume wie $V\otimes W$, $\Lambda^d$, $\Sym$, duale,\ldots Einfachster Fall: alle Vektorräume von Dimension $< \infty$
+\end{Bem}
+\begin{Bsp}
+  Endomorphismen
+  \[ \Endo (V)\ \lra\ V^*\otimes V\]
+  symmetrische Bilinearformen
+  \[V\times V \to W\ \lra\ \Sym^2V^*\otimes W\]
+  Bilinearformen
+  \[U\times V\to W\ \lra\ \text{linear}\ U\otimes V\to W\ \lra\ \text{linear} U\to V^*\otimes W\ \lra\ \text{Elemente}\ U^*\otimes V^*\otimes W\]
+\end{Bsp}
+\begin{Bsp}
+  Anwendungen
+  \[V\otimes V^*\to K\]
+  (oder $W\otimes V\otimes V^*\to W$ usw.) auch: ($\dim V=n$)
+  \[\Lambda^kV\otimes \Lambda^{n-k}V\to\Lambda^nV\underbrace{\cong}_{\text{Wahl}} K\rsa\Lambda^kV\underbrace{\xrightarrow{\sim}}_{\text{Wahl}}\left( \Lambda^{n-k}V \right)^*\cong\Lambda^{n-k}V^*\]
+\end{Bsp}
+\begin{Bsp}
+  \[\Endo (V)\lra V^*\otimes V\cong V\otimes V^*\to K\]
+  Matrix 
+  \[(a_{ij})\lra\sum a_{ij}v_j^*\otimes v_i\lra\sum a_{ij}v_i\otimes v_j^*\mapsto \sum a_{ii}=\tr A\]
+  \[\underbrace{\phi}_{\Endo(V)}\rsa\Lambda^n\phi\]
+  ist Multiplikation durch $\det\phi$
+\end{Bsp}
+\section{Ringe, Moduln}
+\subsection{Ringe}
+\begin{Def}{Ringe $(R,+,\cdot)$}
+  \begin{enumerate}
+    \item $(R,+)$ ist eine abelsche Gruppe.
+    \item das neutrale Element für $+$ ist 0
+    \item ist assoziativ und distributiv
+      \begin{align*}
+        \left( ab \right)c&=a\left( bc \right)\\
+        a\left( b+c \right)&=ab+ac\\
+        \left( a+b \right)c&=ac+bc
+      \end{align*}
+    \item $1\in R$ ist neutrales Element für $\cdot$
+  \end{enumerate}
+\end{Def}
+\begin{Bem}
+  Falls $1=0$ in $R$, dann ist $R$ der Nullring
+  \begin{align*}
+    c=1c=0c=0&&\forall c\in R
+  \end{align*}
+\end{Bem}
+\begin{Def}{kommutativ}
+  Ein Ring heisst kommutativ, falls die Multiplikation kommutativ ist.
+  \begin{align*}
+    ab=ba&&\forall a,b\in R
+  \end{align*}
+\end{Def}
+\begin{Bsp}
+  $\mb{Z}$, $\mb{R}[x]$ sind kommutative Ringe. $\Mat{R}$ ist nichtkommutativ für $n\geq 2$
+\end{Bsp}
+\begin{Bem}{Homomorphismen}
+  \begin{align*}
+    \phi:R&\to S\\
+    \phi(a+b)&=\phi(a)+\phi(b)\\
+    \phi(ab)&=\phi(a)\phi(b)\\
+    \phi(1)&=1
+  \end{align*}
+  nicht vergessen
+\end{Bem}
+\subsection{Moduln über kommutative Ringe}
+\begin{Def}
+  Sei $R$ ein kommutativer Ring. Ein Modul über $R$ ist eine abelsche Gruppe $(M,+)$ mit Aktion (``Skalarmultiplikation'')
+  \begin{align*}
+    R\times M&\to M\\
+    \left( a,v \right)&\mapsto av
+  \end{align*}
+  so dass $\forall a,b\in R$, $v,w\in M$
+  \begin{align*}
+    \left( a+b \right)v&=av+bv\\
+    a\left( v+w \right)&=av+aw\\
+    a\left( bv \right)=\left( ab \right)v\\
+    1v=v
+  \end{align*}
+\end{Def}
+\begin{Def}{Erzeugendes Element}
+  $\left( v_i \right)_{i\in I}$ erzeugen $M$ falls für jedes $x\in M$ existiert $\left( a_i \right)_{i\in I}$, $a_i\in R$ nur endlich viele $\neq 0$, so dass
+  \[\sum_{i\in I}a_iv_i=x\]
+\end{Def}
+\begin{Def}{unabhängig}
+  $\left( v_i \right)_{i\in I}$ ist unabhängig falls für $(a_i)_{i\in I}$, $a_i\in R$ nur endlich viele $\neq 0$
+  \begin{align*}
+    \sum_{i\in I}a_iv_i=0\implies a_i=0&&\forall i\in I
+  \end{align*}
+\end{Def}
+\begin{Def}{Basis}
+  $\left( v_i \right)_{i\in I}$ ist eine Basis von $M$ falls $\left( v_i \right)_{i\in I}$ unabhängig ist und $M$ erzeugt.
+\end{Def}
+\begin{Bem}
+  Obwohl jeder Vektorraum eine Basis besitzt (falls man das Lemam von Zorn annimmt oder nur endlich dimensionale Vektorräume betrachtet), ist das nicht mehr der Fall für Moduln.
+\end{Bem}
+\begin{Bsp}
+  $R=\mb{Z}$, $M=\mb{Q}$ Sei $(v_i)_{i\in I}$ erzeugend, ($I\neq\varnothing$) nehmen wir $i_0\in I$ und $x=\frac{1}{2}v_{i_0}$. Dann: $\exists (a_i):a_i\in \mb{Z}$ nur endlich viele $\neq 0$ mit
+  \[\sum a_iv_i=x\implies \sum 2a_iv_i=v_{i_0}\implies \text{$(v_i)$ ist nicht unabhängig}\]
+\end{Bsp}
+\begin{Bsp}
+  $M=\mb{Z}/n\mb{Z}$ $(v_i)_{i\in I}$ erzeugend $(I\neq \varnothing)$ $\implies$ wähle $i_0\in I$, dan 
+  \[nv_{i_0}=0 \implies(v_i)_{i\in I}\ \text{ist nicht unabhängig}\]
+\end{Bsp}
+\begin{Def}{freies Modul}
+  $M$ ist ein freies Modul falls $M$ eine Basis besitzt.
+\end{Def}
+\begin{Bsp}
+  $R^n$ $\forall n\in \mb{N}$ ist ein freies Modul mit Standardbasis $e_1,\cdots,e_n$
+\end{Bsp}
+\begin{Bem}
+  Ein $\mb{Z}$-Modul ist eine abelsche Gruppe.
+\end{Bem}
+\begin{Bem}
+  Sei $K$ ein Körper. Ein $K$-Modul ist ein $K$-Vektorraum.
+\end{Bem}
+\begin{Bem}
+  Interpretationen gibt es auch für andere Ringe, z.B. $R=K[x]$, $\ni f=a_0+a_1x+\cdots+a_dx^d$ $(V,+)$ (V als Modul). Ein $K$-Vektorraum: $(\lambda,v)$ für $\lambda\in K$, $v\in V$ erfüllen die Axiome der abelschen Gruppe.
+  \[xv=\phi(v)\]
+  ein Endomorphismus
+  \[\xRightarrow{\text{Axiome}}fv=a_0v+a_1\phi(v)+a_2\phi(\phi(v))+\cdots+a_d\phi^d(v)\]
+  analog zu linearen Abbildungen gibt es auch $R$-Modulhomomorphismen
+  \begin{align*}
+    \phi:M&\to M'\\
+    \phi(v+v')&=\phi(v)+\phi(v')\\
+    \phi(av)&=a\phi(v)
+  \end{align*}
+\end{Bem}
