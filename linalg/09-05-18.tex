@@ -1,0 +1,120 @@
+\begin{Bem}
+  Sei $R$ ein kommutativer Ring (mit 1). Sei $M$ ein $R$-Modul, endlich erzeugt. Falls $M$ frei ist, dann haben wir:
+  \[M\cong R^n\]
+  für ein $n\in N$. Ist $R$ nicht der Nullring, so haben wir
+  \[R^n\cong R^m\implies n=m\]
+\end{Bem}
+\begin{Bew}
+  Skizze:
+  $\exists m\subset R$ max. (Lemma von Zorn) $\Lra$ $R/m:K$ ist ein Körper $\to$ reduziert zum Fall von einem Körper.
+  \begin{align*}
+    R^n\oplus_R K&K^n\\
+    R^m\oplus_R K&K^m
+  \end{align*}
+  \[\implies K^n\cong K^m\implies n=m\]
+\end{Bew}
+\begin{Def}{Rang eines Moduls} \ldots ist analog zur Dimension von einem Vektorraum.
+\end{Def}
+\begin{Bem}
+  Was tun falls $M$ nicht frei ist? Wir können mindestens ein minimales erzeugendes System wählen. Dann wird $M$ beschrieben durch Erzeugende und deren Relationen.
+\end{Bem}
+\begin{Bsp}
+  $R=\mb{Z}$ 
+  \[M=\left( \mb{Z}/2\mb{Z} \right)\oplus \left( \mb{Z}/3\mb{Z} \right)\]
+  $M$ ist durch $(1,0)$, $(0,1)$ erzeugt. Das ist nicht optimal, denn $M$ ist tatsächlich nur durch ein Element erzeugt.
+  \begin{align*}
+    3(1,1)&=(1,0)\\
+    4(1,1)&=(0,1)
+  \end{align*}
+  Relationen? Kann nur sein $(a,a)$ $\Lra$ $2|a, 3|a$ $\Lra$ $6|a$. $6(1,1)=0$ in $M$. Das sagt zusammen:
+  \[M\cong \mb{Z}/6\mb{Z}\]
+  deshalb
+  \begin{align*}
+    (1,1)&\lra 1\\
+    (0,2)&\lra 2\\
+    (1,0)&\lra 3\\
+    (0,1)&\lra 4\\
+    (1,2)&\lra 5\\
+    (0,0)&\lra 0\\
+  \end{align*}
+\end{Bsp}
+\begin{Bsp}
+  \[M=\left( \mb{Z}/4mb{Z} \right) \oplus \left( \mb{Z}/6\mb{Z} \right)\]
+  $M$ ist durch $(1,0)$, $(0,1)$ erzeugt. Echt effizienter geht es nicht. $M$ ist nicht erzeugt durch ein einzelnes Element. Aber: $M$ ist auch erzeugt durch $(1,2)$ und $(0,3)$.
+  \begin{align*}
+    8\left( 1,2 \right)+\left( 0,3 \right)&=\left( 0,1 \right)\\
+    9\left( 1,2 \right)&=\left( 1,0 \right)
+  \end{align*}
+  Relationen?
+  \begin{gather*}
+    a\left( 1,2 \right)+b\left( 0,3 \right)=0\\
+    \iff 4|a\ \text{und}\ 6|2a+3b\ a,b\in \mb{Z}\\
+    a=4a'\ a'\in \mb{Z}\\
+    \iff 6|8a'+3b\\
+    b=2b'\ b'\in \mb{Z}\\
+    \iff 6|8a'+6b'\\
+    \iff 3|a'\iff \left( 12|a, 2|b \right) 
+  \end{gather*}
+  Das zeigt:
+  \[M\cong \left( \mb{Z}/2\mb{Z} \right)\oplus\left( \mb{Z}/12\mb{Z} \right)\]
+\end{Bsp}
+\begin{Bem}
+  Um einheitlich einen endlich erzeugten Modul zu beschreiben, brauchen wir eine Normalform.
+\end{Bem}
+\begin{Def}
+  \[R^*:=\left\{ \text{Einheiten in $R$} \right\}=\left\{ a\in R|\exists b\in R: ab=1 \right\}\]
+\end{Def}
+\begin{Def}
+  Sei $R$ ein kommutativer Ring. Zeilen- bzw. Spaltenumformungen von $A\in M(m\times n,\mb{R})$ sind:
+  \begin{enumerate}
+    \item Ein vielfaches von einer Zeile (bzw. Spalte) zu einer anderen zu addieren.
+    \item Multiplizieren eine Zeile bzw. Spalte durch eine Einheit in $R$.
+    \item zwei Zeilen bzw. Spalten vertauschen
+  \end{enumerate}
+  und deren Kombinationen.
+\end{Def}
+\begin{Bem}
+  Nach wie vor ist 3. erreichbar durch eine Kombination von 1. und 2.
+\end{Bem}
+\begin{Bem}
+  Es gibt entpsrechende Elementarmatrixen, die an der entsprechenden Stelle $a\in R^*$ statt dem Einselement stehen haben. Äquivalent zu beschreiben $M$ durch Erzeugende auf Relationen ist: Es gibt 2 freie Module, und Homomorphismus, so dass $M\cong$Cokern (endlicher Fall).
+  \[R^n\xrightarrow{\phi}R^n\]
+  Erzeugende: $v_1,\cdots,v_m\in M$\\
+  Relationen: $w_1,\cdots,w_m\in R^m$ = $\left( a_{11},a_{21},\cdots,a_{m1} \right)\cdots\left( a_{1n},\cdots,a_{mn} \right)$\\
+  Für jede Relation $b_1v_1+\cdots+b_mv_m=0$ in $M$ mit $b_1,\cdots,b_m\in R$ gibt es $c_1,\cdots,c_n\in R$ so dass
+  \begin{align*}
+    c_1a_{11}+\cdots+c_na_{1n}&=b_1\\
+    \cdots\\
+    c_1a_{m1}+\cdots+c_na_{mn}&=b_m
+  \end{align*}
+  \begin{align*}
+    A=(a_{ij})_{1\leq i\leq m\ 1\leq j\leq n}\in M(n\times n,R)
+  \end{align*}
+  Wenn dies der Fall ist, haben wir:
+  \begin{align*}
+    \text{coker}(\phi)&\cong M\\
+    \bar e_i&\rsa v_i&1\leq i\leq m
+  \end{align*}
+\end{Bem}
+\begin{Bem}
+  Sei $A'\in M(m\times n,R)$ mit $A\rsa A'$ $\rsa$ $\phi'$, wobei $R^n\xrightarrow{\phi'}R^m$. Dann haben wir:
+  \[\text{coker}(\phi)\cong\text{coker}(\phi')\]
+  $A\rsa A'$: $A'$ entspricht $\left( v_1',\cdots,v_m' \right)$, die kommen von $v_1,\cdots,v_m$ durch addieren von Vielfachem von einem zu einer anderen oder multiplizieren von einer Einheit. Das gleiche mit Spaltenumformungen zu $A'$, $A'$ entspricht $(w_1',\cdots,w_n')$
+\end{Bem}
+\begin{Prop}
+  Sei $A\in M\left( m\times n,\mb{Z} \right)$. Dann gibt es Produkte von Elementarmatrizen $Q\in M(m\times m,\mb{Z})$ und $P\in M(n\times n,\mb{Z})$ so dass
+  \[A':=QAP^{-1}\]
+  eine solche Diagonalform hat:
+  \[\Mx{d_1&\cdots&0&0\\\vdots&\ddots&\vdots&\vdots\\0&\cdots&d_r&0\\0&\cdots&0&0}\ d_1,\cdots,d_r\in\mb{N}_{>0}\  d_1|d_{i+1}\forall i\]
+\end{Prop}
+\begin{Bew}
+  Wir produzieren durch Zeilen-/Spaltenumformungen von $A\neq 0$ eine Matrix so dass:
+  \[\Mx{a&0&\cdots&0\\0\\\vdots\\0\\}\]
+  wobei die verbleibenden Einträge alle durch $a$ teilbar sind. Durch eine Induktion genügt das.
+  \[A\rsa \Mx{a_0&\cdots\\\vdots&\ddots}\]
+  teilt $a_0$ die anderen Einträge in 1. Zeile/Spalte $\implies$ wir können diese zu 0 machen. Sonst: (Division mit Rest) wir bekommen einen Eintrag mit kleiner $\Abs{\ }$. Teilt $a_0$ alle übrigen Einträge $\to$ fertig. Sonst: $a\not|b$ Wir bbekommen einen Eintrag $\Abs{\ }\leq a_0$
+\end{Bew}
+\begin{Bsp}
+  \[\left( \mb{Z}/4\mb{Z} \right)\oplus\left( \mb{Z}/6\mb{Z} \right)\cong\left( \mb{Z}/2\mb{Z} \right)\oplus \left( \mb{Z}/12\mb{Z} \right)\]
+  \[\Mx{4&0\\0&6}\to\Mx{4&4\\0&6}\to\Mx{4&4\\-4&2}\to\Mx{2&-4\\4&4}\to\Mx{2&0\\4&12}\to\Mx{2&0\\0&12}\]
+\end{Bsp}<++>
